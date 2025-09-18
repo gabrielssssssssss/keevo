@@ -7,7 +7,7 @@ export default function Home() {
 
     useEffect(() => {
         console.log("Authandler", AuthHandler());
-        PasswordHandler("dazjzadozaodzajdzajdadozSzadaE$")
+        PasswordHandler("dazjzadozaodzajz1ajdadozSzadaE$")
     }, [])
 
     // console.log(password);
