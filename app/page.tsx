@@ -1,16 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
-import { AuthHandler } from "./utils/auth";
+import { AuthHandler, PasswordHandler } from "./utils/auth";
   
 export default function Home() {
     const [password, setPassword] = useState("");
 
     useEffect(() => {
-        console.log(AuthHandler());
+        console.log("Authandler", AuthHandler());
+        PasswordHandler("dazjzadozaodzajdzajdadozSzadaE$")
     }, [])
 
-    console.log(password);
-
+    // console.log(password);
     return (
         <>
             <div>
