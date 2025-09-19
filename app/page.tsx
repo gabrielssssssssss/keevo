@@ -1,20 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
-import { AuthHandler, PasswordHandler } from "./utils/auth/auth";
+import { AuthHandler, PasswordHandler } from "./lib/auth/handler";
   
 export default function Home() {
     const [password, setPassword] = useState("");
 
     useEffect(() => {
-        if (!AuthHandler()) {
-            const response = async() => {
-                console.log("Password Handler", await PasswordHandler('u"]8Z7\q70j-v'));
+        if (!AuthHandler('u"]8Z7\q70j-ev')) {
+            const callback = async() => {
+                await PasswordHandler('u"]8Z7\q70j-v');
             }
-            response();
+            callback();
         }
     }, [])
 
-    // console.log(password);
     return (
         <>
             <div>
