@@ -1,9 +1,9 @@
 export function AuthHandler() {
-    const credentials = localStorage.getItem("credentials");
+    const credentials = localStorage.getItem("JWT_TOKEN");
     if (credentials == null) {
-        return false
+        return false;
     }
-    return true
+    return true;
 }
 
 export async function PasswordHandler(password:string) {
@@ -14,9 +14,27 @@ export async function PasswordHandler(password:string) {
         if (!SyntaxVerify(password)) {
             return false;
         }
+        if (!HashedPassword(password)) {
+            return false
+        }
         return true;
     }
     return false;
+}
+
+async function HashedPassword(password:string) {
+    const responseCreate = await fetch("/api/password/create", {
+        method: "POST",
+        body: JSON.stringify({"password": password})
+    });
+    const dataCreate = await responseCreate.json();
+
+    const responseVerify = await fetch("/api/password/verify", {
+        method: "POST",
+        body: JSON.stringify({"password": password, "hashedPassword": dataCreate["hashedPassword"]})
+    });
+    const dataVerify = await responseVerify.json();
+    return Boolean(dataVerify["isValid"])
 }
 
 function SyntaxVerify(password:string) {

@@ -11,6 +11,12 @@
     "electron": "concurrently \"npm run dev\" \"electron .\""
   },
   "dependencies": {
+    "@types/cookie": "^0.6.0",
+    "argon2": "^0.44.0",
+    "bcrypt": "^6.0.0",
+    "bcryptjs": "^3.0.2",
+    "cookie": "^1.0.2",
+    "jsonwebtoken": "^9.0.2",
     "localstorage-polyfill": "^1.0.1",
     "next": "15.5.3",
     "react": "19.1.0",
@@ -19,6 +25,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
+    "@types/bcrypt": "^6.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
