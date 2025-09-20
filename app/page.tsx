@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { PasswordHandler, PassPhraseHandler } from "./lib/auth/handler";
+import { PasswordHandler } from "./lib/auth/handler";
   
 export default function Home() {
     const [password, setPassword] = useState("");

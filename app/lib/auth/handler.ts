@@ -1,13 +1,18 @@
 import { VerifyHash, Hash } from "./hash";
 import { SyntaxVerify, StoledVerify } from "./utils";
-import { PassPhraseCreate, PassPhraseVerify } from "./passphrase";
-import {FindAll, UpdatePassword} from "@/lib/database/actions";
+import {FindAll as AuthFindAll, UpdatePassword as AuthUpdatePassword} from "@/lib/database/auth/actions";
+import {FindAll as PasswordFindAll} from "@/lib/database/password/actions";
 
 export async function PasswordHandler(password: string) {
-    const authResponse = await FindAll();
-    // const verifyResponse = await VerifyHash(password, authResponse?.password ?? "");
-    console.log("authResponse?.password")
-    if (authResponse?.password == "") {
+    const authResponse = await AuthFindAll();
+    const passwordResponse = await PasswordFindAll();
+
+    if (authResponse?.password != "") {
+        const verifyResponse = await VerifyHash(password, authResponse?.password ?? "")
+        return verifyResponse;
+    }
+
+    if (passwordResponse?.length == 0 && authResponse?.password == "") {
         if (password.length >= 12 && password.length < 64) {
             if (await StoledVerify(password)) {
                 return false;
@@ -16,22 +21,12 @@ export async function PasswordHandler(password: string) {
                 return false;
             }
             const hashedPasswordResponse = await Hash(password);
-            console.log(hashedPasswordResponse);
             if (!Boolean(hashedPasswordResponse)) {
                 return false;
             }
-            return await UpdatePassword(hashedPasswordResponse);
+            return await AuthUpdatePassword(hashedPasswordResponse);
         }
         return false;
     }
     return false;
-}
-
-export async function PassPhraseHandler(passPhrase: string) {
-    const phrase = PassPhraseCreate();
-    console.log(phrase.join(" "));
-    const encrypt = await Hash(phrase.join(" "));
-    console.log("Passphrase: ", encrypt);
-    const truc = await PassPhraseVerify(phrase, encrypt);
-    console.log(truc);
 }
