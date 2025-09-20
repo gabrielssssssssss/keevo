@@ -20,7 +20,7 @@ export async function PasswordHandler(password: string) {
             if (!SyntaxVerify(password)) {
                 return false;
             }
-            const hashedPasswordResponse = await Hash(password);
+            const hashedPasswordResponse = await Hash(password, "");
             if (!Boolean(hashedPasswordResponse)) {
                 return false;
             }
