@@ -1,46 +1,37 @@
 import { VerifyHash, Hash } from "./hash";
 import { SyntaxVerify, StoledVerify } from "./utils";
 import { PassPhraseCreate, PassPhraseVerify } from "./passphrase";
-
-export function AuthHandler(password: string) {
-    const machin = async() => {
-        await PassPhraseHandler()
-    }
-    machin()
-    const credentials = localStorage.getItem("SECRET_KEY");
-    if (credentials != null) {
-        const callback = async() => {
-            return await VerifyHash(password, credentials)
-        }
-        if (Boolean(callback())) {
-            return true;
-        }
-    }
-    return false;
-}
+import {FindAll, UpdatePassword} from "@/lib/database/actions";
 
 export async function PasswordHandler(password: string) {
-    if (password.length >= 12 && password.length < 64) {
-        if (await StoledVerify(password)) {
-            return false;
+    const authResponse = await FindAll();
+    // const verifyResponse = await VerifyHash(password, authResponse?.password ?? "");
+    console.log("authResponse?.password")
+    if (authResponse?.password == "") {
+        if (password.length >= 12 && password.length < 64) {
+            if (await StoledVerify(password)) {
+                return false;
+            }
+            if (!SyntaxVerify(password)) {
+                return false;
+            }
+            const hashedPasswordResponse = await Hash(password);
+            console.log(hashedPasswordResponse);
+            if (!Boolean(hashedPasswordResponse)) {
+                return false;
+            }
+            return await UpdatePassword(hashedPasswordResponse);
         }
-        if (!SyntaxVerify(password)) {
-            return false;
-        }
-        const hashedPasswordResponse = await Hash(password);
-        if (!Boolean(hashedPasswordResponse)) {
-            return false;
-        }
-        return Boolean(await localStorage.setItem("SECRET_KEY", hashedPasswordResponse));
+        return false;
     }
     return false;
 }
 
-export async function PassPhraseHandler() {
+export async function PassPhraseHandler(passPhrase: string) {
     const phrase = PassPhraseCreate();
     console.log(phrase.join(" "));
     const encrypt = await Hash(phrase.join(" "));
-    console.log(encrypt);
+    console.log("Passphrase: ", encrypt);
     const truc = await PassPhraseVerify(phrase, encrypt);
     console.log(truc);
 }

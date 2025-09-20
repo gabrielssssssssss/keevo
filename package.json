@@ -11,6 +11,7 @@
     "electron": "concurrently \"npm run dev\" \"electron .\""
   },
   "dependencies": {
+    "@prisma/client": "^6.16.2",
     "@types/cookie": "^0.6.0",
     "argon2": "^0.44.0",
     "bcrypt": "^6.0.0",
@@ -34,6 +35,7 @@
     "electron": "^38.1.2",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
+    "prisma": "^6.16.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

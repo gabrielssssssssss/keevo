@@ -19,7 +19,8 @@ export async function VerifyHash(password: string, hashedPassword: string) {
         });
         const data = await response.json();
         return data["isValid"];
-    } catch {
+    } catch (e){
+        console.log(e)
         return false;
     }
 }

@@ -13,6 +13,6 @@ export async function PassPhraseVerify(passPhrase: string[], hashedPassPhrase: s
         const data = await response.json();
         return Boolean(data["isValid"]);
     } catch {
-        return false
+        return false;
     }
 } 

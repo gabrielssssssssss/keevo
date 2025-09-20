@@ -50,6 +50,6 @@ export async function StoledVerify(password: string) {
         const data = await response.json();
         return Boolean(data["success"]);
     } catch {
-        return false
+        return false;
     }
 }
