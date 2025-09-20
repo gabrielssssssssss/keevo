@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
         if (context == "session") {
             const salt = crypto.createHash("sha256").update("salty").digest().slice(0, 16);
             const hashedElement = await hash(element, { salt, type: argon2id, raw: true });
-            return NextResponse.json({"success": true, "hashedElement": hashedElement.toString('hex')})
+            return NextResponse.json({"success": true, "hashedElement": hashedElement.toString('hex')});
         }
         const hashedElement = await hash(element, { type: argon2id });
         return NextResponse.json({"success": true, "hashedElement": hashedElement}) 

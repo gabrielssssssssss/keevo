@@ -4,11 +4,11 @@ import { NextResponse, NextRequest } from "next/server";
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
-        const hashedElement = body["hashedElement"]
+        const hashedElement = body["hashedElement"];
         const element = body["element"];
         const comparator = await verify(hashedElement, element);
-        return NextResponse.json({"success": true, "isValid": Boolean(comparator)})
+        return NextResponse.json({"success": true, "isValid": Boolean(comparator)});
     } catch (e) {
-        return NextResponse.json({"success": false, "error": e})
+        return NextResponse.json({"success": false, "error": e});
     }
 }

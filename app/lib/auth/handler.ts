@@ -1,4 +1,4 @@
-import { VerifyHash, Hash } from "./hash";
+import { VerifyHash, Hash } from "@/lib/hash/hash";
 import { SyntaxVerify, StoledVerify } from "./utils";
 import {FindAll as AuthFindAll, UpdatePassword as AuthUpdatePassword} from "@/lib/database/auth/actions";
 import {FindAll as PasswordFindAll} from "@/lib/database/password/actions";
@@ -6,7 +6,7 @@ import {FindAll as PasswordFindAll} from "@/lib/database/password/actions";
 export async function PasswordHandler(password: string) {
     const authResponse = await AuthFindAll();
     const passwordResponse = await PasswordFindAll();
-
+    
     if (authResponse?.password != "") {
         const verifyResponse = await VerifyHash(password, authResponse?.password ?? "")
         return verifyResponse;
