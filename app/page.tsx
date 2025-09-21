@@ -5,9 +5,10 @@ import { newHash } from "@/lib/crypto";
 
 export default function Home() {
     const [password, setPassword] = useState("");
-
+    
     useEffect(() => {
         const callback = async() => {
+            await encryptJwt()
             const response = await passwordHandler('u"]8Z7\q70j-vear');
             console.log(response);
             if (response) {
