@@ -964,7 +964,6 @@ export namespace Prisma {
   export type AuthentificationMinAggregateOutputType = {
     id: string | null
     password: string | null
-    passPhrase: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -972,7 +971,6 @@ export namespace Prisma {
   export type AuthentificationMaxAggregateOutputType = {
     id: string | null
     password: string | null
-    passPhrase: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -980,7 +978,6 @@ export namespace Prisma {
   export type AuthentificationCountAggregateOutputType = {
     id: number
     password: number
-    passPhrase: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -990,7 +987,6 @@ export namespace Prisma {
   export type AuthentificationMinAggregateInputType = {
     id?: true
     password?: true
-    passPhrase?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -998,7 +994,6 @@ export namespace Prisma {
   export type AuthentificationMaxAggregateInputType = {
     id?: true
     password?: true
-    passPhrase?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -1006,7 +1001,6 @@ export namespace Prisma {
   export type AuthentificationCountAggregateInputType = {
     id?: true
     password?: true
-    passPhrase?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -1087,7 +1081,6 @@ export namespace Prisma {
   export type AuthentificationGroupByOutputType = {
     id: string
     password: string
-    passPhrase: string
     createdAt: Date
     updatedAt: Date
     _count: AuthentificationCountAggregateOutputType | null
@@ -1112,7 +1105,6 @@ export namespace Prisma {
   export type authentificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     password?: boolean
-    passPhrase?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["authentification"]>
@@ -1120,7 +1112,6 @@ export namespace Prisma {
   export type authentificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     password?: boolean
-    passPhrase?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["authentification"]>
@@ -1128,7 +1119,6 @@ export namespace Prisma {
   export type authentificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     password?: boolean
-    passPhrase?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["authentification"]>
@@ -1136,12 +1126,11 @@ export namespace Prisma {
   export type authentificationSelectScalar = {
     id?: boolean
     password?: boolean
-    passPhrase?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type authentificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "password" | "passPhrase" | "createdAt" | "updatedAt", ExtArgs["result"]["authentification"]>
+  export type authentificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["authentification"]>
 
   export type $authentificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "authentification"
@@ -1149,7 +1138,6 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       password: string
-      passPhrase: string
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["authentification"]>
@@ -1577,7 +1565,6 @@ export namespace Prisma {
   interface authentificationFieldRefs {
     readonly id: FieldRef<"authentification", 'String'>
     readonly password: FieldRef<"authentification", 'String'>
-    readonly passPhrase: FieldRef<"authentification", 'String'>
     readonly createdAt: FieldRef<"authentification", 'DateTime'>
     readonly updatedAt: FieldRef<"authentification", 'DateTime'>
   }
@@ -1958,7 +1945,7 @@ export namespace Prisma {
     id: string | null
     url: string | null
     originUrl: string | null
-    username: string | null
+    login: string | null
     password: string | null
     iv: string | null
     tag: string | null
@@ -1972,7 +1959,7 @@ export namespace Prisma {
     id: string | null
     url: string | null
     originUrl: string | null
-    username: string | null
+    login: string | null
     password: string | null
     iv: string | null
     tag: string | null
@@ -1986,7 +1973,7 @@ export namespace Prisma {
     id: number
     url: number
     originUrl: number
-    username: number
+    login: number
     password: number
     iv: number
     tag: number
@@ -2002,7 +1989,7 @@ export namespace Prisma {
     id?: true
     url?: true
     originUrl?: true
-    username?: true
+    login?: true
     password?: true
     iv?: true
     tag?: true
@@ -2016,7 +2003,7 @@ export namespace Prisma {
     id?: true
     url?: true
     originUrl?: true
-    username?: true
+    login?: true
     password?: true
     iv?: true
     tag?: true
@@ -2030,7 +2017,7 @@ export namespace Prisma {
     id?: true
     url?: true
     originUrl?: true
-    username?: true
+    login?: true
     password?: true
     iv?: true
     tag?: true
@@ -2117,7 +2104,7 @@ export namespace Prisma {
     id: string
     url: string
     originUrl: string
-    username: string
+    login: string
     password: string
     iv: string
     tag: string
@@ -2148,7 +2135,7 @@ export namespace Prisma {
     id?: boolean
     url?: boolean
     originUrl?: boolean
-    username?: boolean
+    login?: boolean
     password?: boolean
     iv?: boolean
     tag?: boolean
@@ -2162,7 +2149,7 @@ export namespace Prisma {
     id?: boolean
     url?: boolean
     originUrl?: boolean
-    username?: boolean
+    login?: boolean
     password?: boolean
     iv?: boolean
     tag?: boolean
@@ -2176,7 +2163,7 @@ export namespace Prisma {
     id?: boolean
     url?: boolean
     originUrl?: boolean
-    username?: boolean
+    login?: boolean
     password?: boolean
     iv?: boolean
     tag?: boolean
@@ -2190,7 +2177,7 @@ export namespace Prisma {
     id?: boolean
     url?: boolean
     originUrl?: boolean
-    username?: boolean
+    login?: boolean
     password?: boolean
     iv?: boolean
     tag?: boolean
@@ -2200,7 +2187,7 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type credentialsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "originUrl" | "username" | "password" | "iv" | "tag" | "notes" | "category" | "createdAt" | "updatedAt", ExtArgs["result"]["credentials"]>
+  export type credentialsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "originUrl" | "login" | "password" | "iv" | "tag" | "notes" | "category" | "createdAt" | "updatedAt", ExtArgs["result"]["credentials"]>
 
   export type $credentialsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "credentials"
@@ -2209,7 +2196,7 @@ export namespace Prisma {
       id: string
       url: string
       originUrl: string
-      username: string
+      login: string
       password: string
       iv: string
       tag: string
@@ -2643,7 +2630,7 @@ export namespace Prisma {
     readonly id: FieldRef<"credentials", 'String'>
     readonly url: FieldRef<"credentials", 'String'>
     readonly originUrl: FieldRef<"credentials", 'String'>
-    readonly username: FieldRef<"credentials", 'String'>
+    readonly login: FieldRef<"credentials", 'String'>
     readonly password: FieldRef<"credentials", 'String'>
     readonly iv: FieldRef<"credentials", 'String'>
     readonly tag: FieldRef<"credentials", 'String'>
@@ -3029,7 +3016,6 @@ export namespace Prisma {
   export const AuthentificationScalarFieldEnum: {
     id: 'id',
     password: 'password',
-    passPhrase: 'passPhrase',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -3041,7 +3027,7 @@ export namespace Prisma {
     id: 'id',
     url: 'url',
     originUrl: 'originUrl',
-    username: 'username',
+    login: 'login',
     password: 'password',
     iv: 'iv',
     tag: 'tag',
@@ -3097,7 +3083,6 @@ export namespace Prisma {
     NOT?: authentificationWhereInput | authentificationWhereInput[]
     id?: StringFilter<"authentification"> | string
     password?: StringFilter<"authentification"> | string
-    passPhrase?: StringFilter<"authentification"> | string
     createdAt?: DateTimeFilter<"authentification"> | Date | string
     updatedAt?: DateTimeFilter<"authentification"> | Date | string
   }
@@ -3105,7 +3090,6 @@ export namespace Prisma {
   export type authentificationOrderByWithRelationInput = {
     id?: SortOrder
     password?: SortOrder
-    passPhrase?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -3116,7 +3100,6 @@ export namespace Prisma {
     OR?: authentificationWhereInput[]
     NOT?: authentificationWhereInput | authentificationWhereInput[]
     password?: StringFilter<"authentification"> | string
-    passPhrase?: StringFilter<"authentification"> | string
     createdAt?: DateTimeFilter<"authentification"> | Date | string
     updatedAt?: DateTimeFilter<"authentification"> | Date | string
   }, "id">
@@ -3124,7 +3107,6 @@ export namespace Prisma {
   export type authentificationOrderByWithAggregationInput = {
     id?: SortOrder
     password?: SortOrder
-    passPhrase?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: authentificationCountOrderByAggregateInput
@@ -3138,7 +3120,6 @@ export namespace Prisma {
     NOT?: authentificationScalarWhereWithAggregatesInput | authentificationScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"authentification"> | string
     password?: StringWithAggregatesFilter<"authentification"> | string
-    passPhrase?: StringWithAggregatesFilter<"authentification"> | string
     createdAt?: DateTimeWithAggregatesFilter<"authentification"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"authentification"> | Date | string
   }
@@ -3150,7 +3131,7 @@ export namespace Prisma {
     id?: StringFilter<"credentials"> | string
     url?: StringFilter<"credentials"> | string
     originUrl?: StringFilter<"credentials"> | string
-    username?: StringFilter<"credentials"> | string
+    login?: StringFilter<"credentials"> | string
     password?: StringFilter<"credentials"> | string
     iv?: StringFilter<"credentials"> | string
     tag?: StringFilter<"credentials"> | string
@@ -3164,7 +3145,7 @@ export namespace Prisma {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
-    username?: SortOrder
+    login?: SortOrder
     password?: SortOrder
     iv?: SortOrder
     tag?: SortOrder
@@ -3181,7 +3162,7 @@ export namespace Prisma {
     NOT?: credentialsWhereInput | credentialsWhereInput[]
     url?: StringFilter<"credentials"> | string
     originUrl?: StringFilter<"credentials"> | string
-    username?: StringFilter<"credentials"> | string
+    login?: StringFilter<"credentials"> | string
     password?: StringFilter<"credentials"> | string
     iv?: StringFilter<"credentials"> | string
     tag?: StringFilter<"credentials"> | string
@@ -3195,7 +3176,7 @@ export namespace Prisma {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
-    username?: SortOrder
+    login?: SortOrder
     password?: SortOrder
     iv?: SortOrder
     tag?: SortOrder
@@ -3215,7 +3196,7 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"credentials"> | string
     url?: StringWithAggregatesFilter<"credentials"> | string
     originUrl?: StringWithAggregatesFilter<"credentials"> | string
-    username?: StringWithAggregatesFilter<"credentials"> | string
+    login?: StringWithAggregatesFilter<"credentials"> | string
     password?: StringWithAggregatesFilter<"credentials"> | string
     iv?: StringWithAggregatesFilter<"credentials"> | string
     tag?: StringWithAggregatesFilter<"credentials"> | string
@@ -3228,7 +3209,6 @@ export namespace Prisma {
   export type authentificationCreateInput = {
     id?: string
     password?: string
-    passPhrase?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3236,7 +3216,6 @@ export namespace Prisma {
   export type authentificationUncheckedCreateInput = {
     id?: string
     password?: string
-    passPhrase?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3244,7 +3223,6 @@ export namespace Prisma {
   export type authentificationUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    passPhrase?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3252,7 +3230,6 @@ export namespace Prisma {
   export type authentificationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    passPhrase?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3260,7 +3237,6 @@ export namespace Prisma {
   export type authentificationCreateManyInput = {
     id?: string
     password?: string
-    passPhrase?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -3268,7 +3244,6 @@ export namespace Prisma {
   export type authentificationUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    passPhrase?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3276,7 +3251,6 @@ export namespace Prisma {
   export type authentificationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
-    passPhrase?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3285,7 +3259,7 @@ export namespace Prisma {
     id?: string
     url?: string
     originUrl?: string
-    username?: string
+    login?: string
     password?: string
     iv?: string
     tag?: string
@@ -3299,7 +3273,7 @@ export namespace Prisma {
     id?: string
     url?: string
     originUrl?: string
-    username?: string
+    login?: string
     password?: string
     iv?: string
     tag?: string
@@ -3313,7 +3287,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    login?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     iv?: StringFieldUpdateOperationsInput | string
     tag?: StringFieldUpdateOperationsInput | string
@@ -3327,7 +3301,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    login?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     iv?: StringFieldUpdateOperationsInput | string
     tag?: StringFieldUpdateOperationsInput | string
@@ -3341,7 +3315,7 @@ export namespace Prisma {
     id?: string
     url?: string
     originUrl?: string
-    username?: string
+    login?: string
     password?: string
     iv?: string
     tag?: string
@@ -3355,7 +3329,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    login?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     iv?: StringFieldUpdateOperationsInput | string
     tag?: StringFieldUpdateOperationsInput | string
@@ -3369,7 +3343,7 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
-    username?: StringFieldUpdateOperationsInput | string
+    login?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     iv?: StringFieldUpdateOperationsInput | string
     tag?: StringFieldUpdateOperationsInput | string
@@ -3407,7 +3381,6 @@ export namespace Prisma {
   export type authentificationCountOrderByAggregateInput = {
     id?: SortOrder
     password?: SortOrder
-    passPhrase?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -3415,7 +3388,6 @@ export namespace Prisma {
   export type authentificationMaxOrderByAggregateInput = {
     id?: SortOrder
     password?: SortOrder
-    passPhrase?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -3423,7 +3395,6 @@ export namespace Prisma {
   export type authentificationMinOrderByAggregateInput = {
     id?: SortOrder
     password?: SortOrder
-    passPhrase?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -3463,7 +3434,7 @@ export namespace Prisma {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
-    username?: SortOrder
+    login?: SortOrder
     password?: SortOrder
     iv?: SortOrder
     tag?: SortOrder
@@ -3477,7 +3448,7 @@ export namespace Prisma {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
-    username?: SortOrder
+    login?: SortOrder
     password?: SortOrder
     iv?: SortOrder
     tag?: SortOrder
@@ -3491,7 +3462,7 @@ export namespace Prisma {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
-    username?: SortOrder
+    login?: SortOrder
     password?: SortOrder
     iv?: SortOrder
     tag?: SortOrder

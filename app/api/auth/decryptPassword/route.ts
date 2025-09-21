@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
         const tag = body["tag"];
         const response = await decryptPassword(encryptPassword, iv, tag);
         return NextResponse.json({"success": true, "password": response});
-    } catch {
-        return NextResponse.json({"success": false, "error": "bad request"});
+    } catch (e) {
+        return NextResponse.json({"success": false, "error": (e as Error).message}, {status: 400})
     }
 }

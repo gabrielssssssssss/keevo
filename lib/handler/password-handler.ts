@@ -12,7 +12,7 @@ export async function passwordHandler(password: string) {
         return verifyResponse;
     }
 
-    if (passwordResponse?.length == 0 && authResponse?.password == null) {
+    if (passwordResponse == null && authResponse == null) {
         if (password.length >= 12 && password.length < 64) {
             if (await StoledVerify(password)) {
                 return false;

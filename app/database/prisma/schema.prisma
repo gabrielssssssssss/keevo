@@ -15,18 +15,17 @@ datasource db {
 }
 
 model authentification {
-  id         String   @id @default(uuid())
-  password   String   @default("")
-  passPhrase String   @default("")
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @default(now())
+  id        String   @id @default(uuid())
+  password  String   @default("")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
 }
 
 model credentials {
   id        String   @id @default(uuid())
   url       String   @default("")
   originUrl String   @default("")
-  username  String   @default("")
+  login     String   @default("")
   password  String   @default("")
   iv        String   @default("")
   tag       String   @default("")

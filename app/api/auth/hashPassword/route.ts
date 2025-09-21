@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
         const context = body["context"];
         const response = await hashPassword(password, context);
         return NextResponse.json({"success": true, "hashedPassword": response});
-    } catch {
-        return NextResponse.json({"success": false, "error": "bad request"});
+    } catch (e) {
+        return NextResponse.json({"success": false, "error": (e as Error).message}, {status: 400})
     }
 }

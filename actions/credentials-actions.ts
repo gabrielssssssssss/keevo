@@ -17,6 +17,7 @@ export async function addCredentials(entry: credentialEntry) {
         return Boolean(await prisma.credentials.create({
             data: {
                 url: entry.url,
+                login: entry.login,
                 originUrl: entry.originUrl,
                 password: entry.password,
                 notes: entry.notes,
@@ -25,7 +26,8 @@ export async function addCredentials(entry: credentialEntry) {
                 tag: entry.tag,
             }
         }));
-    } catch {
+    } catch (e) {
+        console.log(e)
         return null
     }
 }

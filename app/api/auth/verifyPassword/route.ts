@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
         const password = body["password"];
         const response = await verifyPassword(hashedPassword, password);
         return NextResponse.json({"success": true, "isValid": response});
-    } catch {
-        return NextResponse.json({"success": false, "error": "bad request"});
+    } catch (e) {
+        return NextResponse.json({"success": false, "error": (e as Error).message}, {status: 400})
     }
 }

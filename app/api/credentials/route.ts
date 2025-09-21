@@ -10,6 +10,7 @@ export async function POST(req: NextRequest) {
         const newEntry: credentialEntry = {
             url: body["url"],
             originUrl: body["originUrl"],
+            login: body["login"],
             password: body["password"],
             iv: "",
             tag: "",
@@ -21,7 +22,7 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({"success": true, "msg": "credentials added with successfully!"})
         }
         return NextResponse.json({"success": false, "error": "bad request"})
-    } catch {
-        return NextResponse.json({"success": false, "error": "bad request"})
+    } catch (e) {
+        return NextResponse.json({"success": false, "error": (e as Error).message}, {status: 400})
     }
 }
