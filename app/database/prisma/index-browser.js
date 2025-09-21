@@ -117,7 +117,7 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Serializable: 'Serializable'
 });
 
-exports.Prisma.AuthScalarFieldEnum = {
+exports.Prisma.AuthentificationScalarFieldEnum = {
   id: 'id',
   password: 'password',
   passPhrase: 'passPhrase',
@@ -125,12 +125,13 @@ exports.Prisma.AuthScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.PasswordScalarFieldEnum = {
+exports.Prisma.CredentialsScalarFieldEnum = {
   id: 'id',
   url: 'url',
   originUrl: 'originUrl',
   password: 'password',
   notes: 'notes',
+  category: 'category',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -142,8 +143,8 @@ exports.Prisma.SortOrder = {
 
 
 exports.Prisma.ModelName = {
-  auth: 'auth',
-  password: 'password'
+  authentification: 'authentification',
+  credentials: 'credentials'
 };
 
 /**

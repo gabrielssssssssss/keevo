@@ -14,15 +14,15 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model auth
+ * Model authentification
  * 
  */
-export type auth = $Result.DefaultSelection<Prisma.$authPayload>
+export type authentification = $Result.DefaultSelection<Prisma.$authentificationPayload>
 /**
- * Model password
+ * Model credentials
  * 
  */
-export type password = $Result.DefaultSelection<Prisma.$passwordPayload>
+export type credentials = $Result.DefaultSelection<Prisma.$credentialsPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -31,8 +31,8 @@ export type password = $Result.DefaultSelection<Prisma.$passwordPayload>
  * @example
  * ```
  * const prisma = new PrismaClient()
- * // Fetch zero or more Auths
- * const auths = await prisma.auth.findMany()
+ * // Fetch zero or more Authentifications
+ * const authentifications = await prisma.authentification.findMany()
  * ```
  *
  *
@@ -52,8 +52,8 @@ export class PrismaClient<
    * @example
    * ```
    * const prisma = new PrismaClient()
-   * // Fetch zero or more Auths
-   * const auths = await prisma.auth.findMany()
+   * // Fetch zero or more Authentifications
+   * const authentifications = await prisma.authentification.findMany()
    * ```
    *
    *
@@ -143,24 +143,24 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.auth`: Exposes CRUD operations for the **auth** model.
+   * `prisma.authentification`: Exposes CRUD operations for the **authentification** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Auths
-    * const auths = await prisma.auth.findMany()
+    * // Fetch zero or more Authentifications
+    * const authentifications = await prisma.authentification.findMany()
     * ```
     */
-  get auth(): Prisma.authDelegate<ExtArgs, ClientOptions>;
+  get authentification(): Prisma.authentificationDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.password`: Exposes CRUD operations for the **password** model.
+   * `prisma.credentials`: Exposes CRUD operations for the **credentials** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Passwords
-    * const passwords = await prisma.password.findMany()
+    * // Fetch zero or more Credentials
+    * const credentials = await prisma.credentials.findMany()
     * ```
     */
-  get password(): Prisma.passwordDelegate<ExtArgs, ClientOptions>;
+  get credentials(): Prisma.credentialsDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -601,8 +601,8 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    auth: 'auth',
-    password: 'password'
+    authentification: 'authentification',
+    credentials: 'credentials'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -621,155 +621,155 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "auth" | "password"
+      modelProps: "authentification" | "credentials"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      auth: {
-        payload: Prisma.$authPayload<ExtArgs>
-        fields: Prisma.authFieldRefs
+      authentification: {
+        payload: Prisma.$authentificationPayload<ExtArgs>
+        fields: Prisma.authentificationFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.authFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authPayload> | null
+            args: Prisma.authentificationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$authentificationPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.authFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authPayload>
+            args: Prisma.authentificationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
           }
           findFirst: {
-            args: Prisma.authFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authPayload> | null
+            args: Prisma.authentificationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$authentificationPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.authFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authPayload>
+            args: Prisma.authentificationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
           }
           findMany: {
-            args: Prisma.authFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authPayload>[]
+            args: Prisma.authentificationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>[]
           }
           create: {
-            args: Prisma.authCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authPayload>
+            args: Prisma.authentificationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
           }
           createMany: {
-            args: Prisma.authCreateManyArgs<ExtArgs>
+            args: Prisma.authentificationCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.authCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authPayload>[]
+            args: Prisma.authentificationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>[]
           }
           delete: {
-            args: Prisma.authDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authPayload>
+            args: Prisma.authentificationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
           }
           update: {
-            args: Prisma.authUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authPayload>
+            args: Prisma.authentificationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
           }
           deleteMany: {
-            args: Prisma.authDeleteManyArgs<ExtArgs>
+            args: Prisma.authentificationDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.authUpdateManyArgs<ExtArgs>
+            args: Prisma.authentificationUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.authUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authPayload>[]
+            args: Prisma.authentificationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>[]
           }
           upsert: {
-            args: Prisma.authUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authPayload>
+            args: Prisma.authentificationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
           }
           aggregate: {
-            args: Prisma.AuthAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateAuth>
+            args: Prisma.AuthentificationAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAuthentification>
           }
           groupBy: {
-            args: Prisma.authGroupByArgs<ExtArgs>
-            result: $Utils.Optional<AuthGroupByOutputType>[]
+            args: Prisma.authentificationGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AuthentificationGroupByOutputType>[]
           }
           count: {
-            args: Prisma.authCountArgs<ExtArgs>
-            result: $Utils.Optional<AuthCountAggregateOutputType> | number
+            args: Prisma.authentificationCountArgs<ExtArgs>
+            result: $Utils.Optional<AuthentificationCountAggregateOutputType> | number
           }
         }
       }
-      password: {
-        payload: Prisma.$passwordPayload<ExtArgs>
-        fields: Prisma.passwordFieldRefs
+      credentials: {
+        payload: Prisma.$credentialsPayload<ExtArgs>
+        fields: Prisma.credentialsFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.passwordFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$passwordPayload> | null
+            args: Prisma.credentialsFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$credentialsPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.passwordFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$passwordPayload>
+            args: Prisma.credentialsFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
           }
           findFirst: {
-            args: Prisma.passwordFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$passwordPayload> | null
+            args: Prisma.credentialsFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$credentialsPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.passwordFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$passwordPayload>
+            args: Prisma.credentialsFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
           }
           findMany: {
-            args: Prisma.passwordFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$passwordPayload>[]
+            args: Prisma.credentialsFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>[]
           }
           create: {
-            args: Prisma.passwordCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$passwordPayload>
+            args: Prisma.credentialsCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
           }
           createMany: {
-            args: Prisma.passwordCreateManyArgs<ExtArgs>
+            args: Prisma.credentialsCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.passwordCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$passwordPayload>[]
+            args: Prisma.credentialsCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>[]
           }
           delete: {
-            args: Prisma.passwordDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$passwordPayload>
+            args: Prisma.credentialsDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
           }
           update: {
-            args: Prisma.passwordUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$passwordPayload>
+            args: Prisma.credentialsUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
           }
           deleteMany: {
-            args: Prisma.passwordDeleteManyArgs<ExtArgs>
+            args: Prisma.credentialsDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.passwordUpdateManyArgs<ExtArgs>
+            args: Prisma.credentialsUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.passwordUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$passwordPayload>[]
+            args: Prisma.credentialsUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>[]
           }
           upsert: {
-            args: Prisma.passwordUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$passwordPayload>
+            args: Prisma.credentialsUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
           }
           aggregate: {
-            args: Prisma.PasswordAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePassword>
+            args: Prisma.CredentialsAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateCredentials>
           }
           groupBy: {
-            args: Prisma.passwordGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PasswordGroupByOutputType>[]
+            args: Prisma.credentialsGroupByArgs<ExtArgs>
+            result: $Utils.Optional<CredentialsGroupByOutputType>[]
           }
           count: {
-            args: Prisma.passwordCountArgs<ExtArgs>
-            result: $Utils.Optional<PasswordCountAggregateOutputType> | number
+            args: Prisma.credentialsCountArgs<ExtArgs>
+            result: $Utils.Optional<CredentialsCountAggregateOutputType> | number
           }
         }
       }
@@ -869,8 +869,8 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    auth?: authOmit
-    password?: passwordOmit
+    authentification?: authentificationOmit
+    credentials?: credentialsOmit
   }
 
   /* Types for Logging */
@@ -952,16 +952,16 @@ export namespace Prisma {
    */
 
   /**
-   * Model auth
+   * Model authentification
    */
 
-  export type AggregateAuth = {
-    _count: AuthCountAggregateOutputType | null
-    _min: AuthMinAggregateOutputType | null
-    _max: AuthMaxAggregateOutputType | null
+  export type AggregateAuthentification = {
+    _count: AuthentificationCountAggregateOutputType | null
+    _min: AuthentificationMinAggregateOutputType | null
+    _max: AuthentificationMaxAggregateOutputType | null
   }
 
-  export type AuthMinAggregateOutputType = {
+  export type AuthentificationMinAggregateOutputType = {
     id: string | null
     password: string | null
     passPhrase: string | null
@@ -969,7 +969,7 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type AuthMaxAggregateOutputType = {
+  export type AuthentificationMaxAggregateOutputType = {
     id: string | null
     password: string | null
     passPhrase: string | null
@@ -977,7 +977,7 @@ export namespace Prisma {
     updatedAt: Date | null
   }
 
-  export type AuthCountAggregateOutputType = {
+  export type AuthentificationCountAggregateOutputType = {
     id: number
     password: number
     passPhrase: number
@@ -987,7 +987,7 @@ export namespace Prisma {
   }
 
 
-  export type AuthMinAggregateInputType = {
+  export type AuthentificationMinAggregateInputType = {
     id?: true
     password?: true
     passPhrase?: true
@@ -995,7 +995,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type AuthMaxAggregateInputType = {
+  export type AuthentificationMaxAggregateInputType = {
     id?: true
     password?: true
     passPhrase?: true
@@ -1003,7 +1003,7 @@ export namespace Prisma {
     updatedAt?: true
   }
 
-  export type AuthCountAggregateInputType = {
+  export type AuthentificationCountAggregateInputType = {
     id?: true
     password?: true
     passPhrase?: true
@@ -1012,128 +1012,128 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type AuthAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which auth to aggregate.
+     * Filter which authentification to aggregate.
      */
-    where?: authWhereInput
+    where?: authentificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of auths to fetch.
+     * Determine the order of authentifications to fetch.
      */
-    orderBy?: authOrderByWithRelationInput | authOrderByWithRelationInput[]
+    orderBy?: authentificationOrderByWithRelationInput | authentificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: authWhereUniqueInput
+    cursor?: authentificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` auths from the position of the cursor.
+     * Take `±n` authentifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` auths.
+     * Skip the first `n` authentifications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned auths
+     * Count returned authentifications
     **/
-    _count?: true | AuthCountAggregateInputType
+    _count?: true | AuthentificationCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: AuthMinAggregateInputType
+    _min?: AuthentificationMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: AuthMaxAggregateInputType
+    _max?: AuthentificationMaxAggregateInputType
   }
 
-  export type GetAuthAggregateType<T extends AuthAggregateArgs> = {
-        [P in keyof T & keyof AggregateAuth]: P extends '_count' | 'count'
+  export type GetAuthentificationAggregateType<T extends AuthentificationAggregateArgs> = {
+        [P in keyof T & keyof AggregateAuthentification]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateAuth[P]>
-      : GetScalarType<T[P], AggregateAuth[P]>
+        : GetScalarType<T[P], AggregateAuthentification[P]>
+      : GetScalarType<T[P], AggregateAuthentification[P]>
   }
 
 
 
 
-  export type authGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: authWhereInput
-    orderBy?: authOrderByWithAggregationInput | authOrderByWithAggregationInput[]
-    by: AuthScalarFieldEnum[] | AuthScalarFieldEnum
-    having?: authScalarWhereWithAggregatesInput
+  export type authentificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: authentificationWhereInput
+    orderBy?: authentificationOrderByWithAggregationInput | authentificationOrderByWithAggregationInput[]
+    by: AuthentificationScalarFieldEnum[] | AuthentificationScalarFieldEnum
+    having?: authentificationScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: AuthCountAggregateInputType | true
-    _min?: AuthMinAggregateInputType
-    _max?: AuthMaxAggregateInputType
+    _count?: AuthentificationCountAggregateInputType | true
+    _min?: AuthentificationMinAggregateInputType
+    _max?: AuthentificationMaxAggregateInputType
   }
 
-  export type AuthGroupByOutputType = {
+  export type AuthentificationGroupByOutputType = {
     id: string
     password: string
     passPhrase: string
     createdAt: Date
     updatedAt: Date
-    _count: AuthCountAggregateOutputType | null
-    _min: AuthMinAggregateOutputType | null
-    _max: AuthMaxAggregateOutputType | null
+    _count: AuthentificationCountAggregateOutputType | null
+    _min: AuthentificationMinAggregateOutputType | null
+    _max: AuthentificationMaxAggregateOutputType | null
   }
 
-  type GetAuthGroupByPayload<T extends authGroupByArgs> = Prisma.PrismaPromise<
+  type GetAuthentificationGroupByPayload<T extends authentificationGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<AuthGroupByOutputType, T['by']> &
+      PickEnumerable<AuthentificationGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof AuthGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof AuthentificationGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], AuthGroupByOutputType[P]>
-            : GetScalarType<T[P], AuthGroupByOutputType[P]>
+              : GetScalarType<T[P], AuthentificationGroupByOutputType[P]>
+            : GetScalarType<T[P], AuthentificationGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type authSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type authentificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     password?: boolean
     passPhrase?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["auth"]>
+  }, ExtArgs["result"]["authentification"]>
 
-  export type authSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type authentificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     password?: boolean
     passPhrase?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["auth"]>
+  }, ExtArgs["result"]["authentification"]>
 
-  export type authSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type authentificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     password?: boolean
     passPhrase?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["auth"]>
+  }, ExtArgs["result"]["authentification"]>
 
-  export type authSelectScalar = {
+  export type authentificationSelectScalar = {
     id?: boolean
     password?: boolean
     passPhrase?: boolean
@@ -1141,10 +1141,10 @@ export namespace Prisma {
     updatedAt?: boolean
   }
 
-  export type authOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "password" | "passPhrase" | "createdAt" | "updatedAt", ExtArgs["result"]["auth"]>
+  export type authentificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "password" | "passPhrase" | "createdAt" | "updatedAt", ExtArgs["result"]["authentification"]>
 
-  export type $authPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "auth"
+  export type $authentificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "authentification"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1152,136 +1152,136 @@ export namespace Prisma {
       passPhrase: string
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["auth"]>
+    }, ExtArgs["result"]["authentification"]>
     composites: {}
   }
 
-  type authGetPayload<S extends boolean | null | undefined | authDefaultArgs> = $Result.GetResult<Prisma.$authPayload, S>
+  type authentificationGetPayload<S extends boolean | null | undefined | authentificationDefaultArgs> = $Result.GetResult<Prisma.$authentificationPayload, S>
 
-  type authCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<authFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: AuthCountAggregateInputType | true
+  type authentificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<authentificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AuthentificationCountAggregateInputType | true
     }
 
-  export interface authDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['auth'], meta: { name: 'auth' } }
+  export interface authentificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['authentification'], meta: { name: 'authentification' } }
     /**
-     * Find zero or one Auth that matches the filter.
-     * @param {authFindUniqueArgs} args - Arguments to find a Auth
+     * Find zero or one Authentification that matches the filter.
+     * @param {authentificationFindUniqueArgs} args - Arguments to find a Authentification
      * @example
-     * // Get one Auth
-     * const auth = await prisma.auth.findUnique({
+     * // Get one Authentification
+     * const authentification = await prisma.authentification.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends authFindUniqueArgs>(args: SelectSubset<T, authFindUniqueArgs<ExtArgs>>): Prisma__authClient<$Result.GetResult<Prisma.$authPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends authentificationFindUniqueArgs>(args: SelectSubset<T, authentificationFindUniqueArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Auth that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Authentification that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {authFindUniqueOrThrowArgs} args - Arguments to find a Auth
+     * @param {authentificationFindUniqueOrThrowArgs} args - Arguments to find a Authentification
      * @example
-     * // Get one Auth
-     * const auth = await prisma.auth.findUniqueOrThrow({
+     * // Get one Authentification
+     * const authentification = await prisma.authentification.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends authFindUniqueOrThrowArgs>(args: SelectSubset<T, authFindUniqueOrThrowArgs<ExtArgs>>): Prisma__authClient<$Result.GetResult<Prisma.$authPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends authentificationFindUniqueOrThrowArgs>(args: SelectSubset<T, authentificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Auth that matches the filter.
+     * Find the first Authentification that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authFindFirstArgs} args - Arguments to find a Auth
+     * @param {authentificationFindFirstArgs} args - Arguments to find a Authentification
      * @example
-     * // Get one Auth
-     * const auth = await prisma.auth.findFirst({
+     * // Get one Authentification
+     * const authentification = await prisma.authentification.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends authFindFirstArgs>(args?: SelectSubset<T, authFindFirstArgs<ExtArgs>>): Prisma__authClient<$Result.GetResult<Prisma.$authPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends authentificationFindFirstArgs>(args?: SelectSubset<T, authentificationFindFirstArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Auth that matches the filter or
+     * Find the first Authentification that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authFindFirstOrThrowArgs} args - Arguments to find a Auth
+     * @param {authentificationFindFirstOrThrowArgs} args - Arguments to find a Authentification
      * @example
-     * // Get one Auth
-     * const auth = await prisma.auth.findFirstOrThrow({
+     * // Get one Authentification
+     * const authentification = await prisma.authentification.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends authFindFirstOrThrowArgs>(args?: SelectSubset<T, authFindFirstOrThrowArgs<ExtArgs>>): Prisma__authClient<$Result.GetResult<Prisma.$authPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends authentificationFindFirstOrThrowArgs>(args?: SelectSubset<T, authentificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Auths that matches the filter.
+     * Find zero or more Authentifications that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {authentificationFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Auths
-     * const auths = await prisma.auth.findMany()
+     * // Get all Authentifications
+     * const authentifications = await prisma.authentification.findMany()
      * 
-     * // Get first 10 Auths
-     * const auths = await prisma.auth.findMany({ take: 10 })
+     * // Get first 10 Authentifications
+     * const authentifications = await prisma.authentification.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const authWithIdOnly = await prisma.auth.findMany({ select: { id: true } })
+     * const authentificationWithIdOnly = await prisma.authentification.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends authFindManyArgs>(args?: SelectSubset<T, authFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$authPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends authentificationFindManyArgs>(args?: SelectSubset<T, authentificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Auth.
-     * @param {authCreateArgs} args - Arguments to create a Auth.
+     * Create a Authentification.
+     * @param {authentificationCreateArgs} args - Arguments to create a Authentification.
      * @example
-     * // Create one Auth
-     * const Auth = await prisma.auth.create({
+     * // Create one Authentification
+     * const Authentification = await prisma.authentification.create({
      *   data: {
-     *     // ... data to create a Auth
+     *     // ... data to create a Authentification
      *   }
      * })
      * 
      */
-    create<T extends authCreateArgs>(args: SelectSubset<T, authCreateArgs<ExtArgs>>): Prisma__authClient<$Result.GetResult<Prisma.$authPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends authentificationCreateArgs>(args: SelectSubset<T, authentificationCreateArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Auths.
-     * @param {authCreateManyArgs} args - Arguments to create many Auths.
+     * Create many Authentifications.
+     * @param {authentificationCreateManyArgs} args - Arguments to create many Authentifications.
      * @example
-     * // Create many Auths
-     * const auth = await prisma.auth.createMany({
+     * // Create many Authentifications
+     * const authentification = await prisma.authentification.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends authCreateManyArgs>(args?: SelectSubset<T, authCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends authentificationCreateManyArgs>(args?: SelectSubset<T, authentificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Auths and returns the data saved in the database.
-     * @param {authCreateManyAndReturnArgs} args - Arguments to create many Auths.
+     * Create many Authentifications and returns the data saved in the database.
+     * @param {authentificationCreateManyAndReturnArgs} args - Arguments to create many Authentifications.
      * @example
-     * // Create many Auths
-     * const auth = await prisma.auth.createManyAndReturn({
+     * // Create many Authentifications
+     * const authentification = await prisma.authentification.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Auths and only return the `id`
-     * const authWithIdOnly = await prisma.auth.createManyAndReturn({
+     * // Create many Authentifications and only return the `id`
+     * const authentificationWithIdOnly = await prisma.authentification.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -1291,28 +1291,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends authCreateManyAndReturnArgs>(args?: SelectSubset<T, authCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$authPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends authentificationCreateManyAndReturnArgs>(args?: SelectSubset<T, authentificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Auth.
-     * @param {authDeleteArgs} args - Arguments to delete one Auth.
+     * Delete a Authentification.
+     * @param {authentificationDeleteArgs} args - Arguments to delete one Authentification.
      * @example
-     * // Delete one Auth
-     * const Auth = await prisma.auth.delete({
+     * // Delete one Authentification
+     * const Authentification = await prisma.authentification.delete({
      *   where: {
-     *     // ... filter to delete one Auth
+     *     // ... filter to delete one Authentification
      *   }
      * })
      * 
      */
-    delete<T extends authDeleteArgs>(args: SelectSubset<T, authDeleteArgs<ExtArgs>>): Prisma__authClient<$Result.GetResult<Prisma.$authPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends authentificationDeleteArgs>(args: SelectSubset<T, authentificationDeleteArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Auth.
-     * @param {authUpdateArgs} args - Arguments to update one Auth.
+     * Update one Authentification.
+     * @param {authentificationUpdateArgs} args - Arguments to update one Authentification.
      * @example
-     * // Update one Auth
-     * const auth = await prisma.auth.update({
+     * // Update one Authentification
+     * const authentification = await prisma.authentification.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1322,30 +1322,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends authUpdateArgs>(args: SelectSubset<T, authUpdateArgs<ExtArgs>>): Prisma__authClient<$Result.GetResult<Prisma.$authPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends authentificationUpdateArgs>(args: SelectSubset<T, authentificationUpdateArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Auths.
-     * @param {authDeleteManyArgs} args - Arguments to filter Auths to delete.
+     * Delete zero or more Authentifications.
+     * @param {authentificationDeleteManyArgs} args - Arguments to filter Authentifications to delete.
      * @example
-     * // Delete a few Auths
-     * const { count } = await prisma.auth.deleteMany({
+     * // Delete a few Authentifications
+     * const { count } = await prisma.authentification.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends authDeleteManyArgs>(args?: SelectSubset<T, authDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends authentificationDeleteManyArgs>(args?: SelectSubset<T, authentificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Auths.
+     * Update zero or more Authentifications.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {authentificationUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Auths
-     * const auth = await prisma.auth.updateMany({
+     * // Update many Authentifications
+     * const authentification = await prisma.authentification.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1355,14 +1355,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends authUpdateManyArgs>(args: SelectSubset<T, authUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends authentificationUpdateManyArgs>(args: SelectSubset<T, authentificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Auths and returns the data updated in the database.
-     * @param {authUpdateManyAndReturnArgs} args - Arguments to update many Auths.
+     * Update zero or more Authentifications and returns the data updated in the database.
+     * @param {authentificationUpdateManyAndReturnArgs} args - Arguments to update many Authentifications.
      * @example
-     * // Update many Auths
-     * const auth = await prisma.auth.updateManyAndReturn({
+     * // Update many Authentifications
+     * const authentification = await prisma.authentification.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -1371,8 +1371,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Auths and only return the `id`
-     * const authWithIdOnly = await prisma.auth.updateManyAndReturn({
+     * // Update zero or more Authentifications and only return the `id`
+     * const authentificationWithIdOnly = await prisma.authentification.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -1385,56 +1385,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends authUpdateManyAndReturnArgs>(args: SelectSubset<T, authUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$authPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends authentificationUpdateManyAndReturnArgs>(args: SelectSubset<T, authentificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Auth.
-     * @param {authUpsertArgs} args - Arguments to update or create a Auth.
+     * Create or update one Authentification.
+     * @param {authentificationUpsertArgs} args - Arguments to update or create a Authentification.
      * @example
-     * // Update or create a Auth
-     * const auth = await prisma.auth.upsert({
+     * // Update or create a Authentification
+     * const authentification = await prisma.authentification.upsert({
      *   create: {
-     *     // ... data to create a Auth
+     *     // ... data to create a Authentification
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Auth we want to update
+     *     // ... the filter for the Authentification we want to update
      *   }
      * })
      */
-    upsert<T extends authUpsertArgs>(args: SelectSubset<T, authUpsertArgs<ExtArgs>>): Prisma__authClient<$Result.GetResult<Prisma.$authPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends authentificationUpsertArgs>(args: SelectSubset<T, authentificationUpsertArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Auths.
+     * Count the number of Authentifications.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authCountArgs} args - Arguments to filter Auths to count.
+     * @param {authentificationCountArgs} args - Arguments to filter Authentifications to count.
      * @example
-     * // Count the number of Auths
-     * const count = await prisma.auth.count({
+     * // Count the number of Authentifications
+     * const count = await prisma.authentification.count({
      *   where: {
-     *     // ... the filter for the Auths we want to count
+     *     // ... the filter for the Authentifications we want to count
      *   }
      * })
     **/
-    count<T extends authCountArgs>(
-      args?: Subset<T, authCountArgs>,
+    count<T extends authentificationCountArgs>(
+      args?: Subset<T, authentificationCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], AuthCountAggregateOutputType>
+          : GetScalarType<T['select'], AuthentificationCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Auth.
+     * Allows you to perform aggregations operations on a Authentification.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {AuthAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {AuthentificationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -1454,13 +1454,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends AuthAggregateArgs>(args: Subset<T, AuthAggregateArgs>): Prisma.PrismaPromise<GetAuthAggregateType<T>>
+    aggregate<T extends AuthentificationAggregateArgs>(args: Subset<T, AuthentificationAggregateArgs>): Prisma.PrismaPromise<GetAuthentificationAggregateType<T>>
 
     /**
-     * Group by Auth.
+     * Group by Authentification.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authGroupByArgs} args - Group by arguments.
+     * @param {authentificationGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1475,14 +1475,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends authGroupByArgs,
+      T extends authentificationGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: authGroupByArgs['orderBy'] }
-        : { orderBy?: authGroupByArgs['orderBy'] },
+        ? { orderBy: authentificationGroupByArgs['orderBy'] }
+        : { orderBy?: authentificationGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1531,20 +1531,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, authGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAuthGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, authentificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAuthentificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the auth model
+   * Fields of the authentification model
    */
-  readonly fields: authFieldRefs;
+  readonly fields: authentificationFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for auth.
+   * The delegate class that acts as a "Promise-like" for authentification.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__authClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__authentificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1572,594 +1572,605 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the auth model
+   * Fields of the authentification model
    */
-  interface authFieldRefs {
-    readonly id: FieldRef<"auth", 'String'>
-    readonly password: FieldRef<"auth", 'String'>
-    readonly passPhrase: FieldRef<"auth", 'String'>
-    readonly createdAt: FieldRef<"auth", 'DateTime'>
-    readonly updatedAt: FieldRef<"auth", 'DateTime'>
+  interface authentificationFieldRefs {
+    readonly id: FieldRef<"authentification", 'String'>
+    readonly password: FieldRef<"authentification", 'String'>
+    readonly passPhrase: FieldRef<"authentification", 'String'>
+    readonly createdAt: FieldRef<"authentification", 'DateTime'>
+    readonly updatedAt: FieldRef<"authentification", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * auth findUnique
+   * authentification findUnique
    */
-  export type authFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelect<ExtArgs> | null
+    select?: authentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
     /**
-     * Filter, which auth to fetch.
+     * Filter, which authentification to fetch.
      */
-    where: authWhereUniqueInput
+    where: authentificationWhereUniqueInput
   }
 
   /**
-   * auth findUniqueOrThrow
+   * authentification findUniqueOrThrow
    */
-  export type authFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelect<ExtArgs> | null
+    select?: authentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
     /**
-     * Filter, which auth to fetch.
+     * Filter, which authentification to fetch.
      */
-    where: authWhereUniqueInput
+    where: authentificationWhereUniqueInput
   }
 
   /**
-   * auth findFirst
+   * authentification findFirst
    */
-  export type authFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelect<ExtArgs> | null
+    select?: authentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
     /**
-     * Filter, which auth to fetch.
+     * Filter, which authentification to fetch.
      */
-    where?: authWhereInput
+    where?: authentificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of auths to fetch.
+     * Determine the order of authentifications to fetch.
      */
-    orderBy?: authOrderByWithRelationInput | authOrderByWithRelationInput[]
+    orderBy?: authentificationOrderByWithRelationInput | authentificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for auths.
+     * Sets the position for searching for authentifications.
      */
-    cursor?: authWhereUniqueInput
+    cursor?: authentificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` auths from the position of the cursor.
+     * Take `±n` authentifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` auths.
+     * Skip the first `n` authentifications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of auths.
+     * Filter by unique combinations of authentifications.
      */
-    distinct?: AuthScalarFieldEnum | AuthScalarFieldEnum[]
+    distinct?: AuthentificationScalarFieldEnum | AuthentificationScalarFieldEnum[]
   }
 
   /**
-   * auth findFirstOrThrow
+   * authentification findFirstOrThrow
    */
-  export type authFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelect<ExtArgs> | null
+    select?: authentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
     /**
-     * Filter, which auth to fetch.
+     * Filter, which authentification to fetch.
      */
-    where?: authWhereInput
+    where?: authentificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of auths to fetch.
+     * Determine the order of authentifications to fetch.
      */
-    orderBy?: authOrderByWithRelationInput | authOrderByWithRelationInput[]
+    orderBy?: authentificationOrderByWithRelationInput | authentificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for auths.
+     * Sets the position for searching for authentifications.
      */
-    cursor?: authWhereUniqueInput
+    cursor?: authentificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` auths from the position of the cursor.
+     * Take `±n` authentifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` auths.
+     * Skip the first `n` authentifications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of auths.
+     * Filter by unique combinations of authentifications.
      */
-    distinct?: AuthScalarFieldEnum | AuthScalarFieldEnum[]
+    distinct?: AuthentificationScalarFieldEnum | AuthentificationScalarFieldEnum[]
   }
 
   /**
-   * auth findMany
+   * authentification findMany
    */
-  export type authFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelect<ExtArgs> | null
+    select?: authentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
     /**
-     * Filter, which auths to fetch.
+     * Filter, which authentifications to fetch.
      */
-    where?: authWhereInput
+    where?: authentificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of auths to fetch.
+     * Determine the order of authentifications to fetch.
      */
-    orderBy?: authOrderByWithRelationInput | authOrderByWithRelationInput[]
+    orderBy?: authentificationOrderByWithRelationInput | authentificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing auths.
+     * Sets the position for listing authentifications.
      */
-    cursor?: authWhereUniqueInput
+    cursor?: authentificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` auths from the position of the cursor.
+     * Take `±n` authentifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` auths.
+     * Skip the first `n` authentifications.
      */
     skip?: number
-    distinct?: AuthScalarFieldEnum | AuthScalarFieldEnum[]
+    distinct?: AuthentificationScalarFieldEnum | AuthentificationScalarFieldEnum[]
   }
 
   /**
-   * auth create
+   * authentification create
    */
-  export type authCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelect<ExtArgs> | null
+    select?: authentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
     /**
-     * The data needed to create a auth.
+     * The data needed to create a authentification.
      */
-    data?: XOR<authCreateInput, authUncheckedCreateInput>
+    data?: XOR<authentificationCreateInput, authentificationUncheckedCreateInput>
   }
 
   /**
-   * auth createMany
+   * authentification createMany
    */
-  export type authCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many auths.
+     * The data used to create many authentifications.
      */
-    data: authCreateManyInput | authCreateManyInput[]
+    data: authentificationCreateManyInput | authentificationCreateManyInput[]
   }
 
   /**
-   * auth createManyAndReturn
+   * authentification createManyAndReturn
    */
-  export type authCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelectCreateManyAndReturn<ExtArgs> | null
+    select?: authentificationSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
     /**
-     * The data used to create many auths.
+     * The data used to create many authentifications.
      */
-    data: authCreateManyInput | authCreateManyInput[]
+    data: authentificationCreateManyInput | authentificationCreateManyInput[]
   }
 
   /**
-   * auth update
+   * authentification update
    */
-  export type authUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelect<ExtArgs> | null
+    select?: authentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
     /**
-     * The data needed to update a auth.
+     * The data needed to update a authentification.
      */
-    data: XOR<authUpdateInput, authUncheckedUpdateInput>
+    data: XOR<authentificationUpdateInput, authentificationUncheckedUpdateInput>
     /**
-     * Choose, which auth to update.
+     * Choose, which authentification to update.
      */
-    where: authWhereUniqueInput
+    where: authentificationWhereUniqueInput
   }
 
   /**
-   * auth updateMany
+   * authentification updateMany
    */
-  export type authUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update auths.
+     * The data used to update authentifications.
      */
-    data: XOR<authUpdateManyMutationInput, authUncheckedUpdateManyInput>
+    data: XOR<authentificationUpdateManyMutationInput, authentificationUncheckedUpdateManyInput>
     /**
-     * Filter which auths to update
+     * Filter which authentifications to update
      */
-    where?: authWhereInput
+    where?: authentificationWhereInput
     /**
-     * Limit how many auths to update.
+     * Limit how many authentifications to update.
      */
     limit?: number
   }
 
   /**
-   * auth updateManyAndReturn
+   * authentification updateManyAndReturn
    */
-  export type authUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: authentificationSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
     /**
-     * The data used to update auths.
+     * The data used to update authentifications.
      */
-    data: XOR<authUpdateManyMutationInput, authUncheckedUpdateManyInput>
+    data: XOR<authentificationUpdateManyMutationInput, authentificationUncheckedUpdateManyInput>
     /**
-     * Filter which auths to update
+     * Filter which authentifications to update
      */
-    where?: authWhereInput
+    where?: authentificationWhereInput
     /**
-     * Limit how many auths to update.
+     * Limit how many authentifications to update.
      */
     limit?: number
   }
 
   /**
-   * auth upsert
+   * authentification upsert
    */
-  export type authUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelect<ExtArgs> | null
+    select?: authentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
     /**
-     * The filter to search for the auth to update in case it exists.
+     * The filter to search for the authentification to update in case it exists.
      */
-    where: authWhereUniqueInput
+    where: authentificationWhereUniqueInput
     /**
-     * In case the auth found by the `where` argument doesn't exist, create a new auth with this data.
+     * In case the authentification found by the `where` argument doesn't exist, create a new authentification with this data.
      */
-    create: XOR<authCreateInput, authUncheckedCreateInput>
+    create: XOR<authentificationCreateInput, authentificationUncheckedCreateInput>
     /**
-     * In case the auth was found with the provided `where` argument, update it with this data.
+     * In case the authentification was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<authUpdateInput, authUncheckedUpdateInput>
+    update: XOR<authentificationUpdateInput, authentificationUncheckedUpdateInput>
   }
 
   /**
-   * auth delete
+   * authentification delete
    */
-  export type authDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelect<ExtArgs> | null
+    select?: authentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
     /**
-     * Filter which auth to delete.
+     * Filter which authentification to delete.
      */
-    where: authWhereUniqueInput
+    where: authentificationWhereUniqueInput
   }
 
   /**
-   * auth deleteMany
+   * authentification deleteMany
    */
-  export type authDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which auths to delete
+     * Filter which authentifications to delete
      */
-    where?: authWhereInput
+    where?: authentificationWhereInput
     /**
-     * Limit how many auths to delete.
+     * Limit how many authentifications to delete.
      */
     limit?: number
   }
 
   /**
-   * auth without action
+   * authentification without action
    */
-  export type authDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type authentificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the auth
+     * Select specific fields to fetch from the authentification
      */
-    select?: authSelect<ExtArgs> | null
+    select?: authentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the auth
+     * Omit specific fields from the authentification
      */
-    omit?: authOmit<ExtArgs> | null
+    omit?: authentificationOmit<ExtArgs> | null
   }
 
 
   /**
-   * Model password
+   * Model credentials
    */
 
-  export type AggregatePassword = {
-    _count: PasswordCountAggregateOutputType | null
-    _min: PasswordMinAggregateOutputType | null
-    _max: PasswordMaxAggregateOutputType | null
+  export type AggregateCredentials = {
+    _count: CredentialsCountAggregateOutputType | null
+    _min: CredentialsMinAggregateOutputType | null
+    _max: CredentialsMaxAggregateOutputType | null
   }
 
-  export type PasswordMinAggregateOutputType = {
+  export type CredentialsMinAggregateOutputType = {
     id: string | null
     url: string | null
     originUrl: string | null
     password: string | null
     notes: string | null
+    category: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type PasswordMaxAggregateOutputType = {
+  export type CredentialsMaxAggregateOutputType = {
     id: string | null
     url: string | null
     originUrl: string | null
     password: string | null
     notes: string | null
+    category: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type PasswordCountAggregateOutputType = {
+  export type CredentialsCountAggregateOutputType = {
     id: number
     url: number
     originUrl: number
     password: number
     notes: number
+    category: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
-  export type PasswordMinAggregateInputType = {
+  export type CredentialsMinAggregateInputType = {
     id?: true
     url?: true
     originUrl?: true
     password?: true
     notes?: true
+    category?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type PasswordMaxAggregateInputType = {
+  export type CredentialsMaxAggregateInputType = {
     id?: true
     url?: true
     originUrl?: true
     password?: true
     notes?: true
+    category?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type PasswordCountAggregateInputType = {
+  export type CredentialsCountAggregateInputType = {
     id?: true
     url?: true
     originUrl?: true
     password?: true
     notes?: true
+    category?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
   }
 
-  export type PasswordAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type CredentialsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which password to aggregate.
+     * Filter which credentials to aggregate.
      */
-    where?: passwordWhereInput
+    where?: credentialsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of passwords to fetch.
+     * Determine the order of credentials to fetch.
      */
-    orderBy?: passwordOrderByWithRelationInput | passwordOrderByWithRelationInput[]
+    orderBy?: credentialsOrderByWithRelationInput | credentialsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: passwordWhereUniqueInput
+    cursor?: credentialsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` passwords from the position of the cursor.
+     * Take `±n` credentials from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` passwords.
+     * Skip the first `n` credentials.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned passwords
+     * Count returned credentials
     **/
-    _count?: true | PasswordCountAggregateInputType
+    _count?: true | CredentialsCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PasswordMinAggregateInputType
+    _min?: CredentialsMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PasswordMaxAggregateInputType
+    _max?: CredentialsMaxAggregateInputType
   }
 
-  export type GetPasswordAggregateType<T extends PasswordAggregateArgs> = {
-        [P in keyof T & keyof AggregatePassword]: P extends '_count' | 'count'
+  export type GetCredentialsAggregateType<T extends CredentialsAggregateArgs> = {
+        [P in keyof T & keyof AggregateCredentials]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePassword[P]>
-      : GetScalarType<T[P], AggregatePassword[P]>
+        : GetScalarType<T[P], AggregateCredentials[P]>
+      : GetScalarType<T[P], AggregateCredentials[P]>
   }
 
 
 
 
-  export type passwordGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: passwordWhereInput
-    orderBy?: passwordOrderByWithAggregationInput | passwordOrderByWithAggregationInput[]
-    by: PasswordScalarFieldEnum[] | PasswordScalarFieldEnum
-    having?: passwordScalarWhereWithAggregatesInput
+  export type credentialsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: credentialsWhereInput
+    orderBy?: credentialsOrderByWithAggregationInput | credentialsOrderByWithAggregationInput[]
+    by: CredentialsScalarFieldEnum[] | CredentialsScalarFieldEnum
+    having?: credentialsScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PasswordCountAggregateInputType | true
-    _min?: PasswordMinAggregateInputType
-    _max?: PasswordMaxAggregateInputType
+    _count?: CredentialsCountAggregateInputType | true
+    _min?: CredentialsMinAggregateInputType
+    _max?: CredentialsMaxAggregateInputType
   }
 
-  export type PasswordGroupByOutputType = {
+  export type CredentialsGroupByOutputType = {
     id: string
     url: string
     originUrl: string
     password: string
     notes: string
+    category: string
     createdAt: Date
     updatedAt: Date
-    _count: PasswordCountAggregateOutputType | null
-    _min: PasswordMinAggregateOutputType | null
-    _max: PasswordMaxAggregateOutputType | null
+    _count: CredentialsCountAggregateOutputType | null
+    _min: CredentialsMinAggregateOutputType | null
+    _max: CredentialsMaxAggregateOutputType | null
   }
 
-  type GetPasswordGroupByPayload<T extends passwordGroupByArgs> = Prisma.PrismaPromise<
+  type GetCredentialsGroupByPayload<T extends credentialsGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PasswordGroupByOutputType, T['by']> &
+      PickEnumerable<CredentialsGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PasswordGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof CredentialsGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PasswordGroupByOutputType[P]>
-            : GetScalarType<T[P], PasswordGroupByOutputType[P]>
+              : GetScalarType<T[P], CredentialsGroupByOutputType[P]>
+            : GetScalarType<T[P], CredentialsGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type passwordSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type credentialsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     url?: boolean
     originUrl?: boolean
     password?: boolean
     notes?: boolean
+    category?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["password"]>
+  }, ExtArgs["result"]["credentials"]>
 
-  export type passwordSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type credentialsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     url?: boolean
     originUrl?: boolean
     password?: boolean
     notes?: boolean
+    category?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["password"]>
+  }, ExtArgs["result"]["credentials"]>
 
-  export type passwordSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type credentialsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     url?: boolean
     originUrl?: boolean
     password?: boolean
     notes?: boolean
+    category?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["password"]>
+  }, ExtArgs["result"]["credentials"]>
 
-  export type passwordSelectScalar = {
+  export type credentialsSelectScalar = {
     id?: boolean
     url?: boolean
     originUrl?: boolean
     password?: boolean
     notes?: boolean
+    category?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type passwordOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "originUrl" | "password" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["password"]>
+  export type credentialsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "originUrl" | "password" | "notes" | "category" | "createdAt" | "updatedAt", ExtArgs["result"]["credentials"]>
 
-  export type $passwordPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "password"
+  export type $credentialsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "credentials"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2167,138 +2178,139 @@ export namespace Prisma {
       originUrl: string
       password: string
       notes: string
+      category: string
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["password"]>
+    }, ExtArgs["result"]["credentials"]>
     composites: {}
   }
 
-  type passwordGetPayload<S extends boolean | null | undefined | passwordDefaultArgs> = $Result.GetResult<Prisma.$passwordPayload, S>
+  type credentialsGetPayload<S extends boolean | null | undefined | credentialsDefaultArgs> = $Result.GetResult<Prisma.$credentialsPayload, S>
 
-  type passwordCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<passwordFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PasswordCountAggregateInputType | true
+  type credentialsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<credentialsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: CredentialsCountAggregateInputType | true
     }
 
-  export interface passwordDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['password'], meta: { name: 'password' } }
+  export interface credentialsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['credentials'], meta: { name: 'credentials' } }
     /**
-     * Find zero or one Password that matches the filter.
-     * @param {passwordFindUniqueArgs} args - Arguments to find a Password
+     * Find zero or one Credentials that matches the filter.
+     * @param {credentialsFindUniqueArgs} args - Arguments to find a Credentials
      * @example
-     * // Get one Password
-     * const password = await prisma.password.findUnique({
+     * // Get one Credentials
+     * const credentials = await prisma.credentials.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends passwordFindUniqueArgs>(args: SelectSubset<T, passwordFindUniqueArgs<ExtArgs>>): Prisma__passwordClient<$Result.GetResult<Prisma.$passwordPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends credentialsFindUniqueArgs>(args: SelectSubset<T, credentialsFindUniqueArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Password that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Credentials that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {passwordFindUniqueOrThrowArgs} args - Arguments to find a Password
+     * @param {credentialsFindUniqueOrThrowArgs} args - Arguments to find a Credentials
      * @example
-     * // Get one Password
-     * const password = await prisma.password.findUniqueOrThrow({
+     * // Get one Credentials
+     * const credentials = await prisma.credentials.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends passwordFindUniqueOrThrowArgs>(args: SelectSubset<T, passwordFindUniqueOrThrowArgs<ExtArgs>>): Prisma__passwordClient<$Result.GetResult<Prisma.$passwordPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends credentialsFindUniqueOrThrowArgs>(args: SelectSubset<T, credentialsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Password that matches the filter.
+     * Find the first Credentials that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {passwordFindFirstArgs} args - Arguments to find a Password
+     * @param {credentialsFindFirstArgs} args - Arguments to find a Credentials
      * @example
-     * // Get one Password
-     * const password = await prisma.password.findFirst({
+     * // Get one Credentials
+     * const credentials = await prisma.credentials.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends passwordFindFirstArgs>(args?: SelectSubset<T, passwordFindFirstArgs<ExtArgs>>): Prisma__passwordClient<$Result.GetResult<Prisma.$passwordPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends credentialsFindFirstArgs>(args?: SelectSubset<T, credentialsFindFirstArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Password that matches the filter or
+     * Find the first Credentials that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {passwordFindFirstOrThrowArgs} args - Arguments to find a Password
+     * @param {credentialsFindFirstOrThrowArgs} args - Arguments to find a Credentials
      * @example
-     * // Get one Password
-     * const password = await prisma.password.findFirstOrThrow({
+     * // Get one Credentials
+     * const credentials = await prisma.credentials.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends passwordFindFirstOrThrowArgs>(args?: SelectSubset<T, passwordFindFirstOrThrowArgs<ExtArgs>>): Prisma__passwordClient<$Result.GetResult<Prisma.$passwordPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends credentialsFindFirstOrThrowArgs>(args?: SelectSubset<T, credentialsFindFirstOrThrowArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Passwords that matches the filter.
+     * Find zero or more Credentials that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {passwordFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {credentialsFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Passwords
-     * const passwords = await prisma.password.findMany()
+     * // Get all Credentials
+     * const credentials = await prisma.credentials.findMany()
      * 
-     * // Get first 10 Passwords
-     * const passwords = await prisma.password.findMany({ take: 10 })
+     * // Get first 10 Credentials
+     * const credentials = await prisma.credentials.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const passwordWithIdOnly = await prisma.password.findMany({ select: { id: true } })
+     * const credentialsWithIdOnly = await prisma.credentials.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends passwordFindManyArgs>(args?: SelectSubset<T, passwordFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$passwordPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends credentialsFindManyArgs>(args?: SelectSubset<T, credentialsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Password.
-     * @param {passwordCreateArgs} args - Arguments to create a Password.
+     * Create a Credentials.
+     * @param {credentialsCreateArgs} args - Arguments to create a Credentials.
      * @example
-     * // Create one Password
-     * const Password = await prisma.password.create({
+     * // Create one Credentials
+     * const Credentials = await prisma.credentials.create({
      *   data: {
-     *     // ... data to create a Password
+     *     // ... data to create a Credentials
      *   }
      * })
      * 
      */
-    create<T extends passwordCreateArgs>(args: SelectSubset<T, passwordCreateArgs<ExtArgs>>): Prisma__passwordClient<$Result.GetResult<Prisma.$passwordPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends credentialsCreateArgs>(args: SelectSubset<T, credentialsCreateArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Passwords.
-     * @param {passwordCreateManyArgs} args - Arguments to create many Passwords.
+     * Create many Credentials.
+     * @param {credentialsCreateManyArgs} args - Arguments to create many Credentials.
      * @example
-     * // Create many Passwords
-     * const password = await prisma.password.createMany({
+     * // Create many Credentials
+     * const credentials = await prisma.credentials.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends passwordCreateManyArgs>(args?: SelectSubset<T, passwordCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends credentialsCreateManyArgs>(args?: SelectSubset<T, credentialsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Passwords and returns the data saved in the database.
-     * @param {passwordCreateManyAndReturnArgs} args - Arguments to create many Passwords.
+     * Create many Credentials and returns the data saved in the database.
+     * @param {credentialsCreateManyAndReturnArgs} args - Arguments to create many Credentials.
      * @example
-     * // Create many Passwords
-     * const password = await prisma.password.createManyAndReturn({
+     * // Create many Credentials
+     * const credentials = await prisma.credentials.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Passwords and only return the `id`
-     * const passwordWithIdOnly = await prisma.password.createManyAndReturn({
+     * // Create many Credentials and only return the `id`
+     * const credentialsWithIdOnly = await prisma.credentials.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -2308,28 +2320,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends passwordCreateManyAndReturnArgs>(args?: SelectSubset<T, passwordCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$passwordPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends credentialsCreateManyAndReturnArgs>(args?: SelectSubset<T, credentialsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Password.
-     * @param {passwordDeleteArgs} args - Arguments to delete one Password.
+     * Delete a Credentials.
+     * @param {credentialsDeleteArgs} args - Arguments to delete one Credentials.
      * @example
-     * // Delete one Password
-     * const Password = await prisma.password.delete({
+     * // Delete one Credentials
+     * const Credentials = await prisma.credentials.delete({
      *   where: {
-     *     // ... filter to delete one Password
+     *     // ... filter to delete one Credentials
      *   }
      * })
      * 
      */
-    delete<T extends passwordDeleteArgs>(args: SelectSubset<T, passwordDeleteArgs<ExtArgs>>): Prisma__passwordClient<$Result.GetResult<Prisma.$passwordPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends credentialsDeleteArgs>(args: SelectSubset<T, credentialsDeleteArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Password.
-     * @param {passwordUpdateArgs} args - Arguments to update one Password.
+     * Update one Credentials.
+     * @param {credentialsUpdateArgs} args - Arguments to update one Credentials.
      * @example
-     * // Update one Password
-     * const password = await prisma.password.update({
+     * // Update one Credentials
+     * const credentials = await prisma.credentials.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2339,30 +2351,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends passwordUpdateArgs>(args: SelectSubset<T, passwordUpdateArgs<ExtArgs>>): Prisma__passwordClient<$Result.GetResult<Prisma.$passwordPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends credentialsUpdateArgs>(args: SelectSubset<T, credentialsUpdateArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Passwords.
-     * @param {passwordDeleteManyArgs} args - Arguments to filter Passwords to delete.
+     * Delete zero or more Credentials.
+     * @param {credentialsDeleteManyArgs} args - Arguments to filter Credentials to delete.
      * @example
-     * // Delete a few Passwords
-     * const { count } = await prisma.password.deleteMany({
+     * // Delete a few Credentials
+     * const { count } = await prisma.credentials.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends passwordDeleteManyArgs>(args?: SelectSubset<T, passwordDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends credentialsDeleteManyArgs>(args?: SelectSubset<T, credentialsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Passwords.
+     * Update zero or more Credentials.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {passwordUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {credentialsUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Passwords
-     * const password = await prisma.password.updateMany({
+     * // Update many Credentials
+     * const credentials = await prisma.credentials.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2372,14 +2384,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends passwordUpdateManyArgs>(args: SelectSubset<T, passwordUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends credentialsUpdateManyArgs>(args: SelectSubset<T, credentialsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Passwords and returns the data updated in the database.
-     * @param {passwordUpdateManyAndReturnArgs} args - Arguments to update many Passwords.
+     * Update zero or more Credentials and returns the data updated in the database.
+     * @param {credentialsUpdateManyAndReturnArgs} args - Arguments to update many Credentials.
      * @example
-     * // Update many Passwords
-     * const password = await prisma.password.updateManyAndReturn({
+     * // Update many Credentials
+     * const credentials = await prisma.credentials.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2388,8 +2400,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Passwords and only return the `id`
-     * const passwordWithIdOnly = await prisma.password.updateManyAndReturn({
+     * // Update zero or more Credentials and only return the `id`
+     * const credentialsWithIdOnly = await prisma.credentials.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -2402,56 +2414,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends passwordUpdateManyAndReturnArgs>(args: SelectSubset<T, passwordUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$passwordPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends credentialsUpdateManyAndReturnArgs>(args: SelectSubset<T, credentialsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Password.
-     * @param {passwordUpsertArgs} args - Arguments to update or create a Password.
+     * Create or update one Credentials.
+     * @param {credentialsUpsertArgs} args - Arguments to update or create a Credentials.
      * @example
-     * // Update or create a Password
-     * const password = await prisma.password.upsert({
+     * // Update or create a Credentials
+     * const credentials = await prisma.credentials.upsert({
      *   create: {
-     *     // ... data to create a Password
+     *     // ... data to create a Credentials
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Password we want to update
+     *     // ... the filter for the Credentials we want to update
      *   }
      * })
      */
-    upsert<T extends passwordUpsertArgs>(args: SelectSubset<T, passwordUpsertArgs<ExtArgs>>): Prisma__passwordClient<$Result.GetResult<Prisma.$passwordPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends credentialsUpsertArgs>(args: SelectSubset<T, credentialsUpsertArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Passwords.
+     * Count the number of Credentials.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {passwordCountArgs} args - Arguments to filter Passwords to count.
+     * @param {credentialsCountArgs} args - Arguments to filter Credentials to count.
      * @example
-     * // Count the number of Passwords
-     * const count = await prisma.password.count({
+     * // Count the number of Credentials
+     * const count = await prisma.credentials.count({
      *   where: {
-     *     // ... the filter for the Passwords we want to count
+     *     // ... the filter for the Credentials we want to count
      *   }
      * })
     **/
-    count<T extends passwordCountArgs>(
-      args?: Subset<T, passwordCountArgs>,
+    count<T extends credentialsCountArgs>(
+      args?: Subset<T, credentialsCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], PasswordCountAggregateOutputType>
+          : GetScalarType<T['select'], CredentialsCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Password.
+     * Allows you to perform aggregations operations on a Credentials.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PasswordAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {CredentialsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2471,13 +2483,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends PasswordAggregateArgs>(args: Subset<T, PasswordAggregateArgs>): Prisma.PrismaPromise<GetPasswordAggregateType<T>>
+    aggregate<T extends CredentialsAggregateArgs>(args: Subset<T, CredentialsAggregateArgs>): Prisma.PrismaPromise<GetCredentialsAggregateType<T>>
 
     /**
-     * Group by Password.
+     * Group by Credentials.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {passwordGroupByArgs} args - Group by arguments.
+     * @param {credentialsGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2492,14 +2504,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends passwordGroupByArgs,
+      T extends credentialsGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: passwordGroupByArgs['orderBy'] }
-        : { orderBy?: passwordGroupByArgs['orderBy'] },
+        ? { orderBy: credentialsGroupByArgs['orderBy'] }
+        : { orderBy?: credentialsGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2548,20 +2560,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, passwordGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPasswordGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, credentialsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCredentialsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the password model
+   * Fields of the credentials model
    */
-  readonly fields: passwordFieldRefs;
+  readonly fields: credentialsFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for password.
+   * The delegate class that acts as a "Promise-like" for credentials.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__passwordClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__credentialsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2589,377 +2601,378 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the password model
+   * Fields of the credentials model
    */
-  interface passwordFieldRefs {
-    readonly id: FieldRef<"password", 'String'>
-    readonly url: FieldRef<"password", 'String'>
-    readonly originUrl: FieldRef<"password", 'String'>
-    readonly password: FieldRef<"password", 'String'>
-    readonly notes: FieldRef<"password", 'String'>
-    readonly createdAt: FieldRef<"password", 'DateTime'>
-    readonly updatedAt: FieldRef<"password", 'DateTime'>
+  interface credentialsFieldRefs {
+    readonly id: FieldRef<"credentials", 'String'>
+    readonly url: FieldRef<"credentials", 'String'>
+    readonly originUrl: FieldRef<"credentials", 'String'>
+    readonly password: FieldRef<"credentials", 'String'>
+    readonly notes: FieldRef<"credentials", 'String'>
+    readonly category: FieldRef<"credentials", 'String'>
+    readonly createdAt: FieldRef<"credentials", 'DateTime'>
+    readonly updatedAt: FieldRef<"credentials", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * password findUnique
+   * credentials findUnique
    */
-  export type passwordFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelect<ExtArgs> | null
+    select?: credentialsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
     /**
-     * Filter, which password to fetch.
+     * Filter, which credentials to fetch.
      */
-    where: passwordWhereUniqueInput
+    where: credentialsWhereUniqueInput
   }
 
   /**
-   * password findUniqueOrThrow
+   * credentials findUniqueOrThrow
    */
-  export type passwordFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelect<ExtArgs> | null
+    select?: credentialsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
     /**
-     * Filter, which password to fetch.
+     * Filter, which credentials to fetch.
      */
-    where: passwordWhereUniqueInput
+    where: credentialsWhereUniqueInput
   }
 
   /**
-   * password findFirst
+   * credentials findFirst
    */
-  export type passwordFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelect<ExtArgs> | null
+    select?: credentialsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
     /**
-     * Filter, which password to fetch.
+     * Filter, which credentials to fetch.
      */
-    where?: passwordWhereInput
+    where?: credentialsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of passwords to fetch.
+     * Determine the order of credentials to fetch.
      */
-    orderBy?: passwordOrderByWithRelationInput | passwordOrderByWithRelationInput[]
+    orderBy?: credentialsOrderByWithRelationInput | credentialsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for passwords.
+     * Sets the position for searching for credentials.
      */
-    cursor?: passwordWhereUniqueInput
+    cursor?: credentialsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` passwords from the position of the cursor.
+     * Take `±n` credentials from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` passwords.
+     * Skip the first `n` credentials.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of passwords.
+     * Filter by unique combinations of credentials.
      */
-    distinct?: PasswordScalarFieldEnum | PasswordScalarFieldEnum[]
+    distinct?: CredentialsScalarFieldEnum | CredentialsScalarFieldEnum[]
   }
 
   /**
-   * password findFirstOrThrow
+   * credentials findFirstOrThrow
    */
-  export type passwordFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelect<ExtArgs> | null
+    select?: credentialsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
     /**
-     * Filter, which password to fetch.
+     * Filter, which credentials to fetch.
      */
-    where?: passwordWhereInput
+    where?: credentialsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of passwords to fetch.
+     * Determine the order of credentials to fetch.
      */
-    orderBy?: passwordOrderByWithRelationInput | passwordOrderByWithRelationInput[]
+    orderBy?: credentialsOrderByWithRelationInput | credentialsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for passwords.
+     * Sets the position for searching for credentials.
      */
-    cursor?: passwordWhereUniqueInput
+    cursor?: credentialsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` passwords from the position of the cursor.
+     * Take `±n` credentials from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` passwords.
+     * Skip the first `n` credentials.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of passwords.
+     * Filter by unique combinations of credentials.
      */
-    distinct?: PasswordScalarFieldEnum | PasswordScalarFieldEnum[]
+    distinct?: CredentialsScalarFieldEnum | CredentialsScalarFieldEnum[]
   }
 
   /**
-   * password findMany
+   * credentials findMany
    */
-  export type passwordFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelect<ExtArgs> | null
+    select?: credentialsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
     /**
-     * Filter, which passwords to fetch.
+     * Filter, which credentials to fetch.
      */
-    where?: passwordWhereInput
+    where?: credentialsWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of passwords to fetch.
+     * Determine the order of credentials to fetch.
      */
-    orderBy?: passwordOrderByWithRelationInput | passwordOrderByWithRelationInput[]
+    orderBy?: credentialsOrderByWithRelationInput | credentialsOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing passwords.
+     * Sets the position for listing credentials.
      */
-    cursor?: passwordWhereUniqueInput
+    cursor?: credentialsWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` passwords from the position of the cursor.
+     * Take `±n` credentials from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` passwords.
+     * Skip the first `n` credentials.
      */
     skip?: number
-    distinct?: PasswordScalarFieldEnum | PasswordScalarFieldEnum[]
+    distinct?: CredentialsScalarFieldEnum | CredentialsScalarFieldEnum[]
   }
 
   /**
-   * password create
+   * credentials create
    */
-  export type passwordCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelect<ExtArgs> | null
+    select?: credentialsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
     /**
-     * The data needed to create a password.
+     * The data needed to create a credentials.
      */
-    data?: XOR<passwordCreateInput, passwordUncheckedCreateInput>
+    data?: XOR<credentialsCreateInput, credentialsUncheckedCreateInput>
   }
 
   /**
-   * password createMany
+   * credentials createMany
    */
-  export type passwordCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many passwords.
+     * The data used to create many credentials.
      */
-    data: passwordCreateManyInput | passwordCreateManyInput[]
+    data: credentialsCreateManyInput | credentialsCreateManyInput[]
   }
 
   /**
-   * password createManyAndReturn
+   * credentials createManyAndReturn
    */
-  export type passwordCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelectCreateManyAndReturn<ExtArgs> | null
+    select?: credentialsSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
     /**
-     * The data used to create many passwords.
+     * The data used to create many credentials.
      */
-    data: passwordCreateManyInput | passwordCreateManyInput[]
+    data: credentialsCreateManyInput | credentialsCreateManyInput[]
   }
 
   /**
-   * password update
+   * credentials update
    */
-  export type passwordUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelect<ExtArgs> | null
+    select?: credentialsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
     /**
-     * The data needed to update a password.
+     * The data needed to update a credentials.
      */
-    data: XOR<passwordUpdateInput, passwordUncheckedUpdateInput>
+    data: XOR<credentialsUpdateInput, credentialsUncheckedUpdateInput>
     /**
-     * Choose, which password to update.
+     * Choose, which credentials to update.
      */
-    where: passwordWhereUniqueInput
+    where: credentialsWhereUniqueInput
   }
 
   /**
-   * password updateMany
+   * credentials updateMany
    */
-  export type passwordUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update passwords.
+     * The data used to update credentials.
      */
-    data: XOR<passwordUpdateManyMutationInput, passwordUncheckedUpdateManyInput>
+    data: XOR<credentialsUpdateManyMutationInput, credentialsUncheckedUpdateManyInput>
     /**
-     * Filter which passwords to update
+     * Filter which credentials to update
      */
-    where?: passwordWhereInput
+    where?: credentialsWhereInput
     /**
-     * Limit how many passwords to update.
+     * Limit how many credentials to update.
      */
     limit?: number
   }
 
   /**
-   * password updateManyAndReturn
+   * credentials updateManyAndReturn
    */
-  export type passwordUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: credentialsSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
     /**
-     * The data used to update passwords.
+     * The data used to update credentials.
      */
-    data: XOR<passwordUpdateManyMutationInput, passwordUncheckedUpdateManyInput>
+    data: XOR<credentialsUpdateManyMutationInput, credentialsUncheckedUpdateManyInput>
     /**
-     * Filter which passwords to update
+     * Filter which credentials to update
      */
-    where?: passwordWhereInput
+    where?: credentialsWhereInput
     /**
-     * Limit how many passwords to update.
+     * Limit how many credentials to update.
      */
     limit?: number
   }
 
   /**
-   * password upsert
+   * credentials upsert
    */
-  export type passwordUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelect<ExtArgs> | null
+    select?: credentialsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
     /**
-     * The filter to search for the password to update in case it exists.
+     * The filter to search for the credentials to update in case it exists.
      */
-    where: passwordWhereUniqueInput
+    where: credentialsWhereUniqueInput
     /**
-     * In case the password found by the `where` argument doesn't exist, create a new password with this data.
+     * In case the credentials found by the `where` argument doesn't exist, create a new credentials with this data.
      */
-    create: XOR<passwordCreateInput, passwordUncheckedCreateInput>
+    create: XOR<credentialsCreateInput, credentialsUncheckedCreateInput>
     /**
-     * In case the password was found with the provided `where` argument, update it with this data.
+     * In case the credentials was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<passwordUpdateInput, passwordUncheckedUpdateInput>
+    update: XOR<credentialsUpdateInput, credentialsUncheckedUpdateInput>
   }
 
   /**
-   * password delete
+   * credentials delete
    */
-  export type passwordDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelect<ExtArgs> | null
+    select?: credentialsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
     /**
-     * Filter which password to delete.
+     * Filter which credentials to delete.
      */
-    where: passwordWhereUniqueInput
+    where: credentialsWhereUniqueInput
   }
 
   /**
-   * password deleteMany
+   * credentials deleteMany
    */
-  export type passwordDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which passwords to delete
+     * Filter which credentials to delete
      */
-    where?: passwordWhereInput
+    where?: credentialsWhereInput
     /**
-     * Limit how many passwords to delete.
+     * Limit how many credentials to delete.
      */
     limit?: number
   }
 
   /**
-   * password without action
+   * credentials without action
    */
-  export type passwordDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type credentialsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the password
+     * Select specific fields to fetch from the credentials
      */
-    select?: passwordSelect<ExtArgs> | null
+    select?: credentialsSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the password
+     * Omit specific fields from the credentials
      */
-    omit?: passwordOmit<ExtArgs> | null
+    omit?: credentialsOmit<ExtArgs> | null
   }
 
 
@@ -2974,7 +2987,7 @@ export namespace Prisma {
   export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof typeof TransactionIsolationLevel]
 
 
-  export const AuthScalarFieldEnum: {
+  export const AuthentificationScalarFieldEnum: {
     id: 'id',
     password: 'password',
     passPhrase: 'passPhrase',
@@ -2982,20 +2995,21 @@ export namespace Prisma {
     updatedAt: 'updatedAt'
   };
 
-  export type AuthScalarFieldEnum = (typeof AuthScalarFieldEnum)[keyof typeof AuthScalarFieldEnum]
+  export type AuthentificationScalarFieldEnum = (typeof AuthentificationScalarFieldEnum)[keyof typeof AuthentificationScalarFieldEnum]
 
 
-  export const PasswordScalarFieldEnum: {
+  export const CredentialsScalarFieldEnum: {
     id: 'id',
     url: 'url',
     originUrl: 'originUrl',
     password: 'password',
     notes: 'notes',
+    category: 'category',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
-  export type PasswordScalarFieldEnum = (typeof PasswordScalarFieldEnum)[keyof typeof PasswordScalarFieldEnum]
+  export type CredentialsScalarFieldEnum = (typeof CredentialsScalarFieldEnum)[keyof typeof CredentialsScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -3035,18 +3049,18 @@ export namespace Prisma {
    */
 
 
-  export type authWhereInput = {
-    AND?: authWhereInput | authWhereInput[]
-    OR?: authWhereInput[]
-    NOT?: authWhereInput | authWhereInput[]
-    id?: StringFilter<"auth"> | string
-    password?: StringFilter<"auth"> | string
-    passPhrase?: StringFilter<"auth"> | string
-    createdAt?: DateTimeFilter<"auth"> | Date | string
-    updatedAt?: DateTimeFilter<"auth"> | Date | string
+  export type authentificationWhereInput = {
+    AND?: authentificationWhereInput | authentificationWhereInput[]
+    OR?: authentificationWhereInput[]
+    NOT?: authentificationWhereInput | authentificationWhereInput[]
+    id?: StringFilter<"authentification"> | string
+    password?: StringFilter<"authentification"> | string
+    passPhrase?: StringFilter<"authentification"> | string
+    createdAt?: DateTimeFilter<"authentification"> | Date | string
+    updatedAt?: DateTimeFilter<"authentification"> | Date | string
   }
 
-  export type authOrderByWithRelationInput = {
+  export type authentificationOrderByWithRelationInput = {
     id?: SortOrder
     password?: SortOrder
     passPhrase?: SortOrder
@@ -3054,102 +3068,107 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type authWhereUniqueInput = Prisma.AtLeast<{
+  export type authentificationWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: authWhereInput | authWhereInput[]
-    OR?: authWhereInput[]
-    NOT?: authWhereInput | authWhereInput[]
-    password?: StringFilter<"auth"> | string
-    passPhrase?: StringFilter<"auth"> | string
-    createdAt?: DateTimeFilter<"auth"> | Date | string
-    updatedAt?: DateTimeFilter<"auth"> | Date | string
+    AND?: authentificationWhereInput | authentificationWhereInput[]
+    OR?: authentificationWhereInput[]
+    NOT?: authentificationWhereInput | authentificationWhereInput[]
+    password?: StringFilter<"authentification"> | string
+    passPhrase?: StringFilter<"authentification"> | string
+    createdAt?: DateTimeFilter<"authentification"> | Date | string
+    updatedAt?: DateTimeFilter<"authentification"> | Date | string
   }, "id">
 
-  export type authOrderByWithAggregationInput = {
+  export type authentificationOrderByWithAggregationInput = {
     id?: SortOrder
     password?: SortOrder
     passPhrase?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: authCountOrderByAggregateInput
-    _max?: authMaxOrderByAggregateInput
-    _min?: authMinOrderByAggregateInput
+    _count?: authentificationCountOrderByAggregateInput
+    _max?: authentificationMaxOrderByAggregateInput
+    _min?: authentificationMinOrderByAggregateInput
   }
 
-  export type authScalarWhereWithAggregatesInput = {
-    AND?: authScalarWhereWithAggregatesInput | authScalarWhereWithAggregatesInput[]
-    OR?: authScalarWhereWithAggregatesInput[]
-    NOT?: authScalarWhereWithAggregatesInput | authScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"auth"> | string
-    password?: StringWithAggregatesFilter<"auth"> | string
-    passPhrase?: StringWithAggregatesFilter<"auth"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"auth"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"auth"> | Date | string
+  export type authentificationScalarWhereWithAggregatesInput = {
+    AND?: authentificationScalarWhereWithAggregatesInput | authentificationScalarWhereWithAggregatesInput[]
+    OR?: authentificationScalarWhereWithAggregatesInput[]
+    NOT?: authentificationScalarWhereWithAggregatesInput | authentificationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"authentification"> | string
+    password?: StringWithAggregatesFilter<"authentification"> | string
+    passPhrase?: StringWithAggregatesFilter<"authentification"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"authentification"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"authentification"> | Date | string
   }
 
-  export type passwordWhereInput = {
-    AND?: passwordWhereInput | passwordWhereInput[]
-    OR?: passwordWhereInput[]
-    NOT?: passwordWhereInput | passwordWhereInput[]
-    id?: StringFilter<"password"> | string
-    url?: StringFilter<"password"> | string
-    originUrl?: StringFilter<"password"> | string
-    password?: StringFilter<"password"> | string
-    notes?: StringFilter<"password"> | string
-    createdAt?: DateTimeFilter<"password"> | Date | string
-    updatedAt?: DateTimeFilter<"password"> | Date | string
+  export type credentialsWhereInput = {
+    AND?: credentialsWhereInput | credentialsWhereInput[]
+    OR?: credentialsWhereInput[]
+    NOT?: credentialsWhereInput | credentialsWhereInput[]
+    id?: StringFilter<"credentials"> | string
+    url?: StringFilter<"credentials"> | string
+    originUrl?: StringFilter<"credentials"> | string
+    password?: StringFilter<"credentials"> | string
+    notes?: StringFilter<"credentials"> | string
+    category?: StringFilter<"credentials"> | string
+    createdAt?: DateTimeFilter<"credentials"> | Date | string
+    updatedAt?: DateTimeFilter<"credentials"> | Date | string
   }
 
-  export type passwordOrderByWithRelationInput = {
+  export type credentialsOrderByWithRelationInput = {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
     password?: SortOrder
     notes?: SortOrder
+    category?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type passwordWhereUniqueInput = Prisma.AtLeast<{
+  export type credentialsWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: passwordWhereInput | passwordWhereInput[]
-    OR?: passwordWhereInput[]
-    NOT?: passwordWhereInput | passwordWhereInput[]
-    url?: StringFilter<"password"> | string
-    originUrl?: StringFilter<"password"> | string
-    password?: StringFilter<"password"> | string
-    notes?: StringFilter<"password"> | string
-    createdAt?: DateTimeFilter<"password"> | Date | string
-    updatedAt?: DateTimeFilter<"password"> | Date | string
+    AND?: credentialsWhereInput | credentialsWhereInput[]
+    OR?: credentialsWhereInput[]
+    NOT?: credentialsWhereInput | credentialsWhereInput[]
+    url?: StringFilter<"credentials"> | string
+    originUrl?: StringFilter<"credentials"> | string
+    password?: StringFilter<"credentials"> | string
+    notes?: StringFilter<"credentials"> | string
+    category?: StringFilter<"credentials"> | string
+    createdAt?: DateTimeFilter<"credentials"> | Date | string
+    updatedAt?: DateTimeFilter<"credentials"> | Date | string
   }, "id">
 
-  export type passwordOrderByWithAggregationInput = {
+  export type credentialsOrderByWithAggregationInput = {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
     password?: SortOrder
     notes?: SortOrder
+    category?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: passwordCountOrderByAggregateInput
-    _max?: passwordMaxOrderByAggregateInput
-    _min?: passwordMinOrderByAggregateInput
+    _count?: credentialsCountOrderByAggregateInput
+    _max?: credentialsMaxOrderByAggregateInput
+    _min?: credentialsMinOrderByAggregateInput
   }
 
-  export type passwordScalarWhereWithAggregatesInput = {
-    AND?: passwordScalarWhereWithAggregatesInput | passwordScalarWhereWithAggregatesInput[]
-    OR?: passwordScalarWhereWithAggregatesInput[]
-    NOT?: passwordScalarWhereWithAggregatesInput | passwordScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"password"> | string
-    url?: StringWithAggregatesFilter<"password"> | string
-    originUrl?: StringWithAggregatesFilter<"password"> | string
-    password?: StringWithAggregatesFilter<"password"> | string
-    notes?: StringWithAggregatesFilter<"password"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"password"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"password"> | Date | string
+  export type credentialsScalarWhereWithAggregatesInput = {
+    AND?: credentialsScalarWhereWithAggregatesInput | credentialsScalarWhereWithAggregatesInput[]
+    OR?: credentialsScalarWhereWithAggregatesInput[]
+    NOT?: credentialsScalarWhereWithAggregatesInput | credentialsScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"credentials"> | string
+    url?: StringWithAggregatesFilter<"credentials"> | string
+    originUrl?: StringWithAggregatesFilter<"credentials"> | string
+    password?: StringWithAggregatesFilter<"credentials"> | string
+    notes?: StringWithAggregatesFilter<"credentials"> | string
+    category?: StringWithAggregatesFilter<"credentials"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"credentials"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"credentials"> | Date | string
   }
 
-  export type authCreateInput = {
+  export type authentificationCreateInput = {
     id?: string
     password?: string
     passPhrase?: string
@@ -3157,7 +3176,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type authUncheckedCreateInput = {
+  export type authentificationUncheckedCreateInput = {
     id?: string
     password?: string
     passPhrase?: string
@@ -3165,7 +3184,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type authUpdateInput = {
+  export type authentificationUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     passPhrase?: StringFieldUpdateOperationsInput | string
@@ -3173,7 +3192,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type authUncheckedUpdateInput = {
+  export type authentificationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     passPhrase?: StringFieldUpdateOperationsInput | string
@@ -3181,7 +3200,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type authCreateManyInput = {
+  export type authentificationCreateManyInput = {
     id?: string
     password?: string
     passPhrase?: string
@@ -3189,7 +3208,7 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type authUpdateManyMutationInput = {
+  export type authentificationUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     passPhrase?: StringFieldUpdateOperationsInput | string
@@ -3197,7 +3216,7 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type authUncheckedUpdateManyInput = {
+  export type authentificationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     passPhrase?: StringFieldUpdateOperationsInput | string
@@ -3205,72 +3224,79 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type passwordCreateInput = {
+  export type credentialsCreateInput = {
     id?: string
     url?: string
     originUrl?: string
     password?: string
     notes?: string
+    category?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type passwordUncheckedCreateInput = {
+  export type credentialsUncheckedCreateInput = {
     id?: string
     url?: string
     originUrl?: string
     password?: string
     notes?: string
+    category?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type passwordUpdateInput = {
+  export type credentialsUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type passwordUncheckedUpdateInput = {
+  export type credentialsUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type passwordCreateManyInput = {
+  export type credentialsCreateManyInput = {
     id?: string
     url?: string
     originUrl?: string
     password?: string
     notes?: string
+    category?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type passwordUpdateManyMutationInput = {
+  export type credentialsUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type passwordUncheckedUpdateManyInput = {
+  export type credentialsUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
+    category?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -3300,7 +3326,7 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type authCountOrderByAggregateInput = {
+  export type authentificationCountOrderByAggregateInput = {
     id?: SortOrder
     password?: SortOrder
     passPhrase?: SortOrder
@@ -3308,7 +3334,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type authMaxOrderByAggregateInput = {
+  export type authentificationMaxOrderByAggregateInput = {
     id?: SortOrder
     password?: SortOrder
     passPhrase?: SortOrder
@@ -3316,7 +3342,7 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type authMinOrderByAggregateInput = {
+  export type authentificationMinOrderByAggregateInput = {
     id?: SortOrder
     password?: SortOrder
     passPhrase?: SortOrder
@@ -3355,32 +3381,35 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type passwordCountOrderByAggregateInput = {
+  export type credentialsCountOrderByAggregateInput = {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
     password?: SortOrder
     notes?: SortOrder
+    category?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type passwordMaxOrderByAggregateInput = {
+  export type credentialsMaxOrderByAggregateInput = {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
     password?: SortOrder
     notes?: SortOrder
+    category?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type passwordMinOrderByAggregateInput = {
+  export type credentialsMinOrderByAggregateInput = {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
     password?: SortOrder
     notes?: SortOrder
+    category?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }

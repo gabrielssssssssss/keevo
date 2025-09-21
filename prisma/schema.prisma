@@ -15,7 +15,7 @@ datasource db {
 }
 
 
-model auth {
+model authentification {
   id  String @id @default(uuid())
   password String @default("")
   passPhrase String @default("")
@@ -23,7 +23,7 @@ model auth {
   updatedAt DateTime @default(now())
 }
 
-model password {
+model credentials {
   id  String @id @default(uuid())
   url String @default("")
   originUrl String @default("")
