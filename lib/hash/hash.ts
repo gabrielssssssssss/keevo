@@ -13,7 +13,6 @@ export async function Hash(password: string, context: string) {
 
 export async function VerifyHash(password: string, hashedPassword: string) {
     try {
-        console.log(password, " ", hashedPassword)
         const response = await fetch("/api/hash/verify", {
             method: "POST",
             body: JSON.stringify({"element": password, "hashedElement": hashedPassword})

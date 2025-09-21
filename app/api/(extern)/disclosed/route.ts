@@ -10,6 +10,6 @@ export async function POST(req: NextRequest) {
         const data = await response.json();
         return NextResponse.json({"success": data["success"]});
     } catch(e) {
-        return NextResponse.json({"success": false, "error": e})
+        return NextResponse.json({"success": false, "error": "bad request"})
     }
 }

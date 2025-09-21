@@ -1,20 +1,18 @@
 "use client";
 import { useEffect, useState } from "react";
 import { PasswordHandler } from "./lib/auth/handler";
-import { SessionKey, NewSession } from "@/app/lib/session/handler";
+import { Hash } from "@/lib/hash/hash";
 
 export default function Home() {
     const [password, setPassword] = useState("");
 
     useEffect(() => {
         const callback = async() => {
-            console.log("before", SessionKey);
             const response = await PasswordHandler('u"]8Z7\q70j-vear');
             if (response) {
-                await NewSession('u"]8Z7\q70j-vear');
+                const hashedPasswordResponse = await Hash('u"]8Z7\q70j-vear', "session");
+                console.log(hashedPasswordResponse);
             }
-            console.log("after", SessionKey);
-            console.log(response);
         }
         callback();
     }, [])

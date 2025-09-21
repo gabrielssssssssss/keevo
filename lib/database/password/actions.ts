@@ -9,3 +9,15 @@ export async function FindAll() {
         return null;
     }
 }
+
+export async function Push(url: string, originUrl: string, password: string, notes: string, category: string) {
+    try {
+        const response = await prisma.password.create({
+            data: {
+                
+            }
+        })
+    } catch {
+        return null
+    }
+}

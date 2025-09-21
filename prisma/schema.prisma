@@ -29,6 +29,7 @@ model password {
   originUrl String @default("")
   password String @default("")
   notes String @default("")
+  category String @default("")
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }

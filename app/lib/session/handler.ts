@@ -1,10 +1,8 @@
-export let SessionKey = null;
-
-import { Hash } from "@/lib/hash/hash";
-
 export async function NewSession(password: string) {
-    const hashedPassword = await Hash(password, "session");
-    if (SessionKey === null) {
-        SessionKey = hashedPassword;
-    }
+    const response = await fetch("/api/session/new", {
+        method: "POST",
+        body: JSON.stringify({"password": password})
+    });
+    const data = await response.json();
+    console.log(data);
 }
