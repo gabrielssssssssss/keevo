@@ -1,11 +1,11 @@
 export async function newHash(password: string, context: string) {
     try {
-        const responseCreate = await fetch("/api/hash/create", {
+        const responseCreate = await fetch("/api/auth/hashPassword", {
             method: "POST",
-            body: JSON.stringify({"element": password, "context": context})
+            body: JSON.stringify({"password": password, "context": context})
         });
         const dataCreate = await responseCreate.json();
-        return dataCreate["hashedElement"];
+        return dataCreate["hashedPassword"];
     } catch {
         return false;
     }
@@ -13,9 +13,9 @@ export async function newHash(password: string, context: string) {
 
 export async function verifyHash(password: string, hashedPassword: string) {
     try {
-        const response = await fetch("/api/hash/verify", {
+        const response = await fetch("/api/auth/verifyPassword", {
             method: "POST",
-            body: JSON.stringify({"element": password, "hashedElement": hashedPassword})
+            body: JSON.stringify({"password": password, "hashedPassword": hashedPassword})
         });
         const data = await response.json();
         return data["isValid"];

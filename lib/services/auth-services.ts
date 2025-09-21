@@ -4,7 +4,7 @@ import crypto from "crypto";
 import { hash, argon2id, verify } from "argon2";
 import { getSession, setSession } from "@/lib/handler/session-handler";
 
-//Route: /api/auth/encrypt.ts
+//Route: /api/auth/encryptPassword/route.ts
 export async function encryptPassword(password: string) {
     const algorithm = "aes-256-ctr";
     const key = Buffer.concat([Buffer.from(getSession()), Buffer.alloc(32)], 32);
@@ -15,7 +15,7 @@ export async function encryptPassword(password: string) {
     return iv.toString("hex")+encrypted.toString("hex");
 }
 
-//Route: /api/auth/decrypt.ts
+//Route: /api/auth/decryptPassword/route.ts
 export async function decryptPassword(encryptPassword: string) {
     const algorithm = "aes-256-ctr";
     const key = Buffer.concat([Buffer.from(getSession()), Buffer.alloc(32)], 32);
@@ -26,7 +26,7 @@ export async function decryptPassword(encryptPassword: string) {
     return decrypted.toString();
 }
 
-//Route: /api/auth/hashPassword.ts
+//Route: /api/auth/hashPassword/route.ts
 export async function hashPassword(password: string, context: string) {
     if (context == "session") {
         const salt = crypto.createHash("sha256").update("salty").digest().slice(0, 16);
@@ -38,7 +38,7 @@ export async function hashPassword(password: string, context: string) {
     return hashedPassword;
 }
 
-//Route: /api/auth/verifyPassword.ts
+//Route: /api/auth/verifyPassword/route.ts
 export async function verifyPassword(hashedPassword: string, password: string) {
     const comparator = await verify(hashedPassword, password);
     return comparator;
