@@ -1958,7 +1958,10 @@ export namespace Prisma {
     id: string | null
     url: string | null
     originUrl: string | null
+    username: string | null
     password: string | null
+    iv: string | null
+    tag: string | null
     notes: string | null
     category: string | null
     createdAt: Date | null
@@ -1969,7 +1972,10 @@ export namespace Prisma {
     id: string | null
     url: string | null
     originUrl: string | null
+    username: string | null
     password: string | null
+    iv: string | null
+    tag: string | null
     notes: string | null
     category: string | null
     createdAt: Date | null
@@ -1980,7 +1986,10 @@ export namespace Prisma {
     id: number
     url: number
     originUrl: number
+    username: number
     password: number
+    iv: number
+    tag: number
     notes: number
     category: number
     createdAt: number
@@ -1993,7 +2002,10 @@ export namespace Prisma {
     id?: true
     url?: true
     originUrl?: true
+    username?: true
     password?: true
+    iv?: true
+    tag?: true
     notes?: true
     category?: true
     createdAt?: true
@@ -2004,7 +2016,10 @@ export namespace Prisma {
     id?: true
     url?: true
     originUrl?: true
+    username?: true
     password?: true
+    iv?: true
+    tag?: true
     notes?: true
     category?: true
     createdAt?: true
@@ -2015,7 +2030,10 @@ export namespace Prisma {
     id?: true
     url?: true
     originUrl?: true
+    username?: true
     password?: true
+    iv?: true
+    tag?: true
     notes?: true
     category?: true
     createdAt?: true
@@ -2099,7 +2117,10 @@ export namespace Prisma {
     id: string
     url: string
     originUrl: string
+    username: string
     password: string
+    iv: string
+    tag: string
     notes: string
     category: string
     createdAt: Date
@@ -2127,7 +2148,10 @@ export namespace Prisma {
     id?: boolean
     url?: boolean
     originUrl?: boolean
+    username?: boolean
     password?: boolean
+    iv?: boolean
+    tag?: boolean
     notes?: boolean
     category?: boolean
     createdAt?: boolean
@@ -2138,7 +2162,10 @@ export namespace Prisma {
     id?: boolean
     url?: boolean
     originUrl?: boolean
+    username?: boolean
     password?: boolean
+    iv?: boolean
+    tag?: boolean
     notes?: boolean
     category?: boolean
     createdAt?: boolean
@@ -2149,7 +2176,10 @@ export namespace Prisma {
     id?: boolean
     url?: boolean
     originUrl?: boolean
+    username?: boolean
     password?: boolean
+    iv?: boolean
+    tag?: boolean
     notes?: boolean
     category?: boolean
     createdAt?: boolean
@@ -2160,14 +2190,17 @@ export namespace Prisma {
     id?: boolean
     url?: boolean
     originUrl?: boolean
+    username?: boolean
     password?: boolean
+    iv?: boolean
+    tag?: boolean
     notes?: boolean
     category?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type credentialsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "originUrl" | "password" | "notes" | "category" | "createdAt" | "updatedAt", ExtArgs["result"]["credentials"]>
+  export type credentialsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "originUrl" | "username" | "password" | "iv" | "tag" | "notes" | "category" | "createdAt" | "updatedAt", ExtArgs["result"]["credentials"]>
 
   export type $credentialsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "credentials"
@@ -2176,7 +2209,10 @@ export namespace Prisma {
       id: string
       url: string
       originUrl: string
+      username: string
       password: string
+      iv: string
+      tag: string
       notes: string
       category: string
       createdAt: Date
@@ -2607,7 +2643,10 @@ export namespace Prisma {
     readonly id: FieldRef<"credentials", 'String'>
     readonly url: FieldRef<"credentials", 'String'>
     readonly originUrl: FieldRef<"credentials", 'String'>
+    readonly username: FieldRef<"credentials", 'String'>
     readonly password: FieldRef<"credentials", 'String'>
+    readonly iv: FieldRef<"credentials", 'String'>
+    readonly tag: FieldRef<"credentials", 'String'>
     readonly notes: FieldRef<"credentials", 'String'>
     readonly category: FieldRef<"credentials", 'String'>
     readonly createdAt: FieldRef<"credentials", 'DateTime'>
@@ -3002,7 +3041,10 @@ export namespace Prisma {
     id: 'id',
     url: 'url',
     originUrl: 'originUrl',
+    username: 'username',
     password: 'password',
+    iv: 'iv',
+    tag: 'tag',
     notes: 'notes',
     category: 'category',
     createdAt: 'createdAt',
@@ -3108,7 +3150,10 @@ export namespace Prisma {
     id?: StringFilter<"credentials"> | string
     url?: StringFilter<"credentials"> | string
     originUrl?: StringFilter<"credentials"> | string
+    username?: StringFilter<"credentials"> | string
     password?: StringFilter<"credentials"> | string
+    iv?: StringFilter<"credentials"> | string
+    tag?: StringFilter<"credentials"> | string
     notes?: StringFilter<"credentials"> | string
     category?: StringFilter<"credentials"> | string
     createdAt?: DateTimeFilter<"credentials"> | Date | string
@@ -3119,7 +3164,10 @@ export namespace Prisma {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
+    username?: SortOrder
     password?: SortOrder
+    iv?: SortOrder
+    tag?: SortOrder
     notes?: SortOrder
     category?: SortOrder
     createdAt?: SortOrder
@@ -3133,7 +3181,10 @@ export namespace Prisma {
     NOT?: credentialsWhereInput | credentialsWhereInput[]
     url?: StringFilter<"credentials"> | string
     originUrl?: StringFilter<"credentials"> | string
+    username?: StringFilter<"credentials"> | string
     password?: StringFilter<"credentials"> | string
+    iv?: StringFilter<"credentials"> | string
+    tag?: StringFilter<"credentials"> | string
     notes?: StringFilter<"credentials"> | string
     category?: StringFilter<"credentials"> | string
     createdAt?: DateTimeFilter<"credentials"> | Date | string
@@ -3144,7 +3195,10 @@ export namespace Prisma {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
+    username?: SortOrder
     password?: SortOrder
+    iv?: SortOrder
+    tag?: SortOrder
     notes?: SortOrder
     category?: SortOrder
     createdAt?: SortOrder
@@ -3161,7 +3215,10 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"credentials"> | string
     url?: StringWithAggregatesFilter<"credentials"> | string
     originUrl?: StringWithAggregatesFilter<"credentials"> | string
+    username?: StringWithAggregatesFilter<"credentials"> | string
     password?: StringWithAggregatesFilter<"credentials"> | string
+    iv?: StringWithAggregatesFilter<"credentials"> | string
+    tag?: StringWithAggregatesFilter<"credentials"> | string
     notes?: StringWithAggregatesFilter<"credentials"> | string
     category?: StringWithAggregatesFilter<"credentials"> | string
     createdAt?: DateTimeWithAggregatesFilter<"credentials"> | Date | string
@@ -3228,7 +3285,10 @@ export namespace Prisma {
     id?: string
     url?: string
     originUrl?: string
+    username?: string
     password?: string
+    iv?: string
+    tag?: string
     notes?: string
     category?: string
     createdAt?: Date | string
@@ -3239,7 +3299,10 @@ export namespace Prisma {
     id?: string
     url?: string
     originUrl?: string
+    username?: string
     password?: string
+    iv?: string
+    tag?: string
     notes?: string
     category?: string
     createdAt?: Date | string
@@ -3250,7 +3313,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    iv?: StringFieldUpdateOperationsInput | string
+    tag?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3261,7 +3327,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    iv?: StringFieldUpdateOperationsInput | string
+    tag?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3272,7 +3341,10 @@ export namespace Prisma {
     id?: string
     url?: string
     originUrl?: string
+    username?: string
     password?: string
+    iv?: string
+    tag?: string
     notes?: string
     category?: string
     createdAt?: Date | string
@@ -3283,7 +3355,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    iv?: StringFieldUpdateOperationsInput | string
+    tag?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3294,7 +3369,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     url?: StringFieldUpdateOperationsInput | string
     originUrl?: StringFieldUpdateOperationsInput | string
+    username?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
+    iv?: StringFieldUpdateOperationsInput | string
+    tag?: StringFieldUpdateOperationsInput | string
     notes?: StringFieldUpdateOperationsInput | string
     category?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -3385,7 +3463,10 @@ export namespace Prisma {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
+    username?: SortOrder
     password?: SortOrder
+    iv?: SortOrder
+    tag?: SortOrder
     notes?: SortOrder
     category?: SortOrder
     createdAt?: SortOrder
@@ -3396,7 +3477,10 @@ export namespace Prisma {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
+    username?: SortOrder
     password?: SortOrder
+    iv?: SortOrder
+    tag?: SortOrder
     notes?: SortOrder
     category?: SortOrder
     createdAt?: SortOrder
@@ -3407,7 +3491,10 @@ export namespace Prisma {
     id?: SortOrder
     url?: SortOrder
     originUrl?: SortOrder
+    username?: SortOrder
     password?: SortOrder
+    iv?: SortOrder
+    tag?: SortOrder
     notes?: SortOrder
     category?: SortOrder
     createdAt?: SortOrder

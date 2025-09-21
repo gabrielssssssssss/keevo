@@ -14,7 +14,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model authentification {
   id  String @id @default(uuid())
   password String @default("")
@@ -27,7 +26,10 @@ model credentials {
   id  String @id @default(uuid())
   url String @default("")
   originUrl String @default("")
+  username String @default("")
   password String @default("")
+  iv String @default("")
+  tag String @default("")
   notes String @default("")
   category String @default("")
   createdAt DateTime @default(now())

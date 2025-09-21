@@ -1,12 +1,12 @@
 declare global {
-  var sessionValue: string | undefined
+  var sessionValue: Buffer<ArrayBuffer> | undefined;
 }
 
 if (!global.sessionValue) {
-  global.sessionValue = "default"
+  global.sessionValue = Buffer.from("", "utf-8");
 }
 
-export const getSession = (): string => global.sessionValue!
-export const setSession = (value: string): void => {
-  global.sessionValue = value
+export const getSession = (): Buffer<ArrayBuffer> => global.sessionValue!
+export const setSession = (value: Buffer<ArrayBuffer>): void => {
+  global.sessionValue = value;
 }

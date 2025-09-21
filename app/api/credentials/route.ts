@@ -11,6 +11,8 @@ export async function POST(req: NextRequest) {
             url: body["url"],
             originUrl: body["originUrl"],
             password: body["password"],
+            iv: "",
+            tag: "",
             notes: body["notes"],
             category: body["category"]
         }
@@ -19,8 +21,7 @@ export async function POST(req: NextRequest) {
             return NextResponse.json({"success": true, "msg": "credentials added with successfully!"})
         }
         return NextResponse.json({"success": false, "error": "bad request"})
-    } catch (e) {
-        console.log(e);
+    } catch {
         return NextResponse.json({"success": false, "error": "bad request"})
     }
 }

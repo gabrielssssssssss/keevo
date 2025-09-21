@@ -21,6 +21,8 @@ export async function addCredentials(entry: credentialEntry) {
                 password: entry.password,
                 notes: entry.notes,
                 category: entry.category,
+                iv: entry.iv,
+                tag: entry.tag,
             }
         }));
     } catch {

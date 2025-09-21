@@ -7,7 +7,9 @@ export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
         const encryptPassword = body["encryptPassword"];
-        const response = await decryptPassword(encryptPassword);
+        const iv = body["iv"];
+        const tag = body["tag"];
+        const response = await decryptPassword(encryptPassword, iv, tag);
         return NextResponse.json({"success": true, "password": response});
     } catch {
         return NextResponse.json({"success": false, "error": "bad request"});

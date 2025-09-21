@@ -101,7 +101,10 @@ exports.Prisma.CredentialsScalarFieldEnum = {
   id: 'id',
   url: 'url',
   originUrl: 'originUrl',
+  username: 'username',
   password: 'password',
+  iv: 'iv',
+  tag: 'tag',
   notes: 'notes',
   category: 'category',
   createdAt: 'createdAt',
@@ -157,7 +160,6 @@ const config = {
     "db"
   ],
   "activeProvider": "sqlite",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
@@ -166,13 +168,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../app/database/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel authentification {\n  id         String   @id @default(uuid())\n  password   String   @default(\"\")\n  passPhrase String   @default(\"\")\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @default(now())\n}\n\nmodel credentials {\n  id        String   @id @default(uuid())\n  url       String   @default(\"\")\n  originUrl String   @default(\"\")\n  password  String   @default(\"\")\n  notes     String   @default(\"\")\n  category  String   @default(\"\")\n  createdAt DateTime @default(now())\n  updatedAt DateTime @default(now())\n}\n",
-  "inlineSchemaHash": "59a0ad26d205af5a4e9dff0b782455211cdfb23ee704ef5b452afa1326e85ee0",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../app/database/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel authentification {\n  id         String   @id @default(uuid())\n  password   String   @default(\"\")\n  passPhrase String   @default(\"\")\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @default(now())\n}\n\nmodel credentials {\n  id        String   @id @default(uuid())\n  url       String   @default(\"\")\n  originUrl String   @default(\"\")\n  username  String   @default(\"\")\n  password  String   @default(\"\")\n  iv        String   @default(\"\")\n  tag       String   @default(\"\")\n  notes     String   @default(\"\")\n  category  String   @default(\"\")\n  createdAt DateTime @default(now())\n  updatedAt DateTime @default(now())\n}\n",
+  "inlineSchemaHash": "a013a12bdb35bf18c4ea72690074ec96ed3ad2be9826fc4551820a0f8edc6323",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"authentification\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"passPhrase\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"credentials\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"originUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"notes\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"category\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"authentification\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"passPhrase\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"credentials\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"originUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"username\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"iv\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"tag\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"notes\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"category\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),
