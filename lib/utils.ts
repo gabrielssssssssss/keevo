@@ -1,4 +1,6 @@
-export function SyntaxVerify(password: string) {
+import { NextRequest } from "next/server";
+
+export function syntaxVerify(password: string) {
     let lower, upper, digits, special = false;
 
     function IsLower(char: string) {
@@ -35,7 +37,7 @@ export function SyntaxVerify(password: string) {
     return false;
 }
 
-export async function StoledVerify(password: string) {
+export async function stoledVerify(password: string) {
     try {
         const response = await fetch("/api/disclosed", {
             method: "POST",
@@ -52,4 +54,11 @@ export async function StoledVerify(password: string) {
     } catch {
         return false;
     }
+}
+
+export async function getCookiesValue(req: NextRequest, name: string) {
+    req.cookies.get(name);
+    const jwtSession = req.cookies.get(name)?.value;
+    const token = jwtSession || "";
+    return token;
 }

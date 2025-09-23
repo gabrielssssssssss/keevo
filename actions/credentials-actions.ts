@@ -7,8 +7,8 @@ export async function getAllCredentials() {
     try {
         const response = await prisma.credentials.findMany();
         return response;
-    } catch {
-        return null;
+    } catch (e) {
+        return (e as Error).message;
     }
 }
 
@@ -27,7 +27,26 @@ export async function addCredentials(entry: credentialEntry) {
             }
         }));
     } catch (e) {
-        console.log(e)
-        return null
+        return (e as Error).message;
+    }
+}
+
+export async function getCredentials(id: string) {
+    try {
+        return await prisma.credentials.findMany({where: {
+            id: id
+        }})
+    } catch (e) {
+        return (e as Error).message;
+    }
+}
+
+export async function deleteCredentials(id: string) {
+    try {
+        return Boolean(await prisma.credentials.delete({where: {
+            id: id
+        }}))
+    } catch (e) {
+        return (e as Error).message;
     }
 }

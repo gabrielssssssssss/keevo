@@ -2,9 +2,13 @@
 
 import { NextResponse, NextRequest } from "next/server";
 import { decryptPassword } from "@/lib/services/auth-services";
+import { getSession } from "@/lib/handler/session-handler";
 
 export async function POST(req: NextRequest) {
     try {
+        if (getSession.toString() == "") {
+            return NextResponse.json({"succes": false, "error": "token not valid"}, {status: 401});
+        }
         const body = await req.json();
         const encryptPassword = body["encryptPassword"];
         const iv = body["iv"];

@@ -1,5 +1,5 @@
 import * as jose from "jose";
-import { getSession } from "./session-handler";
+import { getSession } from "@/lib/handler/session-handler";
 
 //Route: /api/session/new/route.ts
 export async function EncryptJwt() {
