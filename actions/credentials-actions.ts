@@ -3,6 +3,7 @@
 import { prisma } from "@/prisma/db";
 import { credentialEntry } from "@/lib/schema/credentials-schema";
 
+//Prisma: findMany() => Get all credentials fields.
 export async function getAllCredentials() {
     try {
         const response = await prisma.credentials.findMany();
@@ -12,6 +13,7 @@ export async function getAllCredentials() {
     }
 }
 
+//Prisma: create() => Create new fields.
 export async function addCredentials(entry: credentialEntry) {
     try {
         return Boolean(await prisma.credentials.create({
@@ -31,6 +33,7 @@ export async function addCredentials(entry: credentialEntry) {
     }
 }
 
+//Prisma: findMany() => Get credentials fields by id.
 export async function getCredentials(id: string) {
     try {
         return await prisma.credentials.findMany({where: {
@@ -41,6 +44,7 @@ export async function getCredentials(id: string) {
     }
 }
 
+//Prisma: delete() => Delete credentials fields by id.
 export async function deleteCredentials(id: string) {
     try {
         return Boolean(await prisma.credentials.delete({where: {
