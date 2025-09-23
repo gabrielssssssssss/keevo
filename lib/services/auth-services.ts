@@ -7,7 +7,7 @@ import { getSession, setSession } from "@/lib/handler/session-handler";
 //Route: /api/auth/encryptPassword/route.ts
 export async function encryptPassword(password: string) {
   const key = Buffer.concat([Buffer.from(getSession().toString()), Buffer.alloc(32)], 32)
-  const iv = crypto.randomBytes(12) // 12 bytes recommandé pour GCM
+  const iv = crypto.randomBytes(12);
   const cipher = crypto.createCipheriv("aes-256-gcm", key, iv)
   const encrypted = Buffer.concat([cipher.update(password, "utf8"), cipher.final()])
   const tag = cipher.getAuthTag()

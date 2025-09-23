@@ -4,6 +4,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { newFields } from "@/lib/services/credentials-services";
 import { credentialEntry } from "@/lib/schema/credentials-schema";
 
+//Method: POST => Add new fields in credentials.
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();

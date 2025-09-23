@@ -4,6 +4,7 @@ import { NextResponse, NextRequest } from "next/server";
 import { decryptPassword } from "@/lib/services/auth-services";
 import { getSession } from "@/lib/handler/session-handler";
 
+//Method: POST => Decrypt password in aes-256-gcm.
 export async function POST(req: NextRequest) {
     try {
         if (getSession.toString() == "") {

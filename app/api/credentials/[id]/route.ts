@@ -3,6 +3,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getCredentials, getAllCredentials, deleteCredentials } from "@/actions/credentials-actions";
 
+//Method: GET => Get(s) credentials fields.
 export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }>} ) {
     try {
         const id = (await params).id;
@@ -17,6 +18,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     }
 }
 
+//Method: DELETE => Delete credentials fields.
 export async function DELETE(req: NextRequest,  { params }: { params: Promise<{ id: string }>} ) {
     try {
         const id = (await params).id;
@@ -27,6 +29,7 @@ export async function DELETE(req: NextRequest,  { params }: { params: Promise<{ 
     }
 }
 
+//Method: PUT => Update credentials fields.
 export async function PUT(req: NextRequest,  { params }: { params: Promise<{ id: string }>} ) {
     try {
         const id = (await params).id;

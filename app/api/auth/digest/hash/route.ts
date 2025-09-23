@@ -3,6 +3,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { hashPassword } from "@/lib/services/auth-services";
 
+//Method: POST => Create hashed password with context.
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();

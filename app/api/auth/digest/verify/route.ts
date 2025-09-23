@@ -3,6 +3,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { verifyPassword } from "@/lib/services/auth-services";
 
+//Method: POST => Verify authenticity of hashed password.
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
