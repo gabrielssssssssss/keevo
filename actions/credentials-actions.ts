@@ -54,3 +54,24 @@ export async function deleteCredentials(id: string) {
         return (e as Error).message;
     }
 }
+export async function updateCredentials(id: string, entry: credentialEntry) {
+    try {
+        return Boolean(await prisma.credentials.update({
+            where: {
+                id: id
+            },
+            data: {
+                url: entry.url,
+                originUrl: entry.originUrl,
+                login: entry.login,
+                password: entry.password,
+                iv: entry.iv,
+                tag: entry.tag,
+                notes: entry.notes,
+                category: entry.category
+            }
+        }));
+    } catch (e) {
+        return (e as Error).message;
+    }
+}
