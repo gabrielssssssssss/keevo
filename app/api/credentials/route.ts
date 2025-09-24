@@ -20,10 +20,10 @@ export async function POST(req: NextRequest) {
         }
         const response = await newFields(newEntry);
         if (Boolean(response)) {
-            return NextResponse.json({"success": true});
+            return NextResponse.json( { success: true } );
         }
-        return NextResponse.json({"success": false, "error": "unknown"});
+        return NextResponse.json( { success: false, error: "unknown" } );
     } catch (e) {
-        return NextResponse.json({"success": false, "error": (e as Error).message}, {status: 400});
+        return NextResponse.json( { success: false, error: (e as Error).message }, {status: 400} );
     }
 }

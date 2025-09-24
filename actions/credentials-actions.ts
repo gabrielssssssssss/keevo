@@ -54,6 +54,8 @@ export async function deleteCredentials(id: string) {
         return (e as Error).message;
     }
 }
+
+//Prisma: update() => Update credentials fields by id, interface.
 export async function updateCredentials(id: string, entry: credentialEntry) {
     try {
         return Boolean(await prisma.credentials.update({

@@ -8,15 +8,15 @@ import { getSession } from "@/lib/handler/session-handler";
 export async function POST(req: NextRequest) {
     try {
         if (getSession.toString() == "") {
-            return NextResponse.json({"succes": false, "error": "token not valid"}, {status: 401});
+            return NextResponse.json( { success: false, error: "token not valid" }, { status: 401 });
         }
         const body = await req.json();
         const encryptPassword = body["encryptPassword"];
         const iv = body["iv"];
         const tag = body["tag"];
         const response = await decryptPassword(encryptPassword, iv, tag);
-        return NextResponse.json({"success": true, "password": response});
+        return NextResponse.json( {success: true, password: response } );
     } catch (e) {
-        return NextResponse.json({"success": false, "error": (e as Error).message}, {status: 400})
+        return NextResponse.json( {success: false, error: (e as Error).message }, { status: 400 } )
     }
 }
