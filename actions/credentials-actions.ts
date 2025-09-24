@@ -10,7 +10,7 @@ export async function getAllCredentials() {
         return response;
     } catch (e) {
         return (e as Error).message;
-    }
+    };
 }
 
 //Prisma: create() => Create new fields.
@@ -30,18 +30,14 @@ export async function addCredentials(entry: credentialEntry) {
         }));
     } catch (e) {
         return (e as Error).message;
-    }
+    };
 }
 
 //Prisma: findMany() => Get credentials fields by id.
 export async function getCredentials(id: string) {
-    try {
-        return await prisma.credentials.findMany({where: {
-            id: id
-        }})
-    } catch (e) {
-        return (e as Error).message;
-    }
+    return await prisma.credentials.findMany({where: {
+        id: id
+    }})
 }
 
 //Prisma: delete() => Delete credentials fields by id.
@@ -52,7 +48,7 @@ export async function deleteCredentials(id: string) {
         }}))
     } catch (e) {
         return (e as Error).message;
-    }
+    };
 }
 
 //Prisma: update() => Update credentials fields by id, interface.
@@ -75,5 +71,5 @@ export async function updateCredentials(id: string, entry: credentialEntry) {
         }));
     } catch (e) {
         return (e as Error).message;
-    }
+    };
 }

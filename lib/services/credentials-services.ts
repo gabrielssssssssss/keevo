@@ -4,9 +4,13 @@ import { encryptPassword } from "./auth-services";
 
 //Route: /api/credentials/route.ts
 export async function newFields(entry: credentialEntry) {
-    const encrypt = await encryptPassword(entry.password);
-    entry.password = encrypt.encrypted;
-    entry.iv = encrypt.iv;
-    entry.tag = encrypt.tag;
-    return await addCredentials(entry);
+    try {
+        const encrypt = await encryptPassword(entry.password);
+        entry.password = encrypt.encrypted;
+        entry.iv = encrypt.iv;
+        entry.tag = encrypt.tag;
+        return await addCredentials(entry);
+    }  catch (e) {
+        return (e as Error).message;
+    };
 }

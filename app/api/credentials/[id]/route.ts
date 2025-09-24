@@ -2,7 +2,7 @@
 
 import { NextRequest, NextResponse } from "next/server";
 import { getCredentials, getAllCredentials, deleteCredentials, updateCredentials } from "@/actions/credentials-actions";
-import { credentialEntry, credentialInterface } from "@/lib/schema/credentials-schema";
+import { credentialEntry } from "@/lib/schema/credentials-schema";
 import { encryptPassword } from "@/lib/services/auth-services";
 
 //Method: GET => Get(s) credentials fields.
@@ -36,8 +36,8 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
     try {
         const { id } = await params;
         const data = await req.json();
-        const credentialsData = (await getCredentials(id)) as credentialInterface[];
-        const payload = credentialsData[0] ?? {};
+        const credentialsData = await getCredentials(id)
+        const payload = credentialsData[0];
 
         const {
             url = payload.url,

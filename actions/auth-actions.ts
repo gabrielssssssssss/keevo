@@ -7,16 +7,20 @@ export async function getFirstField() {
     try {
         const response = await prisma.authentification.findFirst();
         return response;
-    } catch {
-        return null;
-    }
+    } catch (e) {
+        return (e as Error).message;
+    };
 }
 
 //Prisma: create() => Create new fields.
 export async function addPassword(password: string) {
-    return Boolean(await prisma.authentification.create({
-        data: {
-            password: password,
-        },
-    }));
+    try {
+        return Boolean(await prisma.authentification.create({
+            data: {
+                password: password,
+            },
+        }));
+    } catch (e) {
+        return (e as Error).message;
+    };
 }
