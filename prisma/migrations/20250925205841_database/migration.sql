@@ -1,0 +1,6 @@
+-- CreateTable
+CREATE TABLE "seedPhrase" (
+    "id" TEXT NOT NULL PRIMARY KEY,
+    "seedHash" TEXT NOT NULL DEFAULT '',
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

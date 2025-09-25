@@ -21,6 +21,12 @@ model authentification {
   updatedAt DateTime @default(now())
 }
 
+model seedPhrase {
+  id  String @id @default(uuid())
+  seedHash String @default("")
+  createdAt DateTime @default(now())
+}
+
 model credentials {
   id  String @id @default(uuid())
   url String @default("")

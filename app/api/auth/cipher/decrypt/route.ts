@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
     try {
         if (getSession.toString() == "") {
             return NextResponse.json( { success: false, error: "token not valid" }, { status: 401 });
-        }
+        };
         const body = await req.json();
         const encryptPassword = body["encryptPassword"];
         const iv = body["iv"];
@@ -17,6 +17,6 @@ export async function POST(req: NextRequest) {
         const response = await decryptPassword(encryptPassword, iv, tag);
         return NextResponse.json( {success: true, password: response } );
     } catch (e) {
-        return NextResponse.json( {success: false, error: (e as Error).message }, { status: 400 } )
+        return NextResponse.json( {success: false, error: (e as Error).message }, { status: 400 } );
     }
 }

@@ -124,6 +124,12 @@ exports.Prisma.AuthentificationScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
+exports.Prisma.SeedPhraseScalarFieldEnum = {
+  id: 'id',
+  seedHash: 'seedHash',
+  createdAt: 'createdAt'
+};
+
 exports.Prisma.CredentialsScalarFieldEnum = {
   id: 'id',
   url: 'url',
@@ -146,6 +152,7 @@ exports.Prisma.SortOrder = {
 
 exports.Prisma.ModelName = {
   authentification: 'authentification',
+  seedPhrase: 'seedPhrase',
   credentials: 'credentials'
 };
 

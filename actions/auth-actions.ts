@@ -10,7 +10,7 @@ export async function getFirstField() {
     } catch (e) {
         return (e as Error).message;
     };
-}
+};
 
 //Prisma: create() => Create new fields.
 export async function addPassword(password: string) {
@@ -23,4 +23,4 @@ export async function addPassword(password: string) {
     } catch (e) {
         return (e as Error).message;
     };
-}
+};

@@ -31,11 +31,11 @@ export async function decryptPassword(encrypted: string, ivHex: string, tagHex: 
 }
 
 //Route: /api/auth/hashPassword/route.ts
-export async function hashPassword(password: string, context: string) {
+export async function hashValue(value: string, context: string) {
 	if (context == "session") {
 		const salt = crypto.createHash("sha256").update("salty").digest().slice(0, 16);
-		const hashedPassword = Buffer.from(
-			await hash(password, {
+		const hashedValue = Buffer.from(
+			await hash(value, {
 				salt,
 				type: argon2id,
 				timeCost: 4,
@@ -43,15 +43,15 @@ export async function hashPassword(password: string, context: string) {
 				raw: true
 			})
 		);
-		setSession(hashedPassword);
-		return hashedPassword;
+		setSession(hashedValue);
+		return hashedValue;
 	}
-	const hashedPassword = await hash(password, { type: argon2id });
-	return hashedPassword;
+	const hashedValue = await hash(value, { type: argon2id });
+	return hashedValue;
 }
 
 //Route: /api/auth/verifyPassword/route.ts
-export async function verifyPassword(hashedPassword: string, password: string) {
-	const comparator = await verify(hashedPassword, password);
+export async function verifyValue(hashedValue: string, value: string) {
+	const comparator = await verify(hashedValue, value);
 	return comparator;
 }
