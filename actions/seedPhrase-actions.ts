@@ -1,6 +1,7 @@
 "use server";
 
 import { prisma } from "@/prisma/db";
+import { Prisma } from "@prisma/client";
 
 //Prisma: findFirst() => Get seedPhrase fields.
 export async function getFirstField() {
@@ -15,16 +16,16 @@ export async function getFirstField() {
 //Prisma: findMany() => Get all seed phrase.
 export async function getAllFields() {
     try {
-        const response = await prisma.seedPhrase.findMany({
-        select: {
-            seedHash: true,
-        },
-        });
-        return response;
+        return await prisma.seedPhrase.findMany({
+            select: {
+                seedHash: true,
+            },
+        })
     } catch (e) {
-        return (e as Error).message;
-    };
-};
+        throw new Error((e as Error).message)
+    }
+}
+
 
 //Prisma: create() => Add new fields in seedPhrase
 export async function addSeedHash(seedHash: string) {

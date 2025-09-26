@@ -1,19 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getAllFields } from "@/actions/seedPhrase-actions";
 import { verifyHashEachWords } from "@/lib/handler/seedphrase-handler";
+import { hashValue } from "@/lib/services/auth-services";
+import { updatePassword } from "@/actions/auth-actions";
+
 export async function POST(req: NextRequest) {
     try {
-        const body = await req.json();
-        const passPhrase = body["passPhrase"];
-        const newPassword = body["newPassword"];
-        const passPhraseHash = await getAllFields();
+        const { passPhrase, newPassword } = await req.json();
+        const passPhraseHashArray = (await getAllFields()).map(e => e.seedHash);
 
-        // const secret = await verifyHashEachWords(passPhrase, payload)
-        console.log(passPhrase);
-        console.log(passPhraseHash);
-        return NextResponse.json( { success: true } )
+        const isValid = await verifyHashEachWords(passPhrase, passPhraseHashArray);
+        if (!isValid) return NextResponse.json({ success: false });
 
+        const hashedPassword = await hashValue(newPassword, "");
+        if (!hashedPassword) return NextResponse.json({ success: false });
+
+        const updated = await updatePassword(hashedPassword.toString());
+        if (!updated) return NextResponse.json({ success: false });
+
+        return NextResponse.json({ success: true });
     } catch (e) {
-        return NextResponse.json( { success: false, error: (e as Error).message } )
+        return NextResponse.json({ success: false, error: (e as Error).message });
     }
 }
