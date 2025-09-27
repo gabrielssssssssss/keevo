@@ -10,3 +10,4 @@ export const getSession = (): Buffer<ArrayBuffer> => global.sessionValue!
 export const setSession = (value: Buffer<ArrayBuffer>): void => {
   global.sessionValue = value;
 }
+

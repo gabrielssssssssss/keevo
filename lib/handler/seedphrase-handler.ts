@@ -13,11 +13,10 @@ export async function hashEachWords(seedPhrase: string[]) {
 
 export async function addNewPassPhrase(hashSeedPhrase: string[]) {
     for (const [index, element] of hashSeedPhrase.entries()) {
-        console.log(index, element)
-        const response = await addSeedHash(element)
-        if (!response) return false
-    }
-    return true
+        const response = await addSeedHash(element);
+        if (!response) return false;
+    };
+    return true;
 }
 
 
@@ -25,6 +24,6 @@ export async function verifyHashEachWords(seedPhrase: string[], hashSeedPhrase: 
     for (let i = 0; i < seedPhrase.length; i++) {
         const response = await verifyValue(hashSeedPhrase[i], seedPhrase[i]);
         if (!response) return false;
-    }
+    };
     return true;
 };

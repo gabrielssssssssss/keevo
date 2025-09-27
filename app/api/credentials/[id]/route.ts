@@ -63,7 +63,6 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
 
         const updatedData: credentialEntry = { url, originUrl, login, notes, category, password, iv, tag };
         const success = await updateCredentials(id, updatedData);
-
         return NextResponse.json({ success });
     } catch (e) {
         return NextResponse.json( { success: false, error: (e as Error).message }, {status: 400} );

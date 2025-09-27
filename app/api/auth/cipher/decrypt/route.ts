@@ -10,10 +10,7 @@ export async function POST(req: NextRequest) {
         if (getSession.toString() == "") {
             return NextResponse.json( { success: false, error: "token not valid" }, { status: 401 });
         };
-        const body = await req.json();
-        const encryptPassword = body["encryptPassword"];
-        const iv = body["iv"];
-        const tag = body["tag"];
+        const { encryptPassword, iv, tag } = await req.json()
         const response = await decryptPassword(encryptPassword, iv, tag);
         return NextResponse.json( {success: true, password: response } );
     } catch (e) {

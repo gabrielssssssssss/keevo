@@ -27,7 +27,6 @@ export async function addPassword(password: string) {
 
 export async function updatePassword(newPassword: string) {
     const getAuth = await getFirstField();
-    console.log(getAuth?.id);
     return Boolean(await prisma.authentification.update({
         where: {
             id: getAuth?.id

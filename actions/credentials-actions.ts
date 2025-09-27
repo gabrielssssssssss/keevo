@@ -5,12 +5,7 @@ import { credentialEntry } from "@/lib/schema/credentials-schema";
 
 //Prisma: findMany() => Get all credentials fields.
 export async function getAllCredentials() {
-    try {
-        const response = await prisma.credentials.findMany();
-        return response;
-    } catch (e) {
-        return (e as Error).message;
-    };
+    return await prisma.credentials.findMany();
 }
 
 //Prisma: create() => Create new fields.
@@ -73,3 +68,16 @@ export async function updateCredentials(id: string, entry: credentialEntry) {
         return (e as Error).message;
     };
 }
+
+export async function updateCredentialsPassword(id: string, password: string, iv: string, tag: string) {
+    return Boolean(await prisma.credentials.update({
+        where: {
+            id: id,
+        },
+        data: {
+            password: password,
+            iv: iv,
+            tag: tag
+        }
+    }))
+} 

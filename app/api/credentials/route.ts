@@ -7,16 +7,16 @@ import { credentialEntry } from "@/lib/schema/credentials-schema";
 //Method: POST => Add new fields in credentials.
 export async function POST(req: NextRequest) {
     try {
-        const body = await req.json();
+        const { url, originUrl, login, password, notes, category } = await req.json();
         const newEntry: credentialEntry = {
-            url: body["url"],
-            originUrl: body["originUrl"],
-            login: body["login"],
-            password: body["password"],
+            url: url,
+            originUrl: originUrl,
+            login: login,
+            password: password,
             iv: "",
             tag: "",
-            notes: body["notes"],
-            category: body["category"]
+            notes: notes,
+            category: category
         }
         const response = await newFields(newEntry);
         if (Boolean(response)) {

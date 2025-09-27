@@ -11,12 +11,14 @@
     "electron": "concurrently \"npm run dev\" \"electron .\""
   },
   "dependencies": {
+    "@primno/dpapi": "^2.0.1",
     "@prisma/client": "^6.16.2",
     "@types/cookie": "^0.6.0",
     "argon2": "^0.44.0",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
     "cookie": "^1.0.2",
+    "hkdf": "^0.0.2",
     "hwid": "^0.5.0",
     "jose": "^6.1.0",
     "jsonwebtoken": "^9.0.2",

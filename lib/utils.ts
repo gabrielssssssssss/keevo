@@ -3,31 +3,31 @@ import { NextRequest } from "next/server";
 export function syntaxVerify(password: string) {
     let lower, upper, digits, special = false;
 
-    function IsLower(char: string) {
+    function isLower(char: string) {
         return Boolean(char === char.toLowerCase() && char !== char.toUpperCase());
     }
-    function IsUpper(char: string) {
+    function isUpper(char: string) {
         return Boolean(char === char.toUpperCase() && char !== char.toLowerCase());
     }
-    function IsSpecial(char: string) {
+    function isSpecial(char: string) {
         return ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '=', '+', '[', ']', '{', '}', '\\', '|', ';', ':', '\'', '"', ',', '<', '.', '>', '/', '?', '`', '~'].includes(char);
     }
-    function IsDigits(char: string) {
+    function isDigits(char: string) {
         return [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].includes(Number(char));
     }
 
     for (const element of password) {
         if (!lower) {
-            lower = IsLower(element);
+            lower = isLower(element);
         }
         if (!upper) {
-            upper = IsUpper(element);
+            upper = isUpper(element);
         }
         if (!digits) {
-            digits = IsDigits(element);
+            digits = isDigits(element);
         }
         if (!special) {
-            special = IsSpecial(element);
+            special = isSpecial(element);
         }
     }
 
@@ -54,11 +54,4 @@ export async function stoledVerify(password: string) {
     } catch {
         return false;
     }
-}
-
-export async function getCookiesValue(req: NextRequest, name: string) {
-    req.cookies.get(name);
-    const jwtSession = req.cookies.get(name)?.value;
-    const token = jwtSession || "";
-    return token;
 }
