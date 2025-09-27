@@ -6,9 +6,7 @@ import { hashValue } from "@/lib/services/auth-services";
 //Method: POST => Create hashed password with context.
 export async function POST(req: NextRequest) {
     try {
-        const body = await req.json();
-        const password = body["password"];
-        const context = body["context"];
+        const { password, context } = await req.json();
         const response = await hashValue(password, context);
         return NextResponse.json( { success: true, "hashedPassword": response } );
     } catch (e) {

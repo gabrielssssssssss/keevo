@@ -3,6 +3,10 @@
 import crypto from "crypto";
 import { hash, argon2id, verify } from "argon2";
 import { getSession, setSession } from "@/lib/handler/session-handler";
+import { getAllFields } from "@/actions/seedPhrase-actions";
+import { verifyHashEachWords } from "@/lib/handler/seedphrase-handler";
+import { updatePassword } from "@/actions/auth-actions";
+import { getAllCredentials, updateCredentialsPassword } from "@/actions/credentials-actions";
 
 //Route: /api/auth/encryptPassword/route.ts
 export async function encryptPassword(password: string) {
@@ -54,4 +58,37 @@ export async function hashValue(value: string, context: string) {
 export async function verifyValue(hashedValue: string, value: string) {
 	const comparator = await verify(hashedValue, value);
 	return comparator;
+}
+
+//Route: /api/auth/forgot-password/route.ts
+export async function renewPassword(passPhrase: string[], newPassword: string) {
+	const passPhraseHashArray = (await getAllFields()).map(e => e.seedHash);
+
+	const isValid = await verifyHashEachWords(passPhrase, passPhraseHashArray);
+	if (!isValid) return false;
+	
+	const allCredentials = await getAllCredentials();
+	const dictionary = new Map();
+
+	for (const element of allCredentials) {
+		const id = element.id;
+		const iv = element.iv;
+		const tag = element.tag;
+		const password = element.password;
+		try {
+			const uncrypted = await decryptPassword(password, iv, tag);
+			dictionary.set(id, Buffer.from(uncrypted, "utf-8"));
+		} catch{ continue };
+	}
+
+	const hashedPassword = await hashValue(newPassword, "");
+	if (!hashedPassword) return false;
+	
+	for (const [index, element] of dictionary) {
+		const encryptedPassword = await encryptPassword(element.toString());
+		await updateCredentialsPassword(index, encryptedPassword.encrypted, encryptedPassword.iv, encryptedPassword.tag);
+	}
+
+	const updated = await updatePassword(hashedPassword.toString());
+	return Boolean(updated);
 }
