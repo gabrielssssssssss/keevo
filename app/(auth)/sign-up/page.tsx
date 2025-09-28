@@ -14,20 +14,24 @@ import { stoledVerify } from "@/lib/utils";
 
 export default function SignUp() {
     const [password, setPassword] = useState("");
+    const [repeatPassword, setRepeatPassword] = useState("");
     const [charactersLimit, setCharactersLimit] = useState("cross mark");
     const [hasMixedCase, setHasMixedCase] = useState("cross mark");
     const [numbersLimit, setNumbersLimit] = useState("cross mark");
     const [specialCharactersLimit, setSpecialCharactersLimit] = useState("cross mark");
-    const [submitStatus, setSubmitStatus] = useState(true);
+    const [progress, setProgress] = useState(10);
+
     const [submit, setSubmit] = useState(false);
-    const [progess, setProgress] = useState(10);
-    
+    const [submitStatus, setSubmitStatus] = useState(true);
+    const [passwordState, setPasswordState] = useState(true);
+
     const [showToast, setShowToast] = useState(false);
     const [messageToast, setMessageToast] = useState("");
-    const [toastType, setToastType] = useState<ToastType>("success");
+    const [typeToast, setTypeToast] = useState<ToastType>("success");
+
 
     function handleShowToast(type: ToastType, message: string) {
-        setToastType(type);
+        setTypeToast(type);
         setMessageToast(message);
         setShowToast(true);
     }
@@ -43,11 +47,14 @@ export default function SignUp() {
 
     if (submit) {
         stoledVerify(password).then(response => {
-            if (response) handleShowToast("error", "Password found in a breach. Choose another.");
-            setSubmitStatus(true);
+            setSubmitStatus(response);
+            if (response) handleShowToast("error", "Password found in a breach. Choose another.")
+            else {
+                setProgress(30);
+                setPasswordState(false);
+            }
         });
     }
-
     return (
         <>
         <div className="relative">
@@ -55,15 +62,13 @@ export default function SignUp() {
                 {showToast && (
                 <BasicToast
                     message={messageToast}
-                    type={toastType}
+                    type={typeToast}
                     duration={2000}
                     onClose={() => setShowToast(false)}
                 />
                 )}
             </AnimatePresence>
-
             <BackgroundBeams className="absolute inset-0" />
-
             <div className="relative z-10">
                 <div className="h-screen flex items-center justify-center">
                     <div className="flex flex-col w-full max-w-sm gap-8">
@@ -77,6 +82,7 @@ export default function SignUp() {
                         </div>
                         <div className="flex flex-col w-full max-w-sm gap-5">
                             <Input type="text" maxLength={40} placeholder="Type your unique password ..." onChange={(value) => setPassword(value.target.value)}/>
+                            <Input disabled={passwordState} type="password" maxLength={40} placeholder="Retype your unique password ..." onChange={(value) => setRepeatPassword(value.target.value)}/>
                             <div>
                                 <EmojiProvider data={EmojiIcons}>
                                     <div className="text-sm font-mono flex items-center gap-2">
@@ -93,7 +99,7 @@ export default function SignUp() {
                                     </div>
                                 </EmojiProvider>
                             </div>
-                            <Progress value={progess} />
+                            <Progress value={progress} />
                             <DynamicButton setSubmit={setSubmit} submit={submit} submitStatus={submitStatus}/>
                             <div className="text-xs italic">
                                 WARNING: Do NOT use the same password as your other internet websites, social media or email accounts.

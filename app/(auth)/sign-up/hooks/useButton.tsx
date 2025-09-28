@@ -12,7 +12,7 @@ export default function DynamicButton({ setSubmit, submit, submitStatus }: Dynam
         setSubmit(true)
         setTimeout(() => {
             setSubmit(false)
-        }, 2000)
+        }, 1000)
     }
 
     if (submit) {
