@@ -1,8 +1,21 @@
 "use server";
 
-//Route: /api/(integrations)/disclosed.ts
+import crypto from "crypto";
+
+// Route: /api/(integrations)/disclosed.ts
 export async function leakCheck(password: string) {
-    const response = await fetch(`https://leakcheck.net/api/public?key=49535f49545f5245414c4c595f4150495f4b4559&check=${password}`)
-    const { success } = await response.json();
-    return success;
+    const sha1 = crypto.createHash("sha1").update(password).digest("hex").toUpperCase();
+    const prefix = sha1.slice(0, 5);
+    const suffix = sha1.slice(5);
+
+    const response = await fetch(`https://api.pwnedpasswords.com/range/${prefix}`);
+    const text = await response.text();
+
+    const lines = text.split("\r\n");
+    for (const line of lines) {
+    const [hashSuffix, count] = line.split(":");
+    if (hashSuffix === suffix) { return true; }
+    }
+
+    return false;
 }

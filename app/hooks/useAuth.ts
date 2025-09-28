@@ -10,7 +10,6 @@ export default function useAuth() {
         const callback = async() => {
             const response = await isNewComer();
             if (!response) {
-                console.log(response)
                 //Route: app/(auth)/sign-up/page.tsx
                 router.push("/sign-up");
             } else {
