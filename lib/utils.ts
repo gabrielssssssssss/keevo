@@ -1,6 +1,13 @@
+import { clsx, type ClassValue } from "clsx"
+import { twMerge } from "tailwind-merge"
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
 export function syntaxVerify(password: string) {
     let lower, upper, digits, special = false;
-
+    
     function isLower(char: string) {
         return Boolean(char === char.toLowerCase() && char !== char.toUpperCase());
     }
@@ -20,11 +27,7 @@ export function syntaxVerify(password: string) {
         if (!digits) { digits = isDigits(element); }
         if (!special) { special = isSpecial(element); }
     }
-
-    if (lower == true && upper == true && digits == true && special == true) {
-        return true;
-    }
-    return false;
+    return [lower, upper, digits, special];
 }
 
 export async function stoledVerify(password: string) {

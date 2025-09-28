@@ -1,11 +1,11 @@
 import { app, BrowserWindow } from "electron";
-// const path = require('path')
 
 let screen
 app.on("ready", () => {
   screen = new BrowserWindow({
-    width: 1280,
-    height: 800,
+    width: 1150,
+    height: 700,
+    resizable: false,
     webPreferences: {
       nodeIntegration: false
     }
