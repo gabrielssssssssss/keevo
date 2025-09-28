@@ -45,16 +45,27 @@ export default function SignUp() {
         setSubmitStatus(!(password.length >= 12 && password.length < 40 && lower && upper && digits && special));
     }, [password]);
 
-    if (submit) {
-        stoledVerify(password).then(response => {
-            setSubmitStatus(response);
-            if (response) handleShowToast("error", "Password found in a breach. Choose another.")
-            else {
-                setProgress(30);
+    useEffect(() => {
+        if (submit) {
+            if (repeatPassword != "" && repeatPassword == password) {
+                handleShowToast("success", "Your password has been saved")
+                setProgress(50);
                 setPasswordState(false);
+            } else if (repeatPassword != "" && repeatPassword != password ) {
+                handleShowToast("error", "Passwords do not match")
+            } else {
+                stoledVerify(password).then(response => {
+                    setSubmitStatus(response);
+                    if (response) handleShowToast("error", "Password found in a breach. Choose another.")
+                    else {
+                        setProgress(30);
+                        setPasswordState(false);
+                    }
+                });
             }
-        });
-    }
+        }
+    })
+    
     return (
         <>
         <div className="relative">
