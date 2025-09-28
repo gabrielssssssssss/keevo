@@ -3,12 +3,18 @@ import { syntaxVerify, stoledVerify } from "@/lib/utils";
 import { getFirstField, addPassword } from "@/actions/auth-actions";
 import { getAllCredentials } from "@/actions/credentials-actions";
 
+export async function isNewComer() {
+    const authResponse = await getFirstField();
+    const passwordResponse = await getAllCredentials();
+    if (authResponse == null && passwordResponse.length == 0) { return false }
+    else { return true}; 
+} 
+
 export async function passwordHandler(password: string) {
     const authResponse = await getFirstField();
     const passwordResponse = await getAllCredentials();
     if (authResponse?.password != "" && authResponse != null) {
-        const verifyResponse = await verifyHash(password, authResponse?.password ?? "");
-        return verifyResponse;
+        return await verifyHash(password, authResponse?.password ?? "");
     }
     if (passwordResponse?.length == 0 && authResponse == null) {
         if (password.length >= 12 && password.length < 64) {
@@ -17,10 +23,9 @@ export async function passwordHandler(password: string) {
 
             const hashedPasswordResponse = await newHash(password, "");
             if (!Boolean(hashedPasswordResponse)) return false;
-
             return await addPassword(hashedPasswordResponse);
         }
         return false;
     }
     return false;
-}
+};
