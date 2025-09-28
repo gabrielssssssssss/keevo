@@ -12,7 +12,7 @@ export async function hashEachWords(seedPhrase: string[]) {
 };
 
 export async function addNewPassPhrase(hashSeedPhrase: string[]) {
-    for (const [index, element] of hashSeedPhrase.entries()) {
+    for (const [_, element] of hashSeedPhrase.entries()) {
         const response = await addSeedHash(element);
         if (!response) return false;
     };

@@ -4,8 +4,8 @@ export async function newHash(password: string, context: string) {
             method: "POST",
             body: JSON.stringify({"password": password, "context": context})
         });
-        const dataCreate = await responseCreate.json();
-        return dataCreate["hashedPassword"];
+        const { hashedPassword } = await responseCreate.json();
+        return hashedPassword;
     } catch {
         return false;
     }
@@ -17,8 +17,8 @@ export async function verifyHash(password: string, hashedPassword: string) {
             method: "POST",
             body: JSON.stringify({"password": password, "hashedPassword": hashedPassword})
         });
-        const data = await response.json();
-        return data["isValid"];
+        const { isValid } = await response.json();
+        return isValid;
     } catch {
         return false;
     }

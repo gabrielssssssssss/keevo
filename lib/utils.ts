@@ -1,5 +1,3 @@
-import { NextRequest } from "next/server";
-
 export function syntaxVerify(password: string) {
     let lower, upper, digits, special = false;
 
@@ -17,18 +15,10 @@ export function syntaxVerify(password: string) {
     }
 
     for (const element of password) {
-        if (!lower) {
-            lower = isLower(element);
-        }
-        if (!upper) {
-            upper = isUpper(element);
-        }
-        if (!digits) {
-            digits = isDigits(element);
-        }
-        if (!special) {
-            special = isSpecial(element);
-        }
+        if (!lower) { lower = isLower(element); }
+        if (!upper) { upper = isUpper(element); }
+        if (!digits) { digits = isDigits(element); }
+        if (!special) { special = isSpecial(element); }
     }
 
     if (lower == true && upper == true && digits == true && special == true) {
@@ -49,9 +39,20 @@ export async function stoledVerify(password: string) {
         if (!response.ok) {
             return false;
         }
-        const data = await response.json();
-        return Boolean(data["success"]);
+        const { success } = await response.json();
+        return Boolean(success);
     } catch {
         return false;
     }
+}
+
+export async function jsonToCsv<T extends Record<string, unknown>>(payload: T[]) {
+    let csv = "";
+    const headers = Object.keys(payload[0]);
+    csv += headers.join(",") + "\n";
+    payload.forEach(obj => {
+        const values = headers.map(header => String(obj[header as keyof T] ?? ""));
+        csv += values.join(",") + "\n";
+    });
+    return csv;
 }

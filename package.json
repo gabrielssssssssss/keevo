@@ -11,9 +11,11 @@
     "electron": "concurrently \"npm run dev\" \"electron .\""
   },
   "dependencies": {
+    "@json2csv/plainjs": "^7.0.6",
     "@primno/dpapi": "^2.0.1",
     "@prisma/client": "^6.16.2",
     "@types/cookie": "^0.6.0",
+    "@types/objects-to-csv": "^1.3.3",
     "argon2": "^0.44.0",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
