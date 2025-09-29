@@ -8,11 +8,11 @@ interface DynamicButtonProps {
 }
 
 export default function DynamicButton({ setSubmit, submit, submitStatus }: DynamicButtonProps) {
-    const handleClick = () => {
+    const callback = () => {
         setSubmit(true)
         setTimeout(() => {
             setSubmit(false)
-        }, 1000)
+        }, 500)
     }
 
     if (submit) {
@@ -20,12 +20,7 @@ export default function DynamicButton({ setSubmit, submit, submitStatus }: Dynam
     }
 
     return (
-        <Button
-            className="w-full cursor-pointer"
-            variant="default"
-            disabled={submitStatus}
-            onClick={handleClick}
-        >
+        <Button className="w-full cursor-pointer" variant="default" disabled={submitStatus} onClick={callback}>
             Next
         </Button>
     )

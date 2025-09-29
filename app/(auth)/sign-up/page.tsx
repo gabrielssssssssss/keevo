@@ -7,78 +7,64 @@ import { EmojiProvider, Emoji } from 'react-apple-emojis';
 import EmojiIcons from 'react-apple-emojis/src/data.json';
 import { syntaxVerify } from "@/lib/utils";
 import { BackgroundBeams } from "@/components/ui/shadcn-io/background-beams";
-import { AnimatePresence } from "motion/react"
-import BasicToast, { ToastType } from "@/components/smoothui/ui/BasicToast"
+import { ToastType } from "@/components/smoothui/ui/BasicToast"
 import DynamicButton from "./hooks/useButton";
-import { stoledVerify } from "@/lib/utils";
+import useInput from "./hooks/useInput";
+import ToastContainer from "@/app/components/toast";
+import { triggerToast } from "@/app/components/toast"
 
 export default function SignUp() {
     const [password, setPassword] = useState("");
-    const [repeatPassword, setRepeatPassword] = useState("");
-    const [charactersLimit, setCharactersLimit] = useState("cross mark");
-    const [hasMixedCase, setHasMixedCase] = useState("cross mark");
-    const [numbersLimit, setNumbersLimit] = useState("cross mark");
-    const [specialCharactersLimit, setSpecialCharactersLimit] = useState("cross mark");
-    const [progress, setProgress] = useState(10);
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [charRequirement, setCharRequirement] = useState("cross mark");
+    const [caseRequirement, setCaseRequirement] = useState("cross mark");
+    const [numberRequirement, setNumberRequirement] = useState("cross mark");
+    const [specialCharRequirement, setSpecialCharRequirement] = useState("cross mark");
+    const [passwordStrength, setPasswordStrength] = useState(10);
 
-    const [submit, setSubmit] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState(true);
-    const [passwordState, setPasswordState] = useState(true);
+    const [isSubmitTriggered, setIsSubmitTriggered] = useState(false);
+    const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+    const [isConfirmDisabled, setIsConfirmDisabled] = useState(true);
 
-    const [showToast, setShowToast] = useState(false);
-    const [messageToast, setMessageToast] = useState("");
-    const [typeToast, setTypeToast] = useState<ToastType>("success");
-
-
-    function handleShowToast(type: ToastType, message: string) {
-        setTypeToast(type);
-        setMessageToast(message);
-        setShowToast(true);
-    }
+    const [isToastVisible, setIsToastVisible] = useState(false);
+    const [toastMessage, setToastMessage] = useState("");
+    const [toastType, setToastType] = useState<ToastType>("success");
 
     useEffect(() => {
-        const [lower, upper, digits, special] = syntaxVerify(password);
-        setCharactersLimit(password.length >= 12 && password.length < 40 ? "check-mark-button" : "cross mark");
-        setHasMixedCase(lower && upper ? "check-mark-button" : "cross mark");
-        setNumbersLimit(digits ? "check-mark-button" : "cross mark");
-        setSpecialCharactersLimit(special ? "check-mark-button" : "cross mark");
-        setSubmitStatus(!(password.length >= 12 && password.length < 40 && lower && upper && digits && special));
+        const [hasLower, hasUpper, hasDigit, hasSpecial] = syntaxVerify(password);
+        setCharRequirement(password.length >= 12 && password.length < 40 ? "check-mark-button" : "cross mark");
+        setCaseRequirement(hasLower && hasUpper ? "check-mark-button" : "cross mark");
+        setNumberRequirement(hasDigit ? "check-mark-button" : "cross mark");
+        setSpecialCharRequirement(hasSpecial ? "check-mark-button" : "cross mark");
+        setIsSubmitDisabled(!(password.length >= 12 && password.length < 40 && hasLower && hasUpper && hasDigit && hasSpecial));
     }, [password]);
 
-    useEffect(() => {
-        if (submit) {
-            if (repeatPassword != "" && repeatPassword == password) {
-                handleShowToast("success", "Your password has been saved")
-                setProgress(50);
-                setPasswordState(false);
-            } else if (repeatPassword != "" && repeatPassword != password ) {
-                handleShowToast("error", "Passwords do not match")
-            } else {
-                stoledVerify(password).then(response => {
-                    setSubmitStatus(response);
-                    if (response) handleShowToast("error", "Password found in a breach. Choose another.")
-                    else {
-                        setProgress(30);
-                        setPasswordState(false);
-                    }
-                });
-            }
-        }
+    useInput({
+        setProgress: setPasswordStrength,
+        setPasswordState: setIsConfirmDisabled,
+        setSubmitStatus: setIsSubmitDisabled,
+        setIsToastVisible,
+        setToastMessage,
+        setToastType,
+        submit: isSubmitTriggered,
+        password,
+        repeatPassword: confirmPassword,
+        isToastVisible,
+        toastMessage,
+        toastType,
     })
-    
+
     return (
         <>
         <div className="relative">
-            <AnimatePresence>
-                {showToast && (
-                <BasicToast
-                    message={messageToast}
-                    type={typeToast}
-                    duration={2000}
-                    onClose={() => setShowToast(false)}
-                />
-                )}
-            </AnimatePresence>
+            <ToastContainer 
+                setIsToastVisible={setIsToastVisible} 
+                setToastMessage={setToastMessage} 
+                setToastType={setToastType} 
+                isToastVisible={isToastVisible} 
+                toastMessage={toastMessage} 
+                toastType={toastType}>
+            </ToastContainer>
             <BackgroundBeams className="absolute inset-0" />
             <div className="relative z-10">
                 <div className="h-screen flex items-center justify-center">
@@ -88,30 +74,74 @@ export default function SignUp() {
                                 Create your password
                             </div>
                             <div className="flex items-center justify-center text-sm text-center">
-                                You must remeber your password - It can NOT be recovered. Your password protects your password manager, it should be diffrent from your other passwords in case someone gets access to your computer.
+                                You must remember your password - It can NOT be recovered. Your password protects your password manager, it should be different from your other passwords in case someone gets access to your computer.
                             </div>
                         </div>
                         <div className="flex flex-col w-full max-w-sm gap-5">
-                            <Input type="text" maxLength={40} placeholder="Type your unique password ..." onChange={(value) => setPassword(value.target.value)}/>
-                            <Input disabled={passwordState} type="password" maxLength={40} placeholder="Retype your unique password ..." onChange={(value) => setRepeatPassword(value.target.value)}/>
+                            <Input
+                            type="text"
+                            maxLength={40}
+                            placeholder="Type your unique password ..."
+                            onChange={(e) => setPassword(e.target.value)}
+                            onPaste={(e) => {
+                                e.preventDefault()
+                                triggerToast(
+                                "warning",
+                                { isToastVisible, toastMessage, toastType, setToastType, setToastMessage, setIsToastVisible },
+                                "Pasting is not allowed"
+                                )
+                            }}
+                            onCopy={(e) => {
+                                e.preventDefault()
+                                triggerToast(
+                                "warning",
+                                { isToastVisible, toastMessage, toastType, setToastType, setToastMessage,  setIsToastVisible },
+                                "Copy is not allowed"
+                                )
+                            }}
+                            />
+
+                            <Input
+                            type="password"
+                            maxLength={40}
+                            placeholder="Retype your unique password ..."
+                            disabled={isConfirmDisabled}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            onPaste={(e) => {
+                                e.preventDefault()
+                                triggerToast(
+                                "warning",
+                                { isToastVisible, toastMessage, toastType, setToastType, setToastMessage, setIsToastVisible },
+                                "Pasting is not allowed"
+                                )
+                            }}
+                            onCopy={(e) => {
+                                e.preventDefault()
+                                triggerToast(
+                                "warning",
+                                { isToastVisible, toastMessage, toastType, setToastType, setToastMessage, setIsToastVisible },
+                                "Copy is not allowed"
+                                )
+                            }}
+                            />
                             <div>
                                 <EmojiProvider data={EmojiIcons}>
                                     <div className="text-sm font-mono flex items-center gap-2">
-                                        <Emoji name={charactersLimit} width={15} /> Must have minimum 12 characters
+                                        <Emoji name={charRequirement} width={15} /> Must have minimum 12 characters
                                     </div>
                                     <div className="text-sm font-mono flex items-center gap-2">
-                                        <Emoji name={hasMixedCase} width={15} /> Must have minimum 1 lower and 1 upper characters
+                                        <Emoji name={caseRequirement} width={15} /> Must have minimum 1 lower and 1 upper characters
                                     </div>
                                     <div className="text-sm font-mono flex items-center gap-2">
-                                        <Emoji name={numbersLimit} width={15} /> Must have minimum 1 number
+                                        <Emoji name={numberRequirement} width={15} /> Must have minimum 1 number
                                     </div>
                                     <div className="text-sm font-mono flex items-center gap-2">
-                                        <Emoji name={specialCharactersLimit} width={15} /> Must have minimum 1 special characters
+                                        <Emoji name={specialCharRequirement} width={15} /> Must have minimum 1 special character
                                     </div>
                                 </EmojiProvider>
                             </div>
-                            <Progress value={progress} />
-                            <DynamicButton setSubmit={setSubmit} submit={submit} submitStatus={submitStatus}/>
+                            <Progress value={passwordStrength} />
+                            <DynamicButton setSubmit={setIsSubmitTriggered} submit={isSubmitTriggered} submitStatus={isSubmitDisabled}/>
                             <div className="text-xs italic">
                                 WARNING: Do NOT use the same password as your other internet websites, social media or email accounts.
                             </div>

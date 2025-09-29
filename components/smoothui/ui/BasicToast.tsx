@@ -49,11 +49,10 @@ export default function BasicToast({
     if (visible && duration > 0) {
       const timer = setTimeout(() => {
         setVisible(false)
-        onClose?.()
       }, duration)
       return () => clearTimeout(timer)
     }
-  }, [visible, duration, onClose])
+  }, [visible, duration])
 
   return (
     <AnimatePresence>
@@ -62,21 +61,16 @@ export default function BasicToast({
           className={`fixed top-4 right-4 z-50 flex w-80 items-center gap-3 rounded-lg border p-4 shadow-lg ${toastClasses[type]} ${className}`}
           initial={{ opacity: 0, x: 50, scale: 0.8 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
-          exit={{
-            opacity: 0,
-            x: 50,
-            scale: 0.8,
-            transition: { duration: 0.15 },
+          exit={{ opacity: 0, x: 50, scale: 0.8 }}
+          transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+          onAnimationComplete={() => {
+            if (!visible) onClose?.()
           }}
-          transition={{ type: "spring", bounce: 0.25 }}
         >
           <div className="flex-shrink-0">{toastIcons[type]}</div>
           <p className="flex-1 text-sm">{message}</p>
           <button
-            onClick={() => {
-              setVisible(false)
-              onClose?.()
-            }}
+            onClick={() => setVisible(false)}
             className="flex-shrink-0 rounded-full p-1 transition-colors hover:bg-black/5 dark:hover:bg-white/10"
           >
             <X className="h-4 w-4" />
@@ -87,7 +81,6 @@ export default function BasicToast({
   )
 }
 
-// Example of how to use this component:
 export function ToastDemo() {
   const [showToast, setShowToast] = useState(false)
   const [toastType, setToastType] = useState<ToastType>("success")
