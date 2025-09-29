@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import { AnimatePresence } from "motion/react";
 import BasicToast, { ToastType } from "@/components/smoothui/ui/BasicToast";
 
@@ -13,28 +13,18 @@ interface Props {
     toastType: ToastType;
 }
 
-let toastCounter = 0;
-
 export default function ToastContainer({
     setIsToastVisible,
     isToastVisible,
     toastMessage,
     toastType
 } : Props) {
-    const [toastKey, setToastKey] = useState(0);
-
-    React.useEffect(() => {
-        if (isToastVisible) {
-            toastCounter++;
-            setToastKey(toastCounter);
-        }
-    }, [isToastVisible]);
 
     return (
         <AnimatePresence>
             {isToastVisible && (
                 <BasicToast
-                    key={toastKey}
+                    key={Date.now()}
                     message={toastMessage}
                     type={toastType}
                     duration={2000}

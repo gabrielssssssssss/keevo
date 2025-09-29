@@ -11,7 +11,7 @@ export default function useAuth() {
             const response = await isNewComer();
             if (!response) {
                 //Route: app/(auth)/sign-up/page.tsx
-                router.push("/sign-up");
+                router.push("/sign-up/create-password");
             } else {
                 //Route: app/(auth)/login/page.tsx
                 router.push("/login");

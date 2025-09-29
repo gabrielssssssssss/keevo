@@ -8,12 +8,13 @@ import EmojiIcons from 'react-apple-emojis/src/data.json';
 import { syntaxVerify } from "@/lib/utils";
 import { BackgroundBeams } from "@/components/ui/shadcn-io/background-beams";
 import { ToastType } from "@/components/smoothui/ui/BasicToast"
-import DynamicButton from "./hooks/useButton";
-import useInput from "./hooks/useInput";
+import DynamicButton from "../hooks/useButton";
+import useInput from "../hooks/useInput";
 import ToastContainer from "@/app/components/toast";
-import { triggerToast } from "@/app/components/toast"
+import { triggerToast } from "@/app/components/toast";
+import { useParams } from "next/navigation";
 
-export default function SignUp() {
+export default function CreatePassword() {
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
     const [charRequirement, setCharRequirement] = useState("cross mark");
@@ -30,6 +31,9 @@ export default function SignUp() {
     const [toastMessage, setToastMessage] = useState("");
     const [toastType, setToastType] = useState<ToastType>("success");
 
+    const params = useParams();
+    const slug = params.slug;
+    console.log(slug)
     useEffect(() => {
         const [hasLower, hasUpper, hasDigit, hasSpecial] = syntaxVerify(password);
         setCharRequirement(password.length >= 12 && password.length < 40 ? "check-mark-button" : "cross mark");
@@ -83,22 +87,22 @@ export default function SignUp() {
                             maxLength={40}
                             placeholder="Type your unique password ..."
                             onChange={(e) => setPassword(e.target.value)}
-                            onPaste={(e) => {
-                                e.preventDefault()
-                                triggerToast(
-                                "warning",
-                                { isToastVisible, toastMessage, toastType, setToastType, setToastMessage, setIsToastVisible },
-                                "Pasting is not allowed"
-                                )
-                            }}
-                            onCopy={(e) => {
-                                e.preventDefault()
-                                triggerToast(
-                                "warning",
-                                { isToastVisible, toastMessage, toastType, setToastType, setToastMessage,  setIsToastVisible },
-                                "Copy is not allowed"
-                                )
-                            }}
+                            // onPaste={(e) => {
+                            //     e.preventDefault()
+                            //     triggerToast(
+                            //     "warning",
+                            //     { isToastVisible, toastMessage, toastType, setToastType, setToastMessage, setIsToastVisible },
+                            //     "Pasting is not allowed"
+                            //     )
+                            // }}
+                            // onCopy={(e) => {
+                            //     e.preventDefault()
+                            //     triggerToast(
+                            //     "warning",
+                            //     { isToastVisible, toastMessage, toastType, setToastType, setToastMessage,  setIsToastVisible },
+                            //     "Copy is not allowed"
+                            //     )
+                            // }}
                             />
 
                             <Input
@@ -107,22 +111,22 @@ export default function SignUp() {
                             placeholder="Retype your unique password ..."
                             disabled={isConfirmDisabled}
                             onChange={(e) => setConfirmPassword(e.target.value)}
-                            onPaste={(e) => {
-                                e.preventDefault()
-                                triggerToast(
-                                "warning",
-                                { isToastVisible, toastMessage, toastType, setToastType, setToastMessage, setIsToastVisible },
-                                "Pasting is not allowed"
-                                )
-                            }}
-                            onCopy={(e) => {
-                                e.preventDefault()
-                                triggerToast(
-                                "warning",
-                                { isToastVisible, toastMessage, toastType, setToastType, setToastMessage, setIsToastVisible },
-                                "Copy is not allowed"
-                                )
-                            }}
+                            // onPaste={(e) => {
+                            //     e.preventDefault()
+                            //     triggerToast(
+                            //     "warning",
+                            //     { isToastVisible, toastMessage, toastType, setToastType, setToastMessage, setIsToastVisible },
+                            //     "Pasting is not allowed"
+                            //     )
+                            // }}
+                            // onCopy={(e) => {
+                            //     e.preventDefault()
+                            //     triggerToast(
+                            //     "warning",
+                            //     { isToastVisible, toastMessage, toastType, setToastType, setToastMessage, setIsToastVisible },
+                            //     "Copy is not allowed"
+                            //     )
+                            // }}
                             />
                             <div>
                                 <EmojiProvider data={EmojiIcons}>

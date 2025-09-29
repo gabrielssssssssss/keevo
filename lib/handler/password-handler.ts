@@ -8,7 +8,7 @@ export async function isNewComer() {
     const passwordResponse = await getAllCredentials();
     if (authResponse == null && passwordResponse.length == 0) { return false }
     else { return true}; 
-} 
+};
 
 export async function passwordHandler(password: string) {
     const authResponse = await getFirstField();
