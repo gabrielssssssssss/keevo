@@ -19,10 +19,18 @@ interface Props {
     isToastVisible: boolean
     toastMessage: string
     toastType: ToastType
+    onSuccess?: () => void
 }
 
 export default function useInput({
-    submit, password, repeatPassword, setProgress, setPasswordState, setSubmitStatus, ...props
+    submit,
+    password,
+    repeatPassword,
+    setProgress,
+    setPasswordState,
+    setSubmitStatus,
+    onSuccess,
+    ...props
 }: Props) {
     useEffect(() => {
         if (!submit) return;
@@ -34,6 +42,7 @@ export default function useInput({
                         triggerToast("success", props, "Your password has been saved");
                         setProgress(50);
                         setPasswordState(false);
+                        if (onSuccess) onSuccess();
                     }
                 })
             } else {
@@ -42,10 +51,11 @@ export default function useInput({
         } else {
             stoledVerify(password).then(found => {
                 setSubmitStatus(found)
-                if (found)  triggerToast("error", props, "Password found in a breach. Choose another.");
+                if (found) triggerToast("error", props, "Password found in a breach. Choose another.");
                 else {
                     setProgress(30);
                     setPasswordState(false);
+                    // if (onSuccess) onSuccess();
                 }
             })
         }

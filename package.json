@@ -12,6 +12,10 @@
   },
   "dependencies": {
     "@emoji-mart/data": "^1.2.1",
+    "@heroui/react": "^2.8.4",
+    "@heroui/system": "^2.4.22",
+    "@heroui/theme": "^2.4.22",
+    "@heroui/toast": "^2.0.16",
     "@hookform/resolvers": "^5.2.2",
     "@json2csv/plainjs": "^7.0.6",
     "@primno/dpapi": "^2.0.1",

@@ -2,7 +2,7 @@
 
 import useAuth from "./hooks/useAuth";
 
-export default function Handler() {
+export default function App() {
     useAuth();
 
     return (

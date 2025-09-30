@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useRef } from "react";
 import { AnimatePresence } from "motion/react";
 import BasicToast, { ToastType } from "@/components/smoothui/ui/BasicToast";
 
@@ -19,12 +19,13 @@ export default function ToastContainer({
     toastMessage,
     toastType
 } : Props) {
+    const toastKeyRef = useRef(0);
 
     return (
         <AnimatePresence>
             {isToastVisible && (
                 <BasicToast
-                    key={Date.now()}
+                    key={toastKeyRef.current}
                     message={toastMessage}
                     type={toastType}
                     duration={2000}
@@ -36,8 +37,11 @@ export default function ToastContainer({
 }
 
 export function triggerToast(type: ToastType, props: Props, message: string) {
+    if (props.isToastVisible) return;
     props.setToastType(type);
     props.setToastMessage(message);
-    props.setIsToastVisible(false);
-    setTimeout(() => props.setIsToastVisible(true), 0);
+    props.setIsToastVisible(true);
+    setTimeout(() => {
+        props.setIsToastVisible(false);
+    }, 3000);
 }
