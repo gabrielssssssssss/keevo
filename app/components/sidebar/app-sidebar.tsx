@@ -2,17 +2,24 @@
 
 import * as React from "react"
 import {
+  IconAlertHexagonOff,
   IconCamera,
   IconChartBar,
   IconDashboard,
   IconDatabase,
+  IconEyeBitcoin,
+  IconEyeBolt,
+  IconEyeCheck,
+  IconEyeQuestion,
   IconFileAi,
   IconFileDescription,
   IconFileWord,
   IconFolder,
   IconHelp,
   IconInnerShadowTop,
+  IconKeyOff,
   IconListDetails,
+  IconMoodNerd,
   IconReport,
   IconSearch,
   IconSettings,
@@ -30,7 +37,6 @@ import {
   SidebarProvider,
 } from "@/components/ui/sidebar"
 
-import EmojiIcons from 'react-apple-emojis/src/data.json';
 import { NavDocuments } from "./nav-documents"
 import { NavMain } from "./nav-main"
 import { NavSecondary } from "./nav-secondary"
@@ -44,27 +50,27 @@ const data = {
   },
   navMain: [
     {
-      title: "Dashboard",
+      title: "General",
       url: "#",
       icon: IconDashboard,
     },
     {
-      title: "Lifecycle",
+      title: "Internet",
       url: "#",
       icon: IconListDetails,
     },
     {
-      title: "Analytics",
+      title: "Banking",
       url: "#",
       icon: IconChartBar,
     },
     {
-      title: "Projects",
+      title: "Working",
       url: "#",
       icon: IconFolder,
     },
     {
-      title: "Team",
+      title: "System",
       url: "#",
       icon: IconUsers,
     },
@@ -136,17 +142,17 @@ const data = {
   ],
   documents: [
     {
-      name: "Data Library",
+      name: "Password Generator",
       url: "#",
       icon: IconDatabase,
     },
     {
-      name: "Reports",
+      name: "Password Tester",
       url: "#",
       icon: IconReport,
     },
     {
-      name: "Word Assistant",
+      name: "Login Breached",
       url: "#",
       icon: IconFileWord,
     },
@@ -154,7 +160,6 @@ const data = {
 }
 
 export  default function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-
   return (
 	<SidebarProvider>
 		<Sidebar collapsible="offcanvas" {...props}>
@@ -166,8 +171,8 @@ export  default function AppSidebar({ ...props }: React.ComponentProps<typeof Si
 				className="data-[slot=sidebar-menu-button]:!p-1.5"
 				>
 				<a href="#">
-					<IconInnerShadowTop className="!size-5" />
-					<span className="text-base font-semibold">Acme Inc.</span>
+					<IconEyeBolt className="!size-5" />
+					<span className="text-base font-semibold">Keevo Inc.</span>
 				</a>
 				</SidebarMenuButton>
 			</SidebarMenuItem>
@@ -175,7 +180,7 @@ export  default function AppSidebar({ ...props }: React.ComponentProps<typeof Si
 		</SidebarHeader>
 		<SidebarContent>
 			<NavMain items={data.navMain} />
-			<NavDocuments items={data.documents} />
+			<NavDocuments items={data.documents}/>
 			<NavSecondary items={data.navSecondary} className="mt-auto" />
 		</SidebarContent>
 		<SidebarFooter>
