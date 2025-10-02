@@ -3,12 +3,12 @@ import { app, BrowserWindow } from "electron";
 let screen
 app.on("ready", () => {
   screen = new BrowserWindow({
-    width: 1150,
-    height: 700,
+    width: 1400,
+    height: 800,
     resizable: false,
     webPreferences: {
       nodeIntegration: false
     }
   })
-  screen.loadURL("http://localhost:3000")
+  screen.loadURL("http://localhost:3000");
 })

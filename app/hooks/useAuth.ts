@@ -14,7 +14,7 @@ export default function useAuth() {
                 router.push("/sign-up/create-password");
             } else {
                 //Route: app/(auth)/login/page.tsx
-                router.push("/login");
+                router.push("/password-manager");
             }
         }
         callback();

@@ -11,12 +11,10 @@ export async function hashEachWords(seedPhrase: string[]) {
     return await Promise.all(response) as string[];
 };
 
-export async function addNewPassPhrase(hashSeedPhrase: string[]) {
-    for (const [_, element] of hashSeedPhrase.entries()) {
-        const response = await addSeedHash(element);
-        if (!response) return false;
-    };
-    return true;
+export async function addNewPassPhrase(seedPhrase: string[]) {
+    const hashSeedPhrase = await hashEachWords(seedPhrase);
+    const results = await Promise.all(hashSeedPhrase.map(element => addSeedHash(element)));
+    return results.every(r => r);
 }
 
 

@@ -9,14 +9,14 @@ export function Components() {
     const slug = params.slug;
 
     if (slug == "create-password") {
-        return <CreatePassword/>
+        return <CreatePassword/>;
     } else if (slug == "create-passphrase") {
-        return <CreatePassphrase/>
-    }
-}
+        return <CreatePassphrase/>;
+    };
+};
 
 export default function SignUp() {
     return (
         <Components/>
     )
-}
+};
