@@ -96,22 +96,16 @@ exports.Prisma.AuthentificationScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.SeedPhraseScalarFieldEnum = {
+exports.Prisma.SeedphraseScalarFieldEnum = {
   id: 'id',
   seedHash: 'seedHash',
   createdAt: 'createdAt'
 };
 
-exports.Prisma.CredentialsScalarFieldEnum = {
+exports.Prisma.VaultItemScalarFieldEnum = {
   id: 'id',
-  url: 'url',
-  originUrl: 'originUrl',
-  login: 'login',
-  password: 'password',
-  iv: 'iv',
-  tag: 'tag',
-  notes: 'notes',
-  category: 'category',
+  type: 'type',
+  data: 'data',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -121,11 +115,34 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
+};
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+exports.VaultType = exports.$Enums.VaultType = {
+  PASSWORD: 'PASSWORD',
+  PASSKEY: 'PASSKEY',
+  SECURE_NOTE: 'SECURE_NOTE',
+  CREDIT_CARD: 'CREDIT_CARD',
+  CONTACT_INFO: 'CONTACT_INFO',
+  DOCUMENT: 'DOCUMENT',
+  SHARED_ITEM: 'SHARED_ITEM'
+};
 
 exports.Prisma.ModelName = {
-  authentification: 'authentification',
-  seedPhrase: 'seedPhrase',
-  credentials: 'credentials'
+  Authentification: 'Authentification',
+  Seedphrase: 'Seedphrase',
+  VaultItem: 'VaultItem'
 };
 /**
  * Create the Client
@@ -174,13 +191,13 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../app/database/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel authentification {\n  id        String   @id @default(uuid())\n  password  String   @default(\"\")\n  createdAt DateTime @default(now())\n  updatedAt DateTime @default(now())\n}\n\nmodel seedPhrase {\n  id        String   @id @default(uuid())\n  seedHash  String   @default(\"\")\n  createdAt DateTime @default(now())\n}\n\nmodel credentials {\n  id        String   @id @default(uuid())\n  url       String   @default(\"\")\n  originUrl String   @default(\"\")\n  login     String   @default(\"\")\n  password  String   @default(\"\")\n  iv        String   @default(\"\")\n  tag       String   @default(\"\")\n  notes     String   @default(\"\")\n  category  String   @default(\"\")\n  createdAt DateTime @default(now())\n  updatedAt DateTime @default(now())\n}\n",
-  "inlineSchemaHash": "0e9b4cf95ee5fc9c734fe6252ad32244793e790f3b2a6aebe6bd8172efb76d99",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../app/database/prisma\"\n}\n\ndatasource db {\n  provider = \"sqlite\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Authentification {\n  id        String   @id @default(uuid())\n  password  String   @default(\"\")\n  createdAt DateTime @default(now())\n  updatedAt DateTime @updatedAt\n}\n\nmodel Seedphrase {\n  id        String   @id @default(uuid())\n  seedHash  String   @default(\"\")\n  createdAt DateTime @default(now())\n}\n\nenum VaultType {\n  PASSWORD\n  PASSKEY\n  SECURE_NOTE\n  CREDIT_CARD\n  CONTACT_INFO\n  DOCUMENT\n  SHARED_ITEM\n}\n\nmodel VaultItem {\n  id        String    @id @default(uuid())\n  type      VaultType\n  data      Json\n  createdAt DateTime  @default(now())\n  updatedAt DateTime  @updatedAt\n}\n",
+  "inlineSchemaHash": "1fa941fe7132af051251b9ddfa7165b0a44b27be509f36669c3a74550edf6459",
   "copyEngine": true
 }
 config.dirname = '/'
 
-config.runtimeDataModel = JSON.parse("{\"models\":{\"authentification\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"seedPhrase\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"seedHash\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"credentials\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"url\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"originUrl\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"login\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"iv\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"tag\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"notes\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"category\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
+config.runtimeDataModel = JSON.parse("{\"models\":{\"Authentification\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"password\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Seedphrase\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"seedHash\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"VaultItem\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"type\",\"kind\":\"enum\",\"type\":\"VaultType\"},{\"name\":\"data\",\"kind\":\"scalar\",\"type\":\"Json\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}")
 defineDmmfProperty(exports.Prisma, config.runtimeDataModel)
 config.engineWasm = {
   getRuntime: async () => require('./query_engine_bg.js'),

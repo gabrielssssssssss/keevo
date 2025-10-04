@@ -14,20 +14,42 @@ export type PrismaPromise<T> = $Public.PrismaPromise<T>
 
 
 /**
- * Model authentification
+ * Model Authentification
  * 
  */
-export type authentification = $Result.DefaultSelection<Prisma.$authentificationPayload>
+export type Authentification = $Result.DefaultSelection<Prisma.$AuthentificationPayload>
 /**
- * Model seedPhrase
+ * Model Seedphrase
  * 
  */
-export type seedPhrase = $Result.DefaultSelection<Prisma.$seedPhrasePayload>
+export type Seedphrase = $Result.DefaultSelection<Prisma.$SeedphrasePayload>
 /**
- * Model credentials
+ * Model VaultItem
  * 
  */
-export type credentials = $Result.DefaultSelection<Prisma.$credentialsPayload>
+export type VaultItem = $Result.DefaultSelection<Prisma.$VaultItemPayload>
+
+/**
+ * Enums
+ */
+export namespace $Enums {
+  export const VaultType: {
+  PASSWORD: 'PASSWORD',
+  PASSKEY: 'PASSKEY',
+  SECURE_NOTE: 'SECURE_NOTE',
+  CREDIT_CARD: 'CREDIT_CARD',
+  CONTACT_INFO: 'CONTACT_INFO',
+  DOCUMENT: 'DOCUMENT',
+  SHARED_ITEM: 'SHARED_ITEM'
+};
+
+export type VaultType = (typeof VaultType)[keyof typeof VaultType]
+
+}
+
+export type VaultType = $Enums.VaultType
+
+export const VaultType: typeof $Enums.VaultType
 
 /**
  * ##  Prisma Client ʲˢ
@@ -148,34 +170,34 @@ export class PrismaClient<
   }>>
 
       /**
-   * `prisma.authentification`: Exposes CRUD operations for the **authentification** model.
+   * `prisma.authentification`: Exposes CRUD operations for the **Authentification** model.
     * Example usage:
     * ```ts
     * // Fetch zero or more Authentifications
     * const authentifications = await prisma.authentification.findMany()
     * ```
     */
-  get authentification(): Prisma.authentificationDelegate<ExtArgs, ClientOptions>;
+  get authentification(): Prisma.AuthentificationDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.seedPhrase`: Exposes CRUD operations for the **seedPhrase** model.
+   * `prisma.seedphrase`: Exposes CRUD operations for the **Seedphrase** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more SeedPhrases
-    * const seedPhrases = await prisma.seedPhrase.findMany()
+    * // Fetch zero or more Seedphrases
+    * const seedphrases = await prisma.seedphrase.findMany()
     * ```
     */
-  get seedPhrase(): Prisma.seedPhraseDelegate<ExtArgs, ClientOptions>;
+  get seedphrase(): Prisma.SeedphraseDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.credentials`: Exposes CRUD operations for the **credentials** model.
+   * `prisma.vaultItem`: Exposes CRUD operations for the **VaultItem** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Credentials
-    * const credentials = await prisma.credentials.findMany()
+    * // Fetch zero or more VaultItems
+    * const vaultItems = await prisma.vaultItem.findMany()
     * ```
     */
-  get credentials(): Prisma.credentialsDelegate<ExtArgs, ClientOptions>;
+  get vaultItem(): Prisma.VaultItemDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -616,9 +638,9 @@ export namespace Prisma {
 
 
   export const ModelName: {
-    authentification: 'authentification',
-    seedPhrase: 'seedPhrase',
-    credentials: 'credentials'
+    Authentification: 'Authentification',
+    Seedphrase: 'Seedphrase',
+    VaultItem: 'VaultItem'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -637,229 +659,229 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "authentification" | "seedPhrase" | "credentials"
+      modelProps: "authentification" | "seedphrase" | "vaultItem"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
-      authentification: {
-        payload: Prisma.$authentificationPayload<ExtArgs>
-        fields: Prisma.authentificationFieldRefs
+      Authentification: {
+        payload: Prisma.$AuthentificationPayload<ExtArgs>
+        fields: Prisma.AuthentificationFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.authentificationFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authentificationPayload> | null
+            args: Prisma.AuthentificationFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AuthentificationPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.authentificationFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
+            args: Prisma.AuthentificationFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AuthentificationPayload>
           }
           findFirst: {
-            args: Prisma.authentificationFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authentificationPayload> | null
+            args: Prisma.AuthentificationFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AuthentificationPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.authentificationFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
+            args: Prisma.AuthentificationFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AuthentificationPayload>
           }
           findMany: {
-            args: Prisma.authentificationFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>[]
+            args: Prisma.AuthentificationFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AuthentificationPayload>[]
           }
           create: {
-            args: Prisma.authentificationCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
+            args: Prisma.AuthentificationCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AuthentificationPayload>
           }
           createMany: {
-            args: Prisma.authentificationCreateManyArgs<ExtArgs>
+            args: Prisma.AuthentificationCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.authentificationCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>[]
+            args: Prisma.AuthentificationCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AuthentificationPayload>[]
           }
           delete: {
-            args: Prisma.authentificationDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
+            args: Prisma.AuthentificationDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AuthentificationPayload>
           }
           update: {
-            args: Prisma.authentificationUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
+            args: Prisma.AuthentificationUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AuthentificationPayload>
           }
           deleteMany: {
-            args: Prisma.authentificationDeleteManyArgs<ExtArgs>
+            args: Prisma.AuthentificationDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.authentificationUpdateManyArgs<ExtArgs>
+            args: Prisma.AuthentificationUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.authentificationUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>[]
+            args: Prisma.AuthentificationUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AuthentificationPayload>[]
           }
           upsert: {
-            args: Prisma.authentificationUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$authentificationPayload>
+            args: Prisma.AuthentificationUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AuthentificationPayload>
           }
           aggregate: {
             args: Prisma.AuthentificationAggregateArgs<ExtArgs>
             result: $Utils.Optional<AggregateAuthentification>
           }
           groupBy: {
-            args: Prisma.authentificationGroupByArgs<ExtArgs>
+            args: Prisma.AuthentificationGroupByArgs<ExtArgs>
             result: $Utils.Optional<AuthentificationGroupByOutputType>[]
           }
           count: {
-            args: Prisma.authentificationCountArgs<ExtArgs>
+            args: Prisma.AuthentificationCountArgs<ExtArgs>
             result: $Utils.Optional<AuthentificationCountAggregateOutputType> | number
           }
         }
       }
-      seedPhrase: {
-        payload: Prisma.$seedPhrasePayload<ExtArgs>
-        fields: Prisma.seedPhraseFieldRefs
+      Seedphrase: {
+        payload: Prisma.$SeedphrasePayload<ExtArgs>
+        fields: Prisma.SeedphraseFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.seedPhraseFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$seedPhrasePayload> | null
+            args: Prisma.SeedphraseFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SeedphrasePayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.seedPhraseFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$seedPhrasePayload>
+            args: Prisma.SeedphraseFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SeedphrasePayload>
           }
           findFirst: {
-            args: Prisma.seedPhraseFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$seedPhrasePayload> | null
+            args: Prisma.SeedphraseFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SeedphrasePayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.seedPhraseFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$seedPhrasePayload>
+            args: Prisma.SeedphraseFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SeedphrasePayload>
           }
           findMany: {
-            args: Prisma.seedPhraseFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$seedPhrasePayload>[]
+            args: Prisma.SeedphraseFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SeedphrasePayload>[]
           }
           create: {
-            args: Prisma.seedPhraseCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$seedPhrasePayload>
+            args: Prisma.SeedphraseCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SeedphrasePayload>
           }
           createMany: {
-            args: Prisma.seedPhraseCreateManyArgs<ExtArgs>
+            args: Prisma.SeedphraseCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.seedPhraseCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$seedPhrasePayload>[]
+            args: Prisma.SeedphraseCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SeedphrasePayload>[]
           }
           delete: {
-            args: Prisma.seedPhraseDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$seedPhrasePayload>
+            args: Prisma.SeedphraseDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SeedphrasePayload>
           }
           update: {
-            args: Prisma.seedPhraseUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$seedPhrasePayload>
+            args: Prisma.SeedphraseUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SeedphrasePayload>
           }
           deleteMany: {
-            args: Prisma.seedPhraseDeleteManyArgs<ExtArgs>
+            args: Prisma.SeedphraseDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.seedPhraseUpdateManyArgs<ExtArgs>
+            args: Prisma.SeedphraseUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.seedPhraseUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$seedPhrasePayload>[]
+            args: Prisma.SeedphraseUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SeedphrasePayload>[]
           }
           upsert: {
-            args: Prisma.seedPhraseUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$seedPhrasePayload>
+            args: Prisma.SeedphraseUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SeedphrasePayload>
           }
           aggregate: {
-            args: Prisma.SeedPhraseAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateSeedPhrase>
+            args: Prisma.SeedphraseAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSeedphrase>
           }
           groupBy: {
-            args: Prisma.seedPhraseGroupByArgs<ExtArgs>
-            result: $Utils.Optional<SeedPhraseGroupByOutputType>[]
+            args: Prisma.SeedphraseGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SeedphraseGroupByOutputType>[]
           }
           count: {
-            args: Prisma.seedPhraseCountArgs<ExtArgs>
-            result: $Utils.Optional<SeedPhraseCountAggregateOutputType> | number
+            args: Prisma.SeedphraseCountArgs<ExtArgs>
+            result: $Utils.Optional<SeedphraseCountAggregateOutputType> | number
           }
         }
       }
-      credentials: {
-        payload: Prisma.$credentialsPayload<ExtArgs>
-        fields: Prisma.credentialsFieldRefs
+      VaultItem: {
+        payload: Prisma.$VaultItemPayload<ExtArgs>
+        fields: Prisma.VaultItemFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.credentialsFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$credentialsPayload> | null
+            args: Prisma.VaultItemFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VaultItemPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.credentialsFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
+            args: Prisma.VaultItemFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VaultItemPayload>
           }
           findFirst: {
-            args: Prisma.credentialsFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$credentialsPayload> | null
+            args: Prisma.VaultItemFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VaultItemPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.credentialsFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
+            args: Prisma.VaultItemFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VaultItemPayload>
           }
           findMany: {
-            args: Prisma.credentialsFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>[]
+            args: Prisma.VaultItemFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VaultItemPayload>[]
           }
           create: {
-            args: Prisma.credentialsCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
+            args: Prisma.VaultItemCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VaultItemPayload>
           }
           createMany: {
-            args: Prisma.credentialsCreateManyArgs<ExtArgs>
+            args: Prisma.VaultItemCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.credentialsCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>[]
+            args: Prisma.VaultItemCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VaultItemPayload>[]
           }
           delete: {
-            args: Prisma.credentialsDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
+            args: Prisma.VaultItemDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VaultItemPayload>
           }
           update: {
-            args: Prisma.credentialsUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
+            args: Prisma.VaultItemUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VaultItemPayload>
           }
           deleteMany: {
-            args: Prisma.credentialsDeleteManyArgs<ExtArgs>
+            args: Prisma.VaultItemDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.credentialsUpdateManyArgs<ExtArgs>
+            args: Prisma.VaultItemUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.credentialsUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>[]
+            args: Prisma.VaultItemUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VaultItemPayload>[]
           }
           upsert: {
-            args: Prisma.credentialsUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$credentialsPayload>
+            args: Prisma.VaultItemUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$VaultItemPayload>
           }
           aggregate: {
-            args: Prisma.CredentialsAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCredentials>
+            args: Prisma.VaultItemAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateVaultItem>
           }
           groupBy: {
-            args: Prisma.credentialsGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CredentialsGroupByOutputType>[]
+            args: Prisma.VaultItemGroupByArgs<ExtArgs>
+            result: $Utils.Optional<VaultItemGroupByOutputType>[]
           }
           count: {
-            args: Prisma.credentialsCountArgs<ExtArgs>
-            result: $Utils.Optional<CredentialsCountAggregateOutputType> | number
+            args: Prisma.VaultItemCountArgs<ExtArgs>
+            result: $Utils.Optional<VaultItemCountAggregateOutputType> | number
           }
         }
       }
@@ -959,9 +981,9 @@ export namespace Prisma {
     omit?: Prisma.GlobalOmitConfig
   }
   export type GlobalOmitConfig = {
-    authentification?: authentificationOmit
-    seedPhrase?: seedPhraseOmit
-    credentials?: credentialsOmit
+    authentification?: AuthentificationOmit
+    seedphrase?: SeedphraseOmit
+    vaultItem?: VaultItemOmit
   }
 
   /* Types for Logging */
@@ -1043,7 +1065,7 @@ export namespace Prisma {
    */
 
   /**
-   * Model authentification
+   * Model Authentification
    */
 
   export type AggregateAuthentification = {
@@ -1099,37 +1121,37 @@ export namespace Prisma {
 
   export type AuthentificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which authentification to aggregate.
+     * Filter which Authentification to aggregate.
      */
-    where?: authentificationWhereInput
+    where?: AuthentificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of authentifications to fetch.
+     * Determine the order of Authentifications to fetch.
      */
-    orderBy?: authentificationOrderByWithRelationInput | authentificationOrderByWithRelationInput[]
+    orderBy?: AuthentificationOrderByWithRelationInput | AuthentificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: authentificationWhereUniqueInput
+    cursor?: AuthentificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` authentifications from the position of the cursor.
+     * Take `±n` Authentifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` authentifications.
+     * Skip the first `n` Authentifications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned authentifications
+     * Count returned Authentifications
     **/
     _count?: true | AuthentificationCountAggregateInputType
     /**
@@ -1157,11 +1179,11 @@ export namespace Prisma {
 
 
 
-  export type authentificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: authentificationWhereInput
-    orderBy?: authentificationOrderByWithAggregationInput | authentificationOrderByWithAggregationInput[]
+  export type AuthentificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AuthentificationWhereInput
+    orderBy?: AuthentificationOrderByWithAggregationInput | AuthentificationOrderByWithAggregationInput[]
     by: AuthentificationScalarFieldEnum[] | AuthentificationScalarFieldEnum
-    having?: authentificationScalarWhereWithAggregatesInput
+    having?: AuthentificationScalarWhereWithAggregatesInput
     take?: number
     skip?: number
     _count?: AuthentificationCountAggregateInputType | true
@@ -1179,7 +1201,7 @@ export namespace Prisma {
     _max: AuthentificationMaxAggregateOutputType | null
   }
 
-  type GetAuthentificationGroupByPayload<T extends authentificationGroupByArgs> = Prisma.PrismaPromise<
+  type GetAuthentificationGroupByPayload<T extends AuthentificationGroupByArgs> = Prisma.PrismaPromise<
     Array<
       PickEnumerable<AuthentificationGroupByOutputType, T['by']> &
         {
@@ -1193,38 +1215,38 @@ export namespace Prisma {
     >
 
 
-  export type authentificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type AuthentificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     password?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["authentification"]>
 
-  export type authentificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type AuthentificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     password?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["authentification"]>
 
-  export type authentificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type AuthentificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     password?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }, ExtArgs["result"]["authentification"]>
 
-  export type authentificationSelectScalar = {
+  export type AuthentificationSelectScalar = {
     id?: boolean
     password?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type authentificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["authentification"]>
+  export type AuthentificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["authentification"]>
 
-  export type $authentificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "authentification"
+  export type $AuthentificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Authentification"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -1235,18 +1257,18 @@ export namespace Prisma {
     composites: {}
   }
 
-  type authentificationGetPayload<S extends boolean | null | undefined | authentificationDefaultArgs> = $Result.GetResult<Prisma.$authentificationPayload, S>
+  type AuthentificationGetPayload<S extends boolean | null | undefined | AuthentificationDefaultArgs> = $Result.GetResult<Prisma.$AuthentificationPayload, S>
 
-  type authentificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<authentificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+  type AuthentificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AuthentificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
       select?: AuthentificationCountAggregateInputType | true
     }
 
-  export interface authentificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['authentification'], meta: { name: 'authentification' } }
+  export interface AuthentificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Authentification'], meta: { name: 'Authentification' } }
     /**
      * Find zero or one Authentification that matches the filter.
-     * @param {authentificationFindUniqueArgs} args - Arguments to find a Authentification
+     * @param {AuthentificationFindUniqueArgs} args - Arguments to find a Authentification
      * @example
      * // Get one Authentification
      * const authentification = await prisma.authentification.findUnique({
@@ -1255,12 +1277,12 @@ export namespace Prisma {
      *   }
      * })
      */
-    findUnique<T extends authentificationFindUniqueArgs>(args: SelectSubset<T, authentificationFindUniqueArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends AuthentificationFindUniqueArgs>(args: SelectSubset<T, AuthentificationFindUniqueArgs<ExtArgs>>): Prisma__AuthentificationClient<$Result.GetResult<Prisma.$AuthentificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find one Authentification that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {authentificationFindUniqueOrThrowArgs} args - Arguments to find a Authentification
+     * @param {AuthentificationFindUniqueOrThrowArgs} args - Arguments to find a Authentification
      * @example
      * // Get one Authentification
      * const authentification = await prisma.authentification.findUniqueOrThrow({
@@ -1269,13 +1291,13 @@ export namespace Prisma {
      *   }
      * })
      */
-    findUniqueOrThrow<T extends authentificationFindUniqueOrThrowArgs>(args: SelectSubset<T, authentificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends AuthentificationFindUniqueOrThrowArgs>(args: SelectSubset<T, AuthentificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AuthentificationClient<$Result.GetResult<Prisma.$AuthentificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find the first Authentification that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authentificationFindFirstArgs} args - Arguments to find a Authentification
+     * @param {AuthentificationFindFirstArgs} args - Arguments to find a Authentification
      * @example
      * // Get one Authentification
      * const authentification = await prisma.authentification.findFirst({
@@ -1284,14 +1306,14 @@ export namespace Prisma {
      *   }
      * })
      */
-    findFirst<T extends authentificationFindFirstArgs>(args?: SelectSubset<T, authentificationFindFirstArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends AuthentificationFindFirstArgs>(args?: SelectSubset<T, AuthentificationFindFirstArgs<ExtArgs>>): Prisma__AuthentificationClient<$Result.GetResult<Prisma.$AuthentificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find the first Authentification that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authentificationFindFirstOrThrowArgs} args - Arguments to find a Authentification
+     * @param {AuthentificationFindFirstOrThrowArgs} args - Arguments to find a Authentification
      * @example
      * // Get one Authentification
      * const authentification = await prisma.authentification.findFirstOrThrow({
@@ -1300,13 +1322,13 @@ export namespace Prisma {
      *   }
      * })
      */
-    findFirstOrThrow<T extends authentificationFindFirstOrThrowArgs>(args?: SelectSubset<T, authentificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends AuthentificationFindFirstOrThrowArgs>(args?: SelectSubset<T, AuthentificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__AuthentificationClient<$Result.GetResult<Prisma.$AuthentificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Find zero or more Authentifications that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authentificationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {AuthentificationFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
      * // Get all Authentifications
      * const authentifications = await prisma.authentification.findMany()
@@ -1318,11 +1340,11 @@ export namespace Prisma {
      * const authentificationWithIdOnly = await prisma.authentification.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends authentificationFindManyArgs>(args?: SelectSubset<T, authentificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends AuthentificationFindManyArgs>(args?: SelectSubset<T, AuthentificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuthentificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
      * Create a Authentification.
-     * @param {authentificationCreateArgs} args - Arguments to create a Authentification.
+     * @param {AuthentificationCreateArgs} args - Arguments to create a Authentification.
      * @example
      * // Create one Authentification
      * const Authentification = await prisma.authentification.create({
@@ -1332,11 +1354,11 @@ export namespace Prisma {
      * })
      * 
      */
-    create<T extends authentificationCreateArgs>(args: SelectSubset<T, authentificationCreateArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends AuthentificationCreateArgs>(args: SelectSubset<T, AuthentificationCreateArgs<ExtArgs>>): Prisma__AuthentificationClient<$Result.GetResult<Prisma.$AuthentificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Create many Authentifications.
-     * @param {authentificationCreateManyArgs} args - Arguments to create many Authentifications.
+     * @param {AuthentificationCreateManyArgs} args - Arguments to create many Authentifications.
      * @example
      * // Create many Authentifications
      * const authentification = await prisma.authentification.createMany({
@@ -1346,11 +1368,11 @@ export namespace Prisma {
      * })
      *     
      */
-    createMany<T extends authentificationCreateManyArgs>(args?: SelectSubset<T, authentificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends AuthentificationCreateManyArgs>(args?: SelectSubset<T, AuthentificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Create many Authentifications and returns the data saved in the database.
-     * @param {authentificationCreateManyAndReturnArgs} args - Arguments to create many Authentifications.
+     * @param {AuthentificationCreateManyAndReturnArgs} args - Arguments to create many Authentifications.
      * @example
      * // Create many Authentifications
      * const authentification = await prisma.authentification.createManyAndReturn({
@@ -1370,11 +1392,11 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends authentificationCreateManyAndReturnArgs>(args?: SelectSubset<T, authentificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends AuthentificationCreateManyAndReturnArgs>(args?: SelectSubset<T, AuthentificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuthentificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Delete a Authentification.
-     * @param {authentificationDeleteArgs} args - Arguments to delete one Authentification.
+     * @param {AuthentificationDeleteArgs} args - Arguments to delete one Authentification.
      * @example
      * // Delete one Authentification
      * const Authentification = await prisma.authentification.delete({
@@ -1384,11 +1406,11 @@ export namespace Prisma {
      * })
      * 
      */
-    delete<T extends authentificationDeleteArgs>(args: SelectSubset<T, authentificationDeleteArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends AuthentificationDeleteArgs>(args: SelectSubset<T, AuthentificationDeleteArgs<ExtArgs>>): Prisma__AuthentificationClient<$Result.GetResult<Prisma.$AuthentificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Update one Authentification.
-     * @param {authentificationUpdateArgs} args - Arguments to update one Authentification.
+     * @param {AuthentificationUpdateArgs} args - Arguments to update one Authentification.
      * @example
      * // Update one Authentification
      * const authentification = await prisma.authentification.update({
@@ -1401,11 +1423,11 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends authentificationUpdateArgs>(args: SelectSubset<T, authentificationUpdateArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends AuthentificationUpdateArgs>(args: SelectSubset<T, AuthentificationUpdateArgs<ExtArgs>>): Prisma__AuthentificationClient<$Result.GetResult<Prisma.$AuthentificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
      * Delete zero or more Authentifications.
-     * @param {authentificationDeleteManyArgs} args - Arguments to filter Authentifications to delete.
+     * @param {AuthentificationDeleteManyArgs} args - Arguments to filter Authentifications to delete.
      * @example
      * // Delete a few Authentifications
      * const { count } = await prisma.authentification.deleteMany({
@@ -1415,13 +1437,13 @@ export namespace Prisma {
      * })
      * 
      */
-    deleteMany<T extends authentificationDeleteManyArgs>(args?: SelectSubset<T, authentificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends AuthentificationDeleteManyArgs>(args?: SelectSubset<T, AuthentificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Authentifications.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authentificationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {AuthentificationUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
      * // Update many Authentifications
      * const authentification = await prisma.authentification.updateMany({
@@ -1434,11 +1456,11 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends authentificationUpdateManyArgs>(args: SelectSubset<T, authentificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends AuthentificationUpdateManyArgs>(args: SelectSubset<T, AuthentificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
      * Update zero or more Authentifications and returns the data updated in the database.
-     * @param {authentificationUpdateManyAndReturnArgs} args - Arguments to update many Authentifications.
+     * @param {AuthentificationUpdateManyAndReturnArgs} args - Arguments to update many Authentifications.
      * @example
      * // Update many Authentifications
      * const authentification = await prisma.authentification.updateManyAndReturn({
@@ -1464,11 +1486,11 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends authentificationUpdateManyAndReturnArgs>(args: SelectSubset<T, authentificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends AuthentificationUpdateManyAndReturnArgs>(args: SelectSubset<T, AuthentificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AuthentificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
      * Create or update one Authentification.
-     * @param {authentificationUpsertArgs} args - Arguments to update or create a Authentification.
+     * @param {AuthentificationUpsertArgs} args - Arguments to update or create a Authentification.
      * @example
      * // Update or create a Authentification
      * const authentification = await prisma.authentification.upsert({
@@ -1483,14 +1505,14 @@ export namespace Prisma {
      *   }
      * })
      */
-    upsert<T extends authentificationUpsertArgs>(args: SelectSubset<T, authentificationUpsertArgs<ExtArgs>>): Prisma__authentificationClient<$Result.GetResult<Prisma.$authentificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends AuthentificationUpsertArgs>(args: SelectSubset<T, AuthentificationUpsertArgs<ExtArgs>>): Prisma__AuthentificationClient<$Result.GetResult<Prisma.$AuthentificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
      * Count the number of Authentifications.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authentificationCountArgs} args - Arguments to filter Authentifications to count.
+     * @param {AuthentificationCountArgs} args - Arguments to filter Authentifications to count.
      * @example
      * // Count the number of Authentifications
      * const count = await prisma.authentification.count({
@@ -1499,8 +1521,8 @@ export namespace Prisma {
      *   }
      * })
     **/
-    count<T extends authentificationCountArgs>(
-      args?: Subset<T, authentificationCountArgs>,
+    count<T extends AuthentificationCountArgs>(
+      args?: Subset<T, AuthentificationCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
@@ -1539,7 +1561,7 @@ export namespace Prisma {
      * Group by Authentification.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {authentificationGroupByArgs} args - Group by arguments.
+     * @param {AuthentificationGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -1554,14 +1576,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends authentificationGroupByArgs,
+      T extends AuthentificationGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: authentificationGroupByArgs['orderBy'] }
-        : { orderBy?: authentificationGroupByArgs['orderBy'] },
+        ? { orderBy: AuthentificationGroupByArgs['orderBy'] }
+        : { orderBy?: AuthentificationGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -1610,20 +1632,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, authentificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAuthentificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, AuthentificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAuthentificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the authentification model
+   * Fields of the Authentification model
    */
-  readonly fields: authentificationFieldRefs;
+  readonly fields: AuthentificationFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for authentification.
+   * The delegate class that acts as a "Promise-like" for Authentification.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__authentificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__AuthentificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1651,400 +1673,400 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the authentification model
+   * Fields of the Authentification model
    */
-  interface authentificationFieldRefs {
-    readonly id: FieldRef<"authentification", 'String'>
-    readonly password: FieldRef<"authentification", 'String'>
-    readonly createdAt: FieldRef<"authentification", 'DateTime'>
-    readonly updatedAt: FieldRef<"authentification", 'DateTime'>
+  interface AuthentificationFieldRefs {
+    readonly id: FieldRef<"Authentification", 'String'>
+    readonly password: FieldRef<"Authentification", 'String'>
+    readonly createdAt: FieldRef<"Authentification", 'DateTime'>
+    readonly updatedAt: FieldRef<"Authentification", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * authentification findUnique
+   * Authentification findUnique
    */
-  export type authentificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelect<ExtArgs> | null
+    select?: AuthentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
     /**
-     * Filter, which authentification to fetch.
+     * Filter, which Authentification to fetch.
      */
-    where: authentificationWhereUniqueInput
+    where: AuthentificationWhereUniqueInput
   }
 
   /**
-   * authentification findUniqueOrThrow
+   * Authentification findUniqueOrThrow
    */
-  export type authentificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelect<ExtArgs> | null
+    select?: AuthentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
     /**
-     * Filter, which authentification to fetch.
+     * Filter, which Authentification to fetch.
      */
-    where: authentificationWhereUniqueInput
+    where: AuthentificationWhereUniqueInput
   }
 
   /**
-   * authentification findFirst
+   * Authentification findFirst
    */
-  export type authentificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelect<ExtArgs> | null
+    select?: AuthentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
     /**
-     * Filter, which authentification to fetch.
+     * Filter, which Authentification to fetch.
      */
-    where?: authentificationWhereInput
+    where?: AuthentificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of authentifications to fetch.
+     * Determine the order of Authentifications to fetch.
      */
-    orderBy?: authentificationOrderByWithRelationInput | authentificationOrderByWithRelationInput[]
+    orderBy?: AuthentificationOrderByWithRelationInput | AuthentificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for authentifications.
+     * Sets the position for searching for Authentifications.
      */
-    cursor?: authentificationWhereUniqueInput
+    cursor?: AuthentificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` authentifications from the position of the cursor.
+     * Take `±n` Authentifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` authentifications.
+     * Skip the first `n` Authentifications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of authentifications.
+     * Filter by unique combinations of Authentifications.
      */
     distinct?: AuthentificationScalarFieldEnum | AuthentificationScalarFieldEnum[]
   }
 
   /**
-   * authentification findFirstOrThrow
+   * Authentification findFirstOrThrow
    */
-  export type authentificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelect<ExtArgs> | null
+    select?: AuthentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
     /**
-     * Filter, which authentification to fetch.
+     * Filter, which Authentification to fetch.
      */
-    where?: authentificationWhereInput
+    where?: AuthentificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of authentifications to fetch.
+     * Determine the order of Authentifications to fetch.
      */
-    orderBy?: authentificationOrderByWithRelationInput | authentificationOrderByWithRelationInput[]
+    orderBy?: AuthentificationOrderByWithRelationInput | AuthentificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for authentifications.
+     * Sets the position for searching for Authentifications.
      */
-    cursor?: authentificationWhereUniqueInput
+    cursor?: AuthentificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` authentifications from the position of the cursor.
+     * Take `±n` Authentifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` authentifications.
+     * Skip the first `n` Authentifications.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of authentifications.
+     * Filter by unique combinations of Authentifications.
      */
     distinct?: AuthentificationScalarFieldEnum | AuthentificationScalarFieldEnum[]
   }
 
   /**
-   * authentification findMany
+   * Authentification findMany
    */
-  export type authentificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelect<ExtArgs> | null
+    select?: AuthentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
     /**
-     * Filter, which authentifications to fetch.
+     * Filter, which Authentifications to fetch.
      */
-    where?: authentificationWhereInput
+    where?: AuthentificationWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of authentifications to fetch.
+     * Determine the order of Authentifications to fetch.
      */
-    orderBy?: authentificationOrderByWithRelationInput | authentificationOrderByWithRelationInput[]
+    orderBy?: AuthentificationOrderByWithRelationInput | AuthentificationOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing authentifications.
+     * Sets the position for listing Authentifications.
      */
-    cursor?: authentificationWhereUniqueInput
+    cursor?: AuthentificationWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` authentifications from the position of the cursor.
+     * Take `±n` Authentifications from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` authentifications.
+     * Skip the first `n` Authentifications.
      */
     skip?: number
     distinct?: AuthentificationScalarFieldEnum | AuthentificationScalarFieldEnum[]
   }
 
   /**
-   * authentification create
+   * Authentification create
    */
-  export type authentificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelect<ExtArgs> | null
+    select?: AuthentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
     /**
-     * The data needed to create a authentification.
+     * The data needed to create a Authentification.
      */
-    data?: XOR<authentificationCreateInput, authentificationUncheckedCreateInput>
+    data: XOR<AuthentificationCreateInput, AuthentificationUncheckedCreateInput>
   }
 
   /**
-   * authentification createMany
+   * Authentification createMany
    */
-  export type authentificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many authentifications.
+     * The data used to create many Authentifications.
      */
-    data: authentificationCreateManyInput | authentificationCreateManyInput[]
+    data: AuthentificationCreateManyInput | AuthentificationCreateManyInput[]
   }
 
   /**
-   * authentification createManyAndReturn
+   * Authentification createManyAndReturn
    */
-  export type authentificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelectCreateManyAndReturn<ExtArgs> | null
+    select?: AuthentificationSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
     /**
-     * The data used to create many authentifications.
+     * The data used to create many Authentifications.
      */
-    data: authentificationCreateManyInput | authentificationCreateManyInput[]
+    data: AuthentificationCreateManyInput | AuthentificationCreateManyInput[]
   }
 
   /**
-   * authentification update
+   * Authentification update
    */
-  export type authentificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelect<ExtArgs> | null
+    select?: AuthentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
     /**
-     * The data needed to update a authentification.
+     * The data needed to update a Authentification.
      */
-    data: XOR<authentificationUpdateInput, authentificationUncheckedUpdateInput>
+    data: XOR<AuthentificationUpdateInput, AuthentificationUncheckedUpdateInput>
     /**
-     * Choose, which authentification to update.
+     * Choose, which Authentification to update.
      */
-    where: authentificationWhereUniqueInput
+    where: AuthentificationWhereUniqueInput
   }
 
   /**
-   * authentification updateMany
+   * Authentification updateMany
    */
-  export type authentificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update authentifications.
+     * The data used to update Authentifications.
      */
-    data: XOR<authentificationUpdateManyMutationInput, authentificationUncheckedUpdateManyInput>
+    data: XOR<AuthentificationUpdateManyMutationInput, AuthentificationUncheckedUpdateManyInput>
     /**
-     * Filter which authentifications to update
+     * Filter which Authentifications to update
      */
-    where?: authentificationWhereInput
+    where?: AuthentificationWhereInput
     /**
-     * Limit how many authentifications to update.
+     * Limit how many Authentifications to update.
      */
     limit?: number
   }
 
   /**
-   * authentification updateManyAndReturn
+   * Authentification updateManyAndReturn
    */
-  export type authentificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: AuthentificationSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
     /**
-     * The data used to update authentifications.
+     * The data used to update Authentifications.
      */
-    data: XOR<authentificationUpdateManyMutationInput, authentificationUncheckedUpdateManyInput>
+    data: XOR<AuthentificationUpdateManyMutationInput, AuthentificationUncheckedUpdateManyInput>
     /**
-     * Filter which authentifications to update
+     * Filter which Authentifications to update
      */
-    where?: authentificationWhereInput
+    where?: AuthentificationWhereInput
     /**
-     * Limit how many authentifications to update.
+     * Limit how many Authentifications to update.
      */
     limit?: number
   }
 
   /**
-   * authentification upsert
+   * Authentification upsert
    */
-  export type authentificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelect<ExtArgs> | null
+    select?: AuthentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
     /**
-     * The filter to search for the authentification to update in case it exists.
+     * The filter to search for the Authentification to update in case it exists.
      */
-    where: authentificationWhereUniqueInput
+    where: AuthentificationWhereUniqueInput
     /**
-     * In case the authentification found by the `where` argument doesn't exist, create a new authentification with this data.
+     * In case the Authentification found by the `where` argument doesn't exist, create a new Authentification with this data.
      */
-    create: XOR<authentificationCreateInput, authentificationUncheckedCreateInput>
+    create: XOR<AuthentificationCreateInput, AuthentificationUncheckedCreateInput>
     /**
-     * In case the authentification was found with the provided `where` argument, update it with this data.
+     * In case the Authentification was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<authentificationUpdateInput, authentificationUncheckedUpdateInput>
+    update: XOR<AuthentificationUpdateInput, AuthentificationUncheckedUpdateInput>
   }
 
   /**
-   * authentification delete
+   * Authentification delete
    */
-  export type authentificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelect<ExtArgs> | null
+    select?: AuthentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
     /**
-     * Filter which authentification to delete.
+     * Filter which Authentification to delete.
      */
-    where: authentificationWhereUniqueInput
+    where: AuthentificationWhereUniqueInput
   }
 
   /**
-   * authentification deleteMany
+   * Authentification deleteMany
    */
-  export type authentificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which authentifications to delete
+     * Filter which Authentifications to delete
      */
-    where?: authentificationWhereInput
+    where?: AuthentificationWhereInput
     /**
-     * Limit how many authentifications to delete.
+     * Limit how many Authentifications to delete.
      */
     limit?: number
   }
 
   /**
-   * authentification without action
+   * Authentification without action
    */
-  export type authentificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type AuthentificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the authentification
+     * Select specific fields to fetch from the Authentification
      */
-    select?: authentificationSelect<ExtArgs> | null
+    select?: AuthentificationSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the authentification
+     * Omit specific fields from the Authentification
      */
-    omit?: authentificationOmit<ExtArgs> | null
+    omit?: AuthentificationOmit<ExtArgs> | null
   }
 
 
   /**
-   * Model seedPhrase
+   * Model Seedphrase
    */
 
-  export type AggregateSeedPhrase = {
-    _count: SeedPhraseCountAggregateOutputType | null
-    _min: SeedPhraseMinAggregateOutputType | null
-    _max: SeedPhraseMaxAggregateOutputType | null
+  export type AggregateSeedphrase = {
+    _count: SeedphraseCountAggregateOutputType | null
+    _min: SeedphraseMinAggregateOutputType | null
+    _max: SeedphraseMaxAggregateOutputType | null
   }
 
-  export type SeedPhraseMinAggregateOutputType = {
+  export type SeedphraseMinAggregateOutputType = {
     id: string | null
     seedHash: string | null
     createdAt: Date | null
   }
 
-  export type SeedPhraseMaxAggregateOutputType = {
+  export type SeedphraseMaxAggregateOutputType = {
     id: string | null
     seedHash: string | null
     createdAt: Date | null
   }
 
-  export type SeedPhraseCountAggregateOutputType = {
+  export type SeedphraseCountAggregateOutputType = {
     id: number
     seedHash: number
     createdAt: number
@@ -2052,283 +2074,283 @@ export namespace Prisma {
   }
 
 
-  export type SeedPhraseMinAggregateInputType = {
+  export type SeedphraseMinAggregateInputType = {
     id?: true
     seedHash?: true
     createdAt?: true
   }
 
-  export type SeedPhraseMaxAggregateInputType = {
+  export type SeedphraseMaxAggregateInputType = {
     id?: true
     seedHash?: true
     createdAt?: true
   }
 
-  export type SeedPhraseCountAggregateInputType = {
+  export type SeedphraseCountAggregateInputType = {
     id?: true
     seedHash?: true
     createdAt?: true
     _all?: true
   }
 
-  export type SeedPhraseAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which seedPhrase to aggregate.
+     * Filter which Seedphrase to aggregate.
      */
-    where?: seedPhraseWhereInput
+    where?: SeedphraseWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of seedPhrases to fetch.
+     * Determine the order of Seedphrases to fetch.
      */
-    orderBy?: seedPhraseOrderByWithRelationInput | seedPhraseOrderByWithRelationInput[]
+    orderBy?: SeedphraseOrderByWithRelationInput | SeedphraseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: seedPhraseWhereUniqueInput
+    cursor?: SeedphraseWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` seedPhrases from the position of the cursor.
+     * Take `±n` Seedphrases from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` seedPhrases.
+     * Skip the first `n` Seedphrases.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned seedPhrases
+     * Count returned Seedphrases
     **/
-    _count?: true | SeedPhraseCountAggregateInputType
+    _count?: true | SeedphraseCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: SeedPhraseMinAggregateInputType
+    _min?: SeedphraseMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: SeedPhraseMaxAggregateInputType
+    _max?: SeedphraseMaxAggregateInputType
   }
 
-  export type GetSeedPhraseAggregateType<T extends SeedPhraseAggregateArgs> = {
-        [P in keyof T & keyof AggregateSeedPhrase]: P extends '_count' | 'count'
+  export type GetSeedphraseAggregateType<T extends SeedphraseAggregateArgs> = {
+        [P in keyof T & keyof AggregateSeedphrase]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateSeedPhrase[P]>
-      : GetScalarType<T[P], AggregateSeedPhrase[P]>
+        : GetScalarType<T[P], AggregateSeedphrase[P]>
+      : GetScalarType<T[P], AggregateSeedphrase[P]>
   }
 
 
 
 
-  export type seedPhraseGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: seedPhraseWhereInput
-    orderBy?: seedPhraseOrderByWithAggregationInput | seedPhraseOrderByWithAggregationInput[]
-    by: SeedPhraseScalarFieldEnum[] | SeedPhraseScalarFieldEnum
-    having?: seedPhraseScalarWhereWithAggregatesInput
+  export type SeedphraseGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SeedphraseWhereInput
+    orderBy?: SeedphraseOrderByWithAggregationInput | SeedphraseOrderByWithAggregationInput[]
+    by: SeedphraseScalarFieldEnum[] | SeedphraseScalarFieldEnum
+    having?: SeedphraseScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: SeedPhraseCountAggregateInputType | true
-    _min?: SeedPhraseMinAggregateInputType
-    _max?: SeedPhraseMaxAggregateInputType
+    _count?: SeedphraseCountAggregateInputType | true
+    _min?: SeedphraseMinAggregateInputType
+    _max?: SeedphraseMaxAggregateInputType
   }
 
-  export type SeedPhraseGroupByOutputType = {
+  export type SeedphraseGroupByOutputType = {
     id: string
     seedHash: string
     createdAt: Date
-    _count: SeedPhraseCountAggregateOutputType | null
-    _min: SeedPhraseMinAggregateOutputType | null
-    _max: SeedPhraseMaxAggregateOutputType | null
+    _count: SeedphraseCountAggregateOutputType | null
+    _min: SeedphraseMinAggregateOutputType | null
+    _max: SeedphraseMaxAggregateOutputType | null
   }
 
-  type GetSeedPhraseGroupByPayload<T extends seedPhraseGroupByArgs> = Prisma.PrismaPromise<
+  type GetSeedphraseGroupByPayload<T extends SeedphraseGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<SeedPhraseGroupByOutputType, T['by']> &
+      PickEnumerable<SeedphraseGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof SeedPhraseGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof SeedphraseGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], SeedPhraseGroupByOutputType[P]>
-            : GetScalarType<T[P], SeedPhraseGroupByOutputType[P]>
+              : GetScalarType<T[P], SeedphraseGroupByOutputType[P]>
+            : GetScalarType<T[P], SeedphraseGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type seedPhraseSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type SeedphraseSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     seedHash?: boolean
     createdAt?: boolean
-  }, ExtArgs["result"]["seedPhrase"]>
+  }, ExtArgs["result"]["seedphrase"]>
 
-  export type seedPhraseSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type SeedphraseSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     seedHash?: boolean
     createdAt?: boolean
-  }, ExtArgs["result"]["seedPhrase"]>
+  }, ExtArgs["result"]["seedphrase"]>
 
-  export type seedPhraseSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type SeedphraseSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     seedHash?: boolean
     createdAt?: boolean
-  }, ExtArgs["result"]["seedPhrase"]>
+  }, ExtArgs["result"]["seedphrase"]>
 
-  export type seedPhraseSelectScalar = {
+  export type SeedphraseSelectScalar = {
     id?: boolean
     seedHash?: boolean
     createdAt?: boolean
   }
 
-  export type seedPhraseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "seedHash" | "createdAt", ExtArgs["result"]["seedPhrase"]>
+  export type SeedphraseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "seedHash" | "createdAt", ExtArgs["result"]["seedphrase"]>
 
-  export type $seedPhrasePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "seedPhrase"
+  export type $SeedphrasePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Seedphrase"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
       seedHash: string
       createdAt: Date
-    }, ExtArgs["result"]["seedPhrase"]>
+    }, ExtArgs["result"]["seedphrase"]>
     composites: {}
   }
 
-  type seedPhraseGetPayload<S extends boolean | null | undefined | seedPhraseDefaultArgs> = $Result.GetResult<Prisma.$seedPhrasePayload, S>
+  type SeedphraseGetPayload<S extends boolean | null | undefined | SeedphraseDefaultArgs> = $Result.GetResult<Prisma.$SeedphrasePayload, S>
 
-  type seedPhraseCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<seedPhraseFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: SeedPhraseCountAggregateInputType | true
+  type SeedphraseCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SeedphraseFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SeedphraseCountAggregateInputType | true
     }
 
-  export interface seedPhraseDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['seedPhrase'], meta: { name: 'seedPhrase' } }
+  export interface SeedphraseDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Seedphrase'], meta: { name: 'Seedphrase' } }
     /**
-     * Find zero or one SeedPhrase that matches the filter.
-     * @param {seedPhraseFindUniqueArgs} args - Arguments to find a SeedPhrase
+     * Find zero or one Seedphrase that matches the filter.
+     * @param {SeedphraseFindUniqueArgs} args - Arguments to find a Seedphrase
      * @example
-     * // Get one SeedPhrase
-     * const seedPhrase = await prisma.seedPhrase.findUnique({
+     * // Get one Seedphrase
+     * const seedphrase = await prisma.seedphrase.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends seedPhraseFindUniqueArgs>(args: SelectSubset<T, seedPhraseFindUniqueArgs<ExtArgs>>): Prisma__seedPhraseClient<$Result.GetResult<Prisma.$seedPhrasePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends SeedphraseFindUniqueArgs>(args: SelectSubset<T, SeedphraseFindUniqueArgs<ExtArgs>>): Prisma__SeedphraseClient<$Result.GetResult<Prisma.$SeedphrasePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one SeedPhrase that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Seedphrase that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {seedPhraseFindUniqueOrThrowArgs} args - Arguments to find a SeedPhrase
+     * @param {SeedphraseFindUniqueOrThrowArgs} args - Arguments to find a Seedphrase
      * @example
-     * // Get one SeedPhrase
-     * const seedPhrase = await prisma.seedPhrase.findUniqueOrThrow({
+     * // Get one Seedphrase
+     * const seedphrase = await prisma.seedphrase.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends seedPhraseFindUniqueOrThrowArgs>(args: SelectSubset<T, seedPhraseFindUniqueOrThrowArgs<ExtArgs>>): Prisma__seedPhraseClient<$Result.GetResult<Prisma.$seedPhrasePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends SeedphraseFindUniqueOrThrowArgs>(args: SelectSubset<T, SeedphraseFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SeedphraseClient<$Result.GetResult<Prisma.$SeedphrasePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first SeedPhrase that matches the filter.
+     * Find the first Seedphrase that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {seedPhraseFindFirstArgs} args - Arguments to find a SeedPhrase
+     * @param {SeedphraseFindFirstArgs} args - Arguments to find a Seedphrase
      * @example
-     * // Get one SeedPhrase
-     * const seedPhrase = await prisma.seedPhrase.findFirst({
+     * // Get one Seedphrase
+     * const seedphrase = await prisma.seedphrase.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends seedPhraseFindFirstArgs>(args?: SelectSubset<T, seedPhraseFindFirstArgs<ExtArgs>>): Prisma__seedPhraseClient<$Result.GetResult<Prisma.$seedPhrasePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends SeedphraseFindFirstArgs>(args?: SelectSubset<T, SeedphraseFindFirstArgs<ExtArgs>>): Prisma__SeedphraseClient<$Result.GetResult<Prisma.$SeedphrasePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first SeedPhrase that matches the filter or
+     * Find the first Seedphrase that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {seedPhraseFindFirstOrThrowArgs} args - Arguments to find a SeedPhrase
+     * @param {SeedphraseFindFirstOrThrowArgs} args - Arguments to find a Seedphrase
      * @example
-     * // Get one SeedPhrase
-     * const seedPhrase = await prisma.seedPhrase.findFirstOrThrow({
+     * // Get one Seedphrase
+     * const seedphrase = await prisma.seedphrase.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends seedPhraseFindFirstOrThrowArgs>(args?: SelectSubset<T, seedPhraseFindFirstOrThrowArgs<ExtArgs>>): Prisma__seedPhraseClient<$Result.GetResult<Prisma.$seedPhrasePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends SeedphraseFindFirstOrThrowArgs>(args?: SelectSubset<T, SeedphraseFindFirstOrThrowArgs<ExtArgs>>): Prisma__SeedphraseClient<$Result.GetResult<Prisma.$SeedphrasePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more SeedPhrases that matches the filter.
+     * Find zero or more Seedphrases that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {seedPhraseFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {SeedphraseFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all SeedPhrases
-     * const seedPhrases = await prisma.seedPhrase.findMany()
+     * // Get all Seedphrases
+     * const seedphrases = await prisma.seedphrase.findMany()
      * 
-     * // Get first 10 SeedPhrases
-     * const seedPhrases = await prisma.seedPhrase.findMany({ take: 10 })
+     * // Get first 10 Seedphrases
+     * const seedphrases = await prisma.seedphrase.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const seedPhraseWithIdOnly = await prisma.seedPhrase.findMany({ select: { id: true } })
+     * const seedphraseWithIdOnly = await prisma.seedphrase.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends seedPhraseFindManyArgs>(args?: SelectSubset<T, seedPhraseFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$seedPhrasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends SeedphraseFindManyArgs>(args?: SelectSubset<T, SeedphraseFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SeedphrasePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a SeedPhrase.
-     * @param {seedPhraseCreateArgs} args - Arguments to create a SeedPhrase.
+     * Create a Seedphrase.
+     * @param {SeedphraseCreateArgs} args - Arguments to create a Seedphrase.
      * @example
-     * // Create one SeedPhrase
-     * const SeedPhrase = await prisma.seedPhrase.create({
+     * // Create one Seedphrase
+     * const Seedphrase = await prisma.seedphrase.create({
      *   data: {
-     *     // ... data to create a SeedPhrase
+     *     // ... data to create a Seedphrase
      *   }
      * })
      * 
      */
-    create<T extends seedPhraseCreateArgs>(args: SelectSubset<T, seedPhraseCreateArgs<ExtArgs>>): Prisma__seedPhraseClient<$Result.GetResult<Prisma.$seedPhrasePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends SeedphraseCreateArgs>(args: SelectSubset<T, SeedphraseCreateArgs<ExtArgs>>): Prisma__SeedphraseClient<$Result.GetResult<Prisma.$SeedphrasePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many SeedPhrases.
-     * @param {seedPhraseCreateManyArgs} args - Arguments to create many SeedPhrases.
+     * Create many Seedphrases.
+     * @param {SeedphraseCreateManyArgs} args - Arguments to create many Seedphrases.
      * @example
-     * // Create many SeedPhrases
-     * const seedPhrase = await prisma.seedPhrase.createMany({
+     * // Create many Seedphrases
+     * const seedphrase = await prisma.seedphrase.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends seedPhraseCreateManyArgs>(args?: SelectSubset<T, seedPhraseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends SeedphraseCreateManyArgs>(args?: SelectSubset<T, SeedphraseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many SeedPhrases and returns the data saved in the database.
-     * @param {seedPhraseCreateManyAndReturnArgs} args - Arguments to create many SeedPhrases.
+     * Create many Seedphrases and returns the data saved in the database.
+     * @param {SeedphraseCreateManyAndReturnArgs} args - Arguments to create many Seedphrases.
      * @example
-     * // Create many SeedPhrases
-     * const seedPhrase = await prisma.seedPhrase.createManyAndReturn({
+     * // Create many Seedphrases
+     * const seedphrase = await prisma.seedphrase.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many SeedPhrases and only return the `id`
-     * const seedPhraseWithIdOnly = await prisma.seedPhrase.createManyAndReturn({
+     * // Create many Seedphrases and only return the `id`
+     * const seedphraseWithIdOnly = await prisma.seedphrase.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -2338,28 +2360,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends seedPhraseCreateManyAndReturnArgs>(args?: SelectSubset<T, seedPhraseCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$seedPhrasePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends SeedphraseCreateManyAndReturnArgs>(args?: SelectSubset<T, SeedphraseCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SeedphrasePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a SeedPhrase.
-     * @param {seedPhraseDeleteArgs} args - Arguments to delete one SeedPhrase.
+     * Delete a Seedphrase.
+     * @param {SeedphraseDeleteArgs} args - Arguments to delete one Seedphrase.
      * @example
-     * // Delete one SeedPhrase
-     * const SeedPhrase = await prisma.seedPhrase.delete({
+     * // Delete one Seedphrase
+     * const Seedphrase = await prisma.seedphrase.delete({
      *   where: {
-     *     // ... filter to delete one SeedPhrase
+     *     // ... filter to delete one Seedphrase
      *   }
      * })
      * 
      */
-    delete<T extends seedPhraseDeleteArgs>(args: SelectSubset<T, seedPhraseDeleteArgs<ExtArgs>>): Prisma__seedPhraseClient<$Result.GetResult<Prisma.$seedPhrasePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends SeedphraseDeleteArgs>(args: SelectSubset<T, SeedphraseDeleteArgs<ExtArgs>>): Prisma__SeedphraseClient<$Result.GetResult<Prisma.$SeedphrasePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one SeedPhrase.
-     * @param {seedPhraseUpdateArgs} args - Arguments to update one SeedPhrase.
+     * Update one Seedphrase.
+     * @param {SeedphraseUpdateArgs} args - Arguments to update one Seedphrase.
      * @example
-     * // Update one SeedPhrase
-     * const seedPhrase = await prisma.seedPhrase.update({
+     * // Update one Seedphrase
+     * const seedphrase = await prisma.seedphrase.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2369,30 +2391,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends seedPhraseUpdateArgs>(args: SelectSubset<T, seedPhraseUpdateArgs<ExtArgs>>): Prisma__seedPhraseClient<$Result.GetResult<Prisma.$seedPhrasePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends SeedphraseUpdateArgs>(args: SelectSubset<T, SeedphraseUpdateArgs<ExtArgs>>): Prisma__SeedphraseClient<$Result.GetResult<Prisma.$SeedphrasePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more SeedPhrases.
-     * @param {seedPhraseDeleteManyArgs} args - Arguments to filter SeedPhrases to delete.
+     * Delete zero or more Seedphrases.
+     * @param {SeedphraseDeleteManyArgs} args - Arguments to filter Seedphrases to delete.
      * @example
-     * // Delete a few SeedPhrases
-     * const { count } = await prisma.seedPhrase.deleteMany({
+     * // Delete a few Seedphrases
+     * const { count } = await prisma.seedphrase.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends seedPhraseDeleteManyArgs>(args?: SelectSubset<T, seedPhraseDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends SeedphraseDeleteManyArgs>(args?: SelectSubset<T, SeedphraseDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more SeedPhrases.
+     * Update zero or more Seedphrases.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {seedPhraseUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {SeedphraseUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many SeedPhrases
-     * const seedPhrase = await prisma.seedPhrase.updateMany({
+     * // Update many Seedphrases
+     * const seedphrase = await prisma.seedphrase.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2402,14 +2424,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends seedPhraseUpdateManyArgs>(args: SelectSubset<T, seedPhraseUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends SeedphraseUpdateManyArgs>(args: SelectSubset<T, SeedphraseUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more SeedPhrases and returns the data updated in the database.
-     * @param {seedPhraseUpdateManyAndReturnArgs} args - Arguments to update many SeedPhrases.
+     * Update zero or more Seedphrases and returns the data updated in the database.
+     * @param {SeedphraseUpdateManyAndReturnArgs} args - Arguments to update many Seedphrases.
      * @example
-     * // Update many SeedPhrases
-     * const seedPhrase = await prisma.seedPhrase.updateManyAndReturn({
+     * // Update many Seedphrases
+     * const seedphrase = await prisma.seedphrase.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -2418,8 +2440,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more SeedPhrases and only return the `id`
-     * const seedPhraseWithIdOnly = await prisma.seedPhrase.updateManyAndReturn({
+     * // Update zero or more Seedphrases and only return the `id`
+     * const seedphraseWithIdOnly = await prisma.seedphrase.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -2432,56 +2454,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends seedPhraseUpdateManyAndReturnArgs>(args: SelectSubset<T, seedPhraseUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$seedPhrasePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends SeedphraseUpdateManyAndReturnArgs>(args: SelectSubset<T, SeedphraseUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SeedphrasePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one SeedPhrase.
-     * @param {seedPhraseUpsertArgs} args - Arguments to update or create a SeedPhrase.
+     * Create or update one Seedphrase.
+     * @param {SeedphraseUpsertArgs} args - Arguments to update or create a Seedphrase.
      * @example
-     * // Update or create a SeedPhrase
-     * const seedPhrase = await prisma.seedPhrase.upsert({
+     * // Update or create a Seedphrase
+     * const seedphrase = await prisma.seedphrase.upsert({
      *   create: {
-     *     // ... data to create a SeedPhrase
+     *     // ... data to create a Seedphrase
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the SeedPhrase we want to update
+     *     // ... the filter for the Seedphrase we want to update
      *   }
      * })
      */
-    upsert<T extends seedPhraseUpsertArgs>(args: SelectSubset<T, seedPhraseUpsertArgs<ExtArgs>>): Prisma__seedPhraseClient<$Result.GetResult<Prisma.$seedPhrasePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends SeedphraseUpsertArgs>(args: SelectSubset<T, SeedphraseUpsertArgs<ExtArgs>>): Prisma__SeedphraseClient<$Result.GetResult<Prisma.$SeedphrasePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of SeedPhrases.
+     * Count the number of Seedphrases.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {seedPhraseCountArgs} args - Arguments to filter SeedPhrases to count.
+     * @param {SeedphraseCountArgs} args - Arguments to filter Seedphrases to count.
      * @example
-     * // Count the number of SeedPhrases
-     * const count = await prisma.seedPhrase.count({
+     * // Count the number of Seedphrases
+     * const count = await prisma.seedphrase.count({
      *   where: {
-     *     // ... the filter for the SeedPhrases we want to count
+     *     // ... the filter for the Seedphrases we want to count
      *   }
      * })
     **/
-    count<T extends seedPhraseCountArgs>(
-      args?: Subset<T, seedPhraseCountArgs>,
+    count<T extends SeedphraseCountArgs>(
+      args?: Subset<T, SeedphraseCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], SeedPhraseCountAggregateOutputType>
+          : GetScalarType<T['select'], SeedphraseCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a SeedPhrase.
+     * Allows you to perform aggregations operations on a Seedphrase.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {SeedPhraseAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {SeedphraseAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -2501,13 +2523,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends SeedPhraseAggregateArgs>(args: Subset<T, SeedPhraseAggregateArgs>): Prisma.PrismaPromise<GetSeedPhraseAggregateType<T>>
+    aggregate<T extends SeedphraseAggregateArgs>(args: Subset<T, SeedphraseAggregateArgs>): Prisma.PrismaPromise<GetSeedphraseAggregateType<T>>
 
     /**
-     * Group by SeedPhrase.
+     * Group by Seedphrase.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {seedPhraseGroupByArgs} args - Group by arguments.
+     * @param {SeedphraseGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -2522,14 +2544,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends seedPhraseGroupByArgs,
+      T extends SeedphraseGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: seedPhraseGroupByArgs['orderBy'] }
-        : { orderBy?: seedPhraseGroupByArgs['orderBy'] },
+        ? { orderBy: SeedphraseGroupByArgs['orderBy'] }
+        : { orderBy?: SeedphraseGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -2578,20 +2600,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, seedPhraseGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSeedPhraseGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, SeedphraseGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSeedphraseGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the seedPhrase model
+   * Fields of the Seedphrase model
    */
-  readonly fields: seedPhraseFieldRefs;
+  readonly fields: SeedphraseFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for seedPhrase.
+   * The delegate class that acts as a "Promise-like" for Seedphrase.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__seedPhraseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__SeedphraseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -2619,779 +2641,703 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the seedPhrase model
+   * Fields of the Seedphrase model
    */
-  interface seedPhraseFieldRefs {
-    readonly id: FieldRef<"seedPhrase", 'String'>
-    readonly seedHash: FieldRef<"seedPhrase", 'String'>
-    readonly createdAt: FieldRef<"seedPhrase", 'DateTime'>
+  interface SeedphraseFieldRefs {
+    readonly id: FieldRef<"Seedphrase", 'String'>
+    readonly seedHash: FieldRef<"Seedphrase", 'String'>
+    readonly createdAt: FieldRef<"Seedphrase", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * seedPhrase findUnique
+   * Seedphrase findUnique
    */
-  export type seedPhraseFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelect<ExtArgs> | null
+    select?: SeedphraseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
     /**
-     * Filter, which seedPhrase to fetch.
+     * Filter, which Seedphrase to fetch.
      */
-    where: seedPhraseWhereUniqueInput
+    where: SeedphraseWhereUniqueInput
   }
 
   /**
-   * seedPhrase findUniqueOrThrow
+   * Seedphrase findUniqueOrThrow
    */
-  export type seedPhraseFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelect<ExtArgs> | null
+    select?: SeedphraseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
     /**
-     * Filter, which seedPhrase to fetch.
+     * Filter, which Seedphrase to fetch.
      */
-    where: seedPhraseWhereUniqueInput
+    where: SeedphraseWhereUniqueInput
   }
 
   /**
-   * seedPhrase findFirst
+   * Seedphrase findFirst
    */
-  export type seedPhraseFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelect<ExtArgs> | null
+    select?: SeedphraseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
     /**
-     * Filter, which seedPhrase to fetch.
+     * Filter, which Seedphrase to fetch.
      */
-    where?: seedPhraseWhereInput
+    where?: SeedphraseWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of seedPhrases to fetch.
+     * Determine the order of Seedphrases to fetch.
      */
-    orderBy?: seedPhraseOrderByWithRelationInput | seedPhraseOrderByWithRelationInput[]
+    orderBy?: SeedphraseOrderByWithRelationInput | SeedphraseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for seedPhrases.
+     * Sets the position for searching for Seedphrases.
      */
-    cursor?: seedPhraseWhereUniqueInput
+    cursor?: SeedphraseWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` seedPhrases from the position of the cursor.
+     * Take `±n` Seedphrases from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` seedPhrases.
+     * Skip the first `n` Seedphrases.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of seedPhrases.
+     * Filter by unique combinations of Seedphrases.
      */
-    distinct?: SeedPhraseScalarFieldEnum | SeedPhraseScalarFieldEnum[]
+    distinct?: SeedphraseScalarFieldEnum | SeedphraseScalarFieldEnum[]
   }
 
   /**
-   * seedPhrase findFirstOrThrow
+   * Seedphrase findFirstOrThrow
    */
-  export type seedPhraseFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelect<ExtArgs> | null
+    select?: SeedphraseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
     /**
-     * Filter, which seedPhrase to fetch.
+     * Filter, which Seedphrase to fetch.
      */
-    where?: seedPhraseWhereInput
+    where?: SeedphraseWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of seedPhrases to fetch.
+     * Determine the order of Seedphrases to fetch.
      */
-    orderBy?: seedPhraseOrderByWithRelationInput | seedPhraseOrderByWithRelationInput[]
+    orderBy?: SeedphraseOrderByWithRelationInput | SeedphraseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for seedPhrases.
+     * Sets the position for searching for Seedphrases.
      */
-    cursor?: seedPhraseWhereUniqueInput
+    cursor?: SeedphraseWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` seedPhrases from the position of the cursor.
+     * Take `±n` Seedphrases from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` seedPhrases.
+     * Skip the first `n` Seedphrases.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of seedPhrases.
+     * Filter by unique combinations of Seedphrases.
      */
-    distinct?: SeedPhraseScalarFieldEnum | SeedPhraseScalarFieldEnum[]
+    distinct?: SeedphraseScalarFieldEnum | SeedphraseScalarFieldEnum[]
   }
 
   /**
-   * seedPhrase findMany
+   * Seedphrase findMany
    */
-  export type seedPhraseFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelect<ExtArgs> | null
+    select?: SeedphraseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
     /**
-     * Filter, which seedPhrases to fetch.
+     * Filter, which Seedphrases to fetch.
      */
-    where?: seedPhraseWhereInput
+    where?: SeedphraseWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of seedPhrases to fetch.
+     * Determine the order of Seedphrases to fetch.
      */
-    orderBy?: seedPhraseOrderByWithRelationInput | seedPhraseOrderByWithRelationInput[]
+    orderBy?: SeedphraseOrderByWithRelationInput | SeedphraseOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing seedPhrases.
+     * Sets the position for listing Seedphrases.
      */
-    cursor?: seedPhraseWhereUniqueInput
+    cursor?: SeedphraseWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` seedPhrases from the position of the cursor.
+     * Take `±n` Seedphrases from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` seedPhrases.
+     * Skip the first `n` Seedphrases.
      */
     skip?: number
-    distinct?: SeedPhraseScalarFieldEnum | SeedPhraseScalarFieldEnum[]
+    distinct?: SeedphraseScalarFieldEnum | SeedphraseScalarFieldEnum[]
   }
 
   /**
-   * seedPhrase create
+   * Seedphrase create
    */
-  export type seedPhraseCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelect<ExtArgs> | null
+    select?: SeedphraseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
     /**
-     * The data needed to create a seedPhrase.
+     * The data needed to create a Seedphrase.
      */
-    data?: XOR<seedPhraseCreateInput, seedPhraseUncheckedCreateInput>
+    data?: XOR<SeedphraseCreateInput, SeedphraseUncheckedCreateInput>
   }
 
   /**
-   * seedPhrase createMany
+   * Seedphrase createMany
    */
-  export type seedPhraseCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many seedPhrases.
+     * The data used to create many Seedphrases.
      */
-    data: seedPhraseCreateManyInput | seedPhraseCreateManyInput[]
+    data: SeedphraseCreateManyInput | SeedphraseCreateManyInput[]
   }
 
   /**
-   * seedPhrase createManyAndReturn
+   * Seedphrase createManyAndReturn
    */
-  export type seedPhraseCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelectCreateManyAndReturn<ExtArgs> | null
+    select?: SeedphraseSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
     /**
-     * The data used to create many seedPhrases.
+     * The data used to create many Seedphrases.
      */
-    data: seedPhraseCreateManyInput | seedPhraseCreateManyInput[]
+    data: SeedphraseCreateManyInput | SeedphraseCreateManyInput[]
   }
 
   /**
-   * seedPhrase update
+   * Seedphrase update
    */
-  export type seedPhraseUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelect<ExtArgs> | null
+    select?: SeedphraseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
     /**
-     * The data needed to update a seedPhrase.
+     * The data needed to update a Seedphrase.
      */
-    data: XOR<seedPhraseUpdateInput, seedPhraseUncheckedUpdateInput>
+    data: XOR<SeedphraseUpdateInput, SeedphraseUncheckedUpdateInput>
     /**
-     * Choose, which seedPhrase to update.
+     * Choose, which Seedphrase to update.
      */
-    where: seedPhraseWhereUniqueInput
+    where: SeedphraseWhereUniqueInput
   }
 
   /**
-   * seedPhrase updateMany
+   * Seedphrase updateMany
    */
-  export type seedPhraseUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update seedPhrases.
+     * The data used to update Seedphrases.
      */
-    data: XOR<seedPhraseUpdateManyMutationInput, seedPhraseUncheckedUpdateManyInput>
+    data: XOR<SeedphraseUpdateManyMutationInput, SeedphraseUncheckedUpdateManyInput>
     /**
-     * Filter which seedPhrases to update
+     * Filter which Seedphrases to update
      */
-    where?: seedPhraseWhereInput
+    where?: SeedphraseWhereInput
     /**
-     * Limit how many seedPhrases to update.
+     * Limit how many Seedphrases to update.
      */
     limit?: number
   }
 
   /**
-   * seedPhrase updateManyAndReturn
+   * Seedphrase updateManyAndReturn
    */
-  export type seedPhraseUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: SeedphraseSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
     /**
-     * The data used to update seedPhrases.
+     * The data used to update Seedphrases.
      */
-    data: XOR<seedPhraseUpdateManyMutationInput, seedPhraseUncheckedUpdateManyInput>
+    data: XOR<SeedphraseUpdateManyMutationInput, SeedphraseUncheckedUpdateManyInput>
     /**
-     * Filter which seedPhrases to update
+     * Filter which Seedphrases to update
      */
-    where?: seedPhraseWhereInput
+    where?: SeedphraseWhereInput
     /**
-     * Limit how many seedPhrases to update.
+     * Limit how many Seedphrases to update.
      */
     limit?: number
   }
 
   /**
-   * seedPhrase upsert
+   * Seedphrase upsert
    */
-  export type seedPhraseUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelect<ExtArgs> | null
+    select?: SeedphraseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
     /**
-     * The filter to search for the seedPhrase to update in case it exists.
+     * The filter to search for the Seedphrase to update in case it exists.
      */
-    where: seedPhraseWhereUniqueInput
+    where: SeedphraseWhereUniqueInput
     /**
-     * In case the seedPhrase found by the `where` argument doesn't exist, create a new seedPhrase with this data.
+     * In case the Seedphrase found by the `where` argument doesn't exist, create a new Seedphrase with this data.
      */
-    create: XOR<seedPhraseCreateInput, seedPhraseUncheckedCreateInput>
+    create: XOR<SeedphraseCreateInput, SeedphraseUncheckedCreateInput>
     /**
-     * In case the seedPhrase was found with the provided `where` argument, update it with this data.
+     * In case the Seedphrase was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<seedPhraseUpdateInput, seedPhraseUncheckedUpdateInput>
+    update: XOR<SeedphraseUpdateInput, SeedphraseUncheckedUpdateInput>
   }
 
   /**
-   * seedPhrase delete
+   * Seedphrase delete
    */
-  export type seedPhraseDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelect<ExtArgs> | null
+    select?: SeedphraseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
     /**
-     * Filter which seedPhrase to delete.
+     * Filter which Seedphrase to delete.
      */
-    where: seedPhraseWhereUniqueInput
+    where: SeedphraseWhereUniqueInput
   }
 
   /**
-   * seedPhrase deleteMany
+   * Seedphrase deleteMany
    */
-  export type seedPhraseDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which seedPhrases to delete
+     * Filter which Seedphrases to delete
      */
-    where?: seedPhraseWhereInput
+    where?: SeedphraseWhereInput
     /**
-     * Limit how many seedPhrases to delete.
+     * Limit how many Seedphrases to delete.
      */
     limit?: number
   }
 
   /**
-   * seedPhrase without action
+   * Seedphrase without action
    */
-  export type seedPhraseDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SeedphraseDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the seedPhrase
+     * Select specific fields to fetch from the Seedphrase
      */
-    select?: seedPhraseSelect<ExtArgs> | null
+    select?: SeedphraseSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the seedPhrase
+     * Omit specific fields from the Seedphrase
      */
-    omit?: seedPhraseOmit<ExtArgs> | null
+    omit?: SeedphraseOmit<ExtArgs> | null
   }
 
 
   /**
-   * Model credentials
+   * Model VaultItem
    */
 
-  export type AggregateCredentials = {
-    _count: CredentialsCountAggregateOutputType | null
-    _min: CredentialsMinAggregateOutputType | null
-    _max: CredentialsMaxAggregateOutputType | null
+  export type AggregateVaultItem = {
+    _count: VaultItemCountAggregateOutputType | null
+    _min: VaultItemMinAggregateOutputType | null
+    _max: VaultItemMaxAggregateOutputType | null
   }
 
-  export type CredentialsMinAggregateOutputType = {
+  export type VaultItemMinAggregateOutputType = {
     id: string | null
-    url: string | null
-    originUrl: string | null
-    login: string | null
-    password: string | null
-    iv: string | null
-    tag: string | null
-    notes: string | null
-    category: string | null
+    type: $Enums.VaultType | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type CredentialsMaxAggregateOutputType = {
+  export type VaultItemMaxAggregateOutputType = {
     id: string | null
-    url: string | null
-    originUrl: string | null
-    login: string | null
-    password: string | null
-    iv: string | null
-    tag: string | null
-    notes: string | null
-    category: string | null
+    type: $Enums.VaultType | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type CredentialsCountAggregateOutputType = {
+  export type VaultItemCountAggregateOutputType = {
     id: number
-    url: number
-    originUrl: number
-    login: number
-    password: number
-    iv: number
-    tag: number
-    notes: number
-    category: number
+    type: number
+    data: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
-  export type CredentialsMinAggregateInputType = {
+  export type VaultItemMinAggregateInputType = {
     id?: true
-    url?: true
-    originUrl?: true
-    login?: true
-    password?: true
-    iv?: true
-    tag?: true
-    notes?: true
-    category?: true
+    type?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type CredentialsMaxAggregateInputType = {
+  export type VaultItemMaxAggregateInputType = {
     id?: true
-    url?: true
-    originUrl?: true
-    login?: true
-    password?: true
-    iv?: true
-    tag?: true
-    notes?: true
-    category?: true
+    type?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type CredentialsCountAggregateInputType = {
+  export type VaultItemCountAggregateInputType = {
     id?: true
-    url?: true
-    originUrl?: true
-    login?: true
-    password?: true
-    iv?: true
-    tag?: true
-    notes?: true
-    category?: true
+    type?: true
+    data?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
   }
 
-  export type CredentialsAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which credentials to aggregate.
+     * Filter which VaultItem to aggregate.
      */
-    where?: credentialsWhereInput
+    where?: VaultItemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of credentials to fetch.
+     * Determine the order of VaultItems to fetch.
      */
-    orderBy?: credentialsOrderByWithRelationInput | credentialsOrderByWithRelationInput[]
+    orderBy?: VaultItemOrderByWithRelationInput | VaultItemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: credentialsWhereUniqueInput
+    cursor?: VaultItemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` credentials from the position of the cursor.
+     * Take `±n` VaultItems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` credentials.
+     * Skip the first `n` VaultItems.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned credentials
+     * Count returned VaultItems
     **/
-    _count?: true | CredentialsCountAggregateInputType
+    _count?: true | VaultItemCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: CredentialsMinAggregateInputType
+    _min?: VaultItemMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: CredentialsMaxAggregateInputType
+    _max?: VaultItemMaxAggregateInputType
   }
 
-  export type GetCredentialsAggregateType<T extends CredentialsAggregateArgs> = {
-        [P in keyof T & keyof AggregateCredentials]: P extends '_count' | 'count'
+  export type GetVaultItemAggregateType<T extends VaultItemAggregateArgs> = {
+        [P in keyof T & keyof AggregateVaultItem]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateCredentials[P]>
-      : GetScalarType<T[P], AggregateCredentials[P]>
+        : GetScalarType<T[P], AggregateVaultItem[P]>
+      : GetScalarType<T[P], AggregateVaultItem[P]>
   }
 
 
 
 
-  export type credentialsGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: credentialsWhereInput
-    orderBy?: credentialsOrderByWithAggregationInput | credentialsOrderByWithAggregationInput[]
-    by: CredentialsScalarFieldEnum[] | CredentialsScalarFieldEnum
-    having?: credentialsScalarWhereWithAggregatesInput
+  export type VaultItemGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: VaultItemWhereInput
+    orderBy?: VaultItemOrderByWithAggregationInput | VaultItemOrderByWithAggregationInput[]
+    by: VaultItemScalarFieldEnum[] | VaultItemScalarFieldEnum
+    having?: VaultItemScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: CredentialsCountAggregateInputType | true
-    _min?: CredentialsMinAggregateInputType
-    _max?: CredentialsMaxAggregateInputType
+    _count?: VaultItemCountAggregateInputType | true
+    _min?: VaultItemMinAggregateInputType
+    _max?: VaultItemMaxAggregateInputType
   }
 
-  export type CredentialsGroupByOutputType = {
+  export type VaultItemGroupByOutputType = {
     id: string
-    url: string
-    originUrl: string
-    login: string
-    password: string
-    iv: string
-    tag: string
-    notes: string
-    category: string
+    type: $Enums.VaultType
+    data: JsonValue
     createdAt: Date
     updatedAt: Date
-    _count: CredentialsCountAggregateOutputType | null
-    _min: CredentialsMinAggregateOutputType | null
-    _max: CredentialsMaxAggregateOutputType | null
+    _count: VaultItemCountAggregateOutputType | null
+    _min: VaultItemMinAggregateOutputType | null
+    _max: VaultItemMaxAggregateOutputType | null
   }
 
-  type GetCredentialsGroupByPayload<T extends credentialsGroupByArgs> = Prisma.PrismaPromise<
+  type GetVaultItemGroupByPayload<T extends VaultItemGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<CredentialsGroupByOutputType, T['by']> &
+      PickEnumerable<VaultItemGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof CredentialsGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof VaultItemGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], CredentialsGroupByOutputType[P]>
-            : GetScalarType<T[P], CredentialsGroupByOutputType[P]>
+              : GetScalarType<T[P], VaultItemGroupByOutputType[P]>
+            : GetScalarType<T[P], VaultItemGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type credentialsSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type VaultItemSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    url?: boolean
-    originUrl?: boolean
-    login?: boolean
-    password?: boolean
-    iv?: boolean
-    tag?: boolean
-    notes?: boolean
-    category?: boolean
+    type?: boolean
+    data?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["credentials"]>
+  }, ExtArgs["result"]["vaultItem"]>
 
-  export type credentialsSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type VaultItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    url?: boolean
-    originUrl?: boolean
-    login?: boolean
-    password?: boolean
-    iv?: boolean
-    tag?: boolean
-    notes?: boolean
-    category?: boolean
+    type?: boolean
+    data?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["credentials"]>
+  }, ExtArgs["result"]["vaultItem"]>
 
-  export type credentialsSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type VaultItemSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    url?: boolean
-    originUrl?: boolean
-    login?: boolean
-    password?: boolean
-    iv?: boolean
-    tag?: boolean
-    notes?: boolean
-    category?: boolean
+    type?: boolean
+    data?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["credentials"]>
+  }, ExtArgs["result"]["vaultItem"]>
 
-  export type credentialsSelectScalar = {
+  export type VaultItemSelectScalar = {
     id?: boolean
-    url?: boolean
-    originUrl?: boolean
-    login?: boolean
-    password?: boolean
-    iv?: boolean
-    tag?: boolean
-    notes?: boolean
-    category?: boolean
+    type?: boolean
+    data?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type credentialsOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "url" | "originUrl" | "login" | "password" | "iv" | "tag" | "notes" | "category" | "createdAt" | "updatedAt", ExtArgs["result"]["credentials"]>
+  export type VaultItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "data" | "createdAt" | "updatedAt", ExtArgs["result"]["vaultItem"]>
 
-  export type $credentialsPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "credentials"
+  export type $VaultItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "VaultItem"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      url: string
-      originUrl: string
-      login: string
-      password: string
-      iv: string
-      tag: string
-      notes: string
-      category: string
+      type: $Enums.VaultType
+      data: Prisma.JsonValue
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["credentials"]>
+    }, ExtArgs["result"]["vaultItem"]>
     composites: {}
   }
 
-  type credentialsGetPayload<S extends boolean | null | undefined | credentialsDefaultArgs> = $Result.GetResult<Prisma.$credentialsPayload, S>
+  type VaultItemGetPayload<S extends boolean | null | undefined | VaultItemDefaultArgs> = $Result.GetResult<Prisma.$VaultItemPayload, S>
 
-  type credentialsCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<credentialsFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CredentialsCountAggregateInputType | true
+  type VaultItemCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<VaultItemFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: VaultItemCountAggregateInputType | true
     }
 
-  export interface credentialsDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['credentials'], meta: { name: 'credentials' } }
+  export interface VaultItemDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['VaultItem'], meta: { name: 'VaultItem' } }
     /**
-     * Find zero or one Credentials that matches the filter.
-     * @param {credentialsFindUniqueArgs} args - Arguments to find a Credentials
+     * Find zero or one VaultItem that matches the filter.
+     * @param {VaultItemFindUniqueArgs} args - Arguments to find a VaultItem
      * @example
-     * // Get one Credentials
-     * const credentials = await prisma.credentials.findUnique({
+     * // Get one VaultItem
+     * const vaultItem = await prisma.vaultItem.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends credentialsFindUniqueArgs>(args: SelectSubset<T, credentialsFindUniqueArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends VaultItemFindUniqueArgs>(args: SelectSubset<T, VaultItemFindUniqueArgs<ExtArgs>>): Prisma__VaultItemClient<$Result.GetResult<Prisma.$VaultItemPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Credentials that matches the filter or throw an error with `error.code='P2025'`
+     * Find one VaultItem that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {credentialsFindUniqueOrThrowArgs} args - Arguments to find a Credentials
+     * @param {VaultItemFindUniqueOrThrowArgs} args - Arguments to find a VaultItem
      * @example
-     * // Get one Credentials
-     * const credentials = await prisma.credentials.findUniqueOrThrow({
+     * // Get one VaultItem
+     * const vaultItem = await prisma.vaultItem.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends credentialsFindUniqueOrThrowArgs>(args: SelectSubset<T, credentialsFindUniqueOrThrowArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends VaultItemFindUniqueOrThrowArgs>(args: SelectSubset<T, VaultItemFindUniqueOrThrowArgs<ExtArgs>>): Prisma__VaultItemClient<$Result.GetResult<Prisma.$VaultItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Credentials that matches the filter.
+     * Find the first VaultItem that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {credentialsFindFirstArgs} args - Arguments to find a Credentials
+     * @param {VaultItemFindFirstArgs} args - Arguments to find a VaultItem
      * @example
-     * // Get one Credentials
-     * const credentials = await prisma.credentials.findFirst({
+     * // Get one VaultItem
+     * const vaultItem = await prisma.vaultItem.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends credentialsFindFirstArgs>(args?: SelectSubset<T, credentialsFindFirstArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends VaultItemFindFirstArgs>(args?: SelectSubset<T, VaultItemFindFirstArgs<ExtArgs>>): Prisma__VaultItemClient<$Result.GetResult<Prisma.$VaultItemPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Credentials that matches the filter or
+     * Find the first VaultItem that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {credentialsFindFirstOrThrowArgs} args - Arguments to find a Credentials
+     * @param {VaultItemFindFirstOrThrowArgs} args - Arguments to find a VaultItem
      * @example
-     * // Get one Credentials
-     * const credentials = await prisma.credentials.findFirstOrThrow({
+     * // Get one VaultItem
+     * const vaultItem = await prisma.vaultItem.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends credentialsFindFirstOrThrowArgs>(args?: SelectSubset<T, credentialsFindFirstOrThrowArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends VaultItemFindFirstOrThrowArgs>(args?: SelectSubset<T, VaultItemFindFirstOrThrowArgs<ExtArgs>>): Prisma__VaultItemClient<$Result.GetResult<Prisma.$VaultItemPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Credentials that matches the filter.
+     * Find zero or more VaultItems that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {credentialsFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {VaultItemFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Credentials
-     * const credentials = await prisma.credentials.findMany()
+     * // Get all VaultItems
+     * const vaultItems = await prisma.vaultItem.findMany()
      * 
-     * // Get first 10 Credentials
-     * const credentials = await prisma.credentials.findMany({ take: 10 })
+     * // Get first 10 VaultItems
+     * const vaultItems = await prisma.vaultItem.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const credentialsWithIdOnly = await prisma.credentials.findMany({ select: { id: true } })
+     * const vaultItemWithIdOnly = await prisma.vaultItem.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends credentialsFindManyArgs>(args?: SelectSubset<T, credentialsFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends VaultItemFindManyArgs>(args?: SelectSubset<T, VaultItemFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VaultItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Credentials.
-     * @param {credentialsCreateArgs} args - Arguments to create a Credentials.
+     * Create a VaultItem.
+     * @param {VaultItemCreateArgs} args - Arguments to create a VaultItem.
      * @example
-     * // Create one Credentials
-     * const Credentials = await prisma.credentials.create({
+     * // Create one VaultItem
+     * const VaultItem = await prisma.vaultItem.create({
      *   data: {
-     *     // ... data to create a Credentials
+     *     // ... data to create a VaultItem
      *   }
      * })
      * 
      */
-    create<T extends credentialsCreateArgs>(args: SelectSubset<T, credentialsCreateArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends VaultItemCreateArgs>(args: SelectSubset<T, VaultItemCreateArgs<ExtArgs>>): Prisma__VaultItemClient<$Result.GetResult<Prisma.$VaultItemPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Credentials.
-     * @param {credentialsCreateManyArgs} args - Arguments to create many Credentials.
+     * Create many VaultItems.
+     * @param {VaultItemCreateManyArgs} args - Arguments to create many VaultItems.
      * @example
-     * // Create many Credentials
-     * const credentials = await prisma.credentials.createMany({
+     * // Create many VaultItems
+     * const vaultItem = await prisma.vaultItem.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends credentialsCreateManyArgs>(args?: SelectSubset<T, credentialsCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends VaultItemCreateManyArgs>(args?: SelectSubset<T, VaultItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Credentials and returns the data saved in the database.
-     * @param {credentialsCreateManyAndReturnArgs} args - Arguments to create many Credentials.
+     * Create many VaultItems and returns the data saved in the database.
+     * @param {VaultItemCreateManyAndReturnArgs} args - Arguments to create many VaultItems.
      * @example
-     * // Create many Credentials
-     * const credentials = await prisma.credentials.createManyAndReturn({
+     * // Create many VaultItems
+     * const vaultItem = await prisma.vaultItem.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Credentials and only return the `id`
-     * const credentialsWithIdOnly = await prisma.credentials.createManyAndReturn({
+     * // Create many VaultItems and only return the `id`
+     * const vaultItemWithIdOnly = await prisma.vaultItem.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -3401,28 +3347,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends credentialsCreateManyAndReturnArgs>(args?: SelectSubset<T, credentialsCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends VaultItemCreateManyAndReturnArgs>(args?: SelectSubset<T, VaultItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VaultItemPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Credentials.
-     * @param {credentialsDeleteArgs} args - Arguments to delete one Credentials.
+     * Delete a VaultItem.
+     * @param {VaultItemDeleteArgs} args - Arguments to delete one VaultItem.
      * @example
-     * // Delete one Credentials
-     * const Credentials = await prisma.credentials.delete({
+     * // Delete one VaultItem
+     * const VaultItem = await prisma.vaultItem.delete({
      *   where: {
-     *     // ... filter to delete one Credentials
+     *     // ... filter to delete one VaultItem
      *   }
      * })
      * 
      */
-    delete<T extends credentialsDeleteArgs>(args: SelectSubset<T, credentialsDeleteArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends VaultItemDeleteArgs>(args: SelectSubset<T, VaultItemDeleteArgs<ExtArgs>>): Prisma__VaultItemClient<$Result.GetResult<Prisma.$VaultItemPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Credentials.
-     * @param {credentialsUpdateArgs} args - Arguments to update one Credentials.
+     * Update one VaultItem.
+     * @param {VaultItemUpdateArgs} args - Arguments to update one VaultItem.
      * @example
-     * // Update one Credentials
-     * const credentials = await prisma.credentials.update({
+     * // Update one VaultItem
+     * const vaultItem = await prisma.vaultItem.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3432,30 +3378,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends credentialsUpdateArgs>(args: SelectSubset<T, credentialsUpdateArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends VaultItemUpdateArgs>(args: SelectSubset<T, VaultItemUpdateArgs<ExtArgs>>): Prisma__VaultItemClient<$Result.GetResult<Prisma.$VaultItemPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Credentials.
-     * @param {credentialsDeleteManyArgs} args - Arguments to filter Credentials to delete.
+     * Delete zero or more VaultItems.
+     * @param {VaultItemDeleteManyArgs} args - Arguments to filter VaultItems to delete.
      * @example
-     * // Delete a few Credentials
-     * const { count } = await prisma.credentials.deleteMany({
+     * // Delete a few VaultItems
+     * const { count } = await prisma.vaultItem.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends credentialsDeleteManyArgs>(args?: SelectSubset<T, credentialsDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends VaultItemDeleteManyArgs>(args?: SelectSubset<T, VaultItemDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Credentials.
+     * Update zero or more VaultItems.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {credentialsUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {VaultItemUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Credentials
-     * const credentials = await prisma.credentials.updateMany({
+     * // Update many VaultItems
+     * const vaultItem = await prisma.vaultItem.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3465,14 +3411,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends credentialsUpdateManyArgs>(args: SelectSubset<T, credentialsUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends VaultItemUpdateManyArgs>(args: SelectSubset<T, VaultItemUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Credentials and returns the data updated in the database.
-     * @param {credentialsUpdateManyAndReturnArgs} args - Arguments to update many Credentials.
+     * Update zero or more VaultItems and returns the data updated in the database.
+     * @param {VaultItemUpdateManyAndReturnArgs} args - Arguments to update many VaultItems.
      * @example
-     * // Update many Credentials
-     * const credentials = await prisma.credentials.updateManyAndReturn({
+     * // Update many VaultItems
+     * const vaultItem = await prisma.vaultItem.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -3481,8 +3427,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Credentials and only return the `id`
-     * const credentialsWithIdOnly = await prisma.credentials.updateManyAndReturn({
+     * // Update zero or more VaultItems and only return the `id`
+     * const vaultItemWithIdOnly = await prisma.vaultItem.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -3495,56 +3441,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends credentialsUpdateManyAndReturnArgs>(args: SelectSubset<T, credentialsUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends VaultItemUpdateManyAndReturnArgs>(args: SelectSubset<T, VaultItemUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$VaultItemPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Credentials.
-     * @param {credentialsUpsertArgs} args - Arguments to update or create a Credentials.
+     * Create or update one VaultItem.
+     * @param {VaultItemUpsertArgs} args - Arguments to update or create a VaultItem.
      * @example
-     * // Update or create a Credentials
-     * const credentials = await prisma.credentials.upsert({
+     * // Update or create a VaultItem
+     * const vaultItem = await prisma.vaultItem.upsert({
      *   create: {
-     *     // ... data to create a Credentials
+     *     // ... data to create a VaultItem
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Credentials we want to update
+     *     // ... the filter for the VaultItem we want to update
      *   }
      * })
      */
-    upsert<T extends credentialsUpsertArgs>(args: SelectSubset<T, credentialsUpsertArgs<ExtArgs>>): Prisma__credentialsClient<$Result.GetResult<Prisma.$credentialsPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends VaultItemUpsertArgs>(args: SelectSubset<T, VaultItemUpsertArgs<ExtArgs>>): Prisma__VaultItemClient<$Result.GetResult<Prisma.$VaultItemPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Credentials.
+     * Count the number of VaultItems.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {credentialsCountArgs} args - Arguments to filter Credentials to count.
+     * @param {VaultItemCountArgs} args - Arguments to filter VaultItems to count.
      * @example
-     * // Count the number of Credentials
-     * const count = await prisma.credentials.count({
+     * // Count the number of VaultItems
+     * const count = await prisma.vaultItem.count({
      *   where: {
-     *     // ... the filter for the Credentials we want to count
+     *     // ... the filter for the VaultItems we want to count
      *   }
      * })
     **/
-    count<T extends credentialsCountArgs>(
-      args?: Subset<T, credentialsCountArgs>,
+    count<T extends VaultItemCountArgs>(
+      args?: Subset<T, VaultItemCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], CredentialsCountAggregateOutputType>
+          : GetScalarType<T['select'], VaultItemCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Credentials.
+     * Allows you to perform aggregations operations on a VaultItem.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {CredentialsAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {VaultItemAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -3564,13 +3510,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends CredentialsAggregateArgs>(args: Subset<T, CredentialsAggregateArgs>): Prisma.PrismaPromise<GetCredentialsAggregateType<T>>
+    aggregate<T extends VaultItemAggregateArgs>(args: Subset<T, VaultItemAggregateArgs>): Prisma.PrismaPromise<GetVaultItemAggregateType<T>>
 
     /**
-     * Group by Credentials.
+     * Group by VaultItem.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {credentialsGroupByArgs} args - Group by arguments.
+     * @param {VaultItemGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -3585,14 +3531,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends credentialsGroupByArgs,
+      T extends VaultItemGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: credentialsGroupByArgs['orderBy'] }
-        : { orderBy?: credentialsGroupByArgs['orderBy'] },
+        ? { orderBy: VaultItemGroupByArgs['orderBy'] }
+        : { orderBy?: VaultItemGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -3641,20 +3587,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, credentialsGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCredentialsGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, VaultItemGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetVaultItemGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the credentials model
+   * Fields of the VaultItem model
    */
-  readonly fields: credentialsFieldRefs;
+  readonly fields: VaultItemFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for credentials.
+   * The delegate class that acts as a "Promise-like" for VaultItem.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__credentialsClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__VaultItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -3682,381 +3628,375 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the credentials model
+   * Fields of the VaultItem model
    */
-  interface credentialsFieldRefs {
-    readonly id: FieldRef<"credentials", 'String'>
-    readonly url: FieldRef<"credentials", 'String'>
-    readonly originUrl: FieldRef<"credentials", 'String'>
-    readonly login: FieldRef<"credentials", 'String'>
-    readonly password: FieldRef<"credentials", 'String'>
-    readonly iv: FieldRef<"credentials", 'String'>
-    readonly tag: FieldRef<"credentials", 'String'>
-    readonly notes: FieldRef<"credentials", 'String'>
-    readonly category: FieldRef<"credentials", 'String'>
-    readonly createdAt: FieldRef<"credentials", 'DateTime'>
-    readonly updatedAt: FieldRef<"credentials", 'DateTime'>
+  interface VaultItemFieldRefs {
+    readonly id: FieldRef<"VaultItem", 'String'>
+    readonly type: FieldRef<"VaultItem", 'VaultType'>
+    readonly data: FieldRef<"VaultItem", 'Json'>
+    readonly createdAt: FieldRef<"VaultItem", 'DateTime'>
+    readonly updatedAt: FieldRef<"VaultItem", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * credentials findUnique
+   * VaultItem findUnique
    */
-  export type credentialsFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelect<ExtArgs> | null
+    select?: VaultItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
     /**
-     * Filter, which credentials to fetch.
+     * Filter, which VaultItem to fetch.
      */
-    where: credentialsWhereUniqueInput
+    where: VaultItemWhereUniqueInput
   }
 
   /**
-   * credentials findUniqueOrThrow
+   * VaultItem findUniqueOrThrow
    */
-  export type credentialsFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelect<ExtArgs> | null
+    select?: VaultItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
     /**
-     * Filter, which credentials to fetch.
+     * Filter, which VaultItem to fetch.
      */
-    where: credentialsWhereUniqueInput
+    where: VaultItemWhereUniqueInput
   }
 
   /**
-   * credentials findFirst
+   * VaultItem findFirst
    */
-  export type credentialsFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelect<ExtArgs> | null
+    select?: VaultItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
     /**
-     * Filter, which credentials to fetch.
+     * Filter, which VaultItem to fetch.
      */
-    where?: credentialsWhereInput
+    where?: VaultItemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of credentials to fetch.
+     * Determine the order of VaultItems to fetch.
      */
-    orderBy?: credentialsOrderByWithRelationInput | credentialsOrderByWithRelationInput[]
+    orderBy?: VaultItemOrderByWithRelationInput | VaultItemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for credentials.
+     * Sets the position for searching for VaultItems.
      */
-    cursor?: credentialsWhereUniqueInput
+    cursor?: VaultItemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` credentials from the position of the cursor.
+     * Take `±n` VaultItems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` credentials.
+     * Skip the first `n` VaultItems.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of credentials.
+     * Filter by unique combinations of VaultItems.
      */
-    distinct?: CredentialsScalarFieldEnum | CredentialsScalarFieldEnum[]
+    distinct?: VaultItemScalarFieldEnum | VaultItemScalarFieldEnum[]
   }
 
   /**
-   * credentials findFirstOrThrow
+   * VaultItem findFirstOrThrow
    */
-  export type credentialsFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelect<ExtArgs> | null
+    select?: VaultItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
     /**
-     * Filter, which credentials to fetch.
+     * Filter, which VaultItem to fetch.
      */
-    where?: credentialsWhereInput
+    where?: VaultItemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of credentials to fetch.
+     * Determine the order of VaultItems to fetch.
      */
-    orderBy?: credentialsOrderByWithRelationInput | credentialsOrderByWithRelationInput[]
+    orderBy?: VaultItemOrderByWithRelationInput | VaultItemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for credentials.
+     * Sets the position for searching for VaultItems.
      */
-    cursor?: credentialsWhereUniqueInput
+    cursor?: VaultItemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` credentials from the position of the cursor.
+     * Take `±n` VaultItems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` credentials.
+     * Skip the first `n` VaultItems.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of credentials.
+     * Filter by unique combinations of VaultItems.
      */
-    distinct?: CredentialsScalarFieldEnum | CredentialsScalarFieldEnum[]
+    distinct?: VaultItemScalarFieldEnum | VaultItemScalarFieldEnum[]
   }
 
   /**
-   * credentials findMany
+   * VaultItem findMany
    */
-  export type credentialsFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelect<ExtArgs> | null
+    select?: VaultItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
     /**
-     * Filter, which credentials to fetch.
+     * Filter, which VaultItems to fetch.
      */
-    where?: credentialsWhereInput
+    where?: VaultItemWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of credentials to fetch.
+     * Determine the order of VaultItems to fetch.
      */
-    orderBy?: credentialsOrderByWithRelationInput | credentialsOrderByWithRelationInput[]
+    orderBy?: VaultItemOrderByWithRelationInput | VaultItemOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing credentials.
+     * Sets the position for listing VaultItems.
      */
-    cursor?: credentialsWhereUniqueInput
+    cursor?: VaultItemWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` credentials from the position of the cursor.
+     * Take `±n` VaultItems from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` credentials.
+     * Skip the first `n` VaultItems.
      */
     skip?: number
-    distinct?: CredentialsScalarFieldEnum | CredentialsScalarFieldEnum[]
+    distinct?: VaultItemScalarFieldEnum | VaultItemScalarFieldEnum[]
   }
 
   /**
-   * credentials create
+   * VaultItem create
    */
-  export type credentialsCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelect<ExtArgs> | null
+    select?: VaultItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
     /**
-     * The data needed to create a credentials.
+     * The data needed to create a VaultItem.
      */
-    data?: XOR<credentialsCreateInput, credentialsUncheckedCreateInput>
+    data: XOR<VaultItemCreateInput, VaultItemUncheckedCreateInput>
   }
 
   /**
-   * credentials createMany
+   * VaultItem createMany
    */
-  export type credentialsCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many credentials.
+     * The data used to create many VaultItems.
      */
-    data: credentialsCreateManyInput | credentialsCreateManyInput[]
+    data: VaultItemCreateManyInput | VaultItemCreateManyInput[]
   }
 
   /**
-   * credentials createManyAndReturn
+   * VaultItem createManyAndReturn
    */
-  export type credentialsCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelectCreateManyAndReturn<ExtArgs> | null
+    select?: VaultItemSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
     /**
-     * The data used to create many credentials.
+     * The data used to create many VaultItems.
      */
-    data: credentialsCreateManyInput | credentialsCreateManyInput[]
+    data: VaultItemCreateManyInput | VaultItemCreateManyInput[]
   }
 
   /**
-   * credentials update
+   * VaultItem update
    */
-  export type credentialsUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelect<ExtArgs> | null
+    select?: VaultItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
     /**
-     * The data needed to update a credentials.
+     * The data needed to update a VaultItem.
      */
-    data: XOR<credentialsUpdateInput, credentialsUncheckedUpdateInput>
+    data: XOR<VaultItemUpdateInput, VaultItemUncheckedUpdateInput>
     /**
-     * Choose, which credentials to update.
+     * Choose, which VaultItem to update.
      */
-    where: credentialsWhereUniqueInput
+    where: VaultItemWhereUniqueInput
   }
 
   /**
-   * credentials updateMany
+   * VaultItem updateMany
    */
-  export type credentialsUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update credentials.
+     * The data used to update VaultItems.
      */
-    data: XOR<credentialsUpdateManyMutationInput, credentialsUncheckedUpdateManyInput>
+    data: XOR<VaultItemUpdateManyMutationInput, VaultItemUncheckedUpdateManyInput>
     /**
-     * Filter which credentials to update
+     * Filter which VaultItems to update
      */
-    where?: credentialsWhereInput
+    where?: VaultItemWhereInput
     /**
-     * Limit how many credentials to update.
+     * Limit how many VaultItems to update.
      */
     limit?: number
   }
 
   /**
-   * credentials updateManyAndReturn
+   * VaultItem updateManyAndReturn
    */
-  export type credentialsUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: VaultItemSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
     /**
-     * The data used to update credentials.
+     * The data used to update VaultItems.
      */
-    data: XOR<credentialsUpdateManyMutationInput, credentialsUncheckedUpdateManyInput>
+    data: XOR<VaultItemUpdateManyMutationInput, VaultItemUncheckedUpdateManyInput>
     /**
-     * Filter which credentials to update
+     * Filter which VaultItems to update
      */
-    where?: credentialsWhereInput
+    where?: VaultItemWhereInput
     /**
-     * Limit how many credentials to update.
+     * Limit how many VaultItems to update.
      */
     limit?: number
   }
 
   /**
-   * credentials upsert
+   * VaultItem upsert
    */
-  export type credentialsUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelect<ExtArgs> | null
+    select?: VaultItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
     /**
-     * The filter to search for the credentials to update in case it exists.
+     * The filter to search for the VaultItem to update in case it exists.
      */
-    where: credentialsWhereUniqueInput
+    where: VaultItemWhereUniqueInput
     /**
-     * In case the credentials found by the `where` argument doesn't exist, create a new credentials with this data.
+     * In case the VaultItem found by the `where` argument doesn't exist, create a new VaultItem with this data.
      */
-    create: XOR<credentialsCreateInput, credentialsUncheckedCreateInput>
+    create: XOR<VaultItemCreateInput, VaultItemUncheckedCreateInput>
     /**
-     * In case the credentials was found with the provided `where` argument, update it with this data.
+     * In case the VaultItem was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<credentialsUpdateInput, credentialsUncheckedUpdateInput>
+    update: XOR<VaultItemUpdateInput, VaultItemUncheckedUpdateInput>
   }
 
   /**
-   * credentials delete
+   * VaultItem delete
    */
-  export type credentialsDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelect<ExtArgs> | null
+    select?: VaultItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
     /**
-     * Filter which credentials to delete.
+     * Filter which VaultItem to delete.
      */
-    where: credentialsWhereUniqueInput
+    where: VaultItemWhereUniqueInput
   }
 
   /**
-   * credentials deleteMany
+   * VaultItem deleteMany
    */
-  export type credentialsDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which credentials to delete
+     * Filter which VaultItems to delete
      */
-    where?: credentialsWhereInput
+    where?: VaultItemWhereInput
     /**
-     * Limit how many credentials to delete.
+     * Limit how many VaultItems to delete.
      */
     limit?: number
   }
 
   /**
-   * credentials without action
+   * VaultItem without action
    */
-  export type credentialsDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type VaultItemDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the credentials
+     * Select specific fields to fetch from the VaultItem
      */
-    select?: credentialsSelect<ExtArgs> | null
+    select?: VaultItemSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the credentials
+     * Omit specific fields from the VaultItem
      */
-    omit?: credentialsOmit<ExtArgs> | null
+    omit?: VaultItemOmit<ExtArgs> | null
   }
 
 
@@ -4081,30 +4021,24 @@ export namespace Prisma {
   export type AuthentificationScalarFieldEnum = (typeof AuthentificationScalarFieldEnum)[keyof typeof AuthentificationScalarFieldEnum]
 
 
-  export const SeedPhraseScalarFieldEnum: {
+  export const SeedphraseScalarFieldEnum: {
     id: 'id',
     seedHash: 'seedHash',
     createdAt: 'createdAt'
   };
 
-  export type SeedPhraseScalarFieldEnum = (typeof SeedPhraseScalarFieldEnum)[keyof typeof SeedPhraseScalarFieldEnum]
+  export type SeedphraseScalarFieldEnum = (typeof SeedphraseScalarFieldEnum)[keyof typeof SeedphraseScalarFieldEnum]
 
 
-  export const CredentialsScalarFieldEnum: {
+  export const VaultItemScalarFieldEnum: {
     id: 'id',
-    url: 'url',
-    originUrl: 'originUrl',
-    login: 'login',
-    password: 'password',
-    iv: 'iv',
-    tag: 'tag',
-    notes: 'notes',
-    category: 'category',
+    type: 'type',
+    data: 'data',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
-  export type CredentialsScalarFieldEnum = (typeof CredentialsScalarFieldEnum)[keyof typeof CredentialsScalarFieldEnum]
+  export type VaultItemScalarFieldEnum = (typeof VaultItemScalarFieldEnum)[keyof typeof VaultItemScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -4113,6 +4047,30 @@ export namespace Prisma {
   };
 
   export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
+
+
+  export const JsonNullValueInput: {
+    JsonNull: typeof JsonNull
+  };
+
+  export type JsonNullValueInput = (typeof JsonNullValueInput)[keyof typeof JsonNullValueInput]
+
+
+  export const JsonNullValueFilter: {
+    DbNull: typeof DbNull,
+    JsonNull: typeof JsonNull,
+    AnyNull: typeof AnyNull
+  };
+
+  export type JsonNullValueFilter = (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter]
+
+
+  export const QueryMode: {
+    default: 'default',
+    insensitive: 'insensitive'
+  };
+
+  export type QueryMode = (typeof QueryMode)[keyof typeof QueryMode]
 
 
   /**
@@ -4135,6 +4093,27 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'VaultType'
+   */
+  export type EnumVaultTypeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'VaultType'>
+    
+
+
+  /**
+   * Reference to a field of type 'Json'
+   */
+  export type JsonFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Json'>
+    
+
+
+  /**
+   * Reference to a field of type 'QueryMode'
+   */
+  export type EnumQueryModeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'QueryMode'>
+    
+
+
+  /**
    * Reference to a field of type 'Int'
    */
   export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
@@ -4144,362 +4123,290 @@ export namespace Prisma {
    */
 
 
-  export type authentificationWhereInput = {
-    AND?: authentificationWhereInput | authentificationWhereInput[]
-    OR?: authentificationWhereInput[]
-    NOT?: authentificationWhereInput | authentificationWhereInput[]
-    id?: StringFilter<"authentification"> | string
-    password?: StringFilter<"authentification"> | string
-    createdAt?: DateTimeFilter<"authentification"> | Date | string
-    updatedAt?: DateTimeFilter<"authentification"> | Date | string
+  export type AuthentificationWhereInput = {
+    AND?: AuthentificationWhereInput | AuthentificationWhereInput[]
+    OR?: AuthentificationWhereInput[]
+    NOT?: AuthentificationWhereInput | AuthentificationWhereInput[]
+    id?: StringFilter<"Authentification"> | string
+    password?: StringFilter<"Authentification"> | string
+    createdAt?: DateTimeFilter<"Authentification"> | Date | string
+    updatedAt?: DateTimeFilter<"Authentification"> | Date | string
   }
 
-  export type authentificationOrderByWithRelationInput = {
+  export type AuthentificationOrderByWithRelationInput = {
     id?: SortOrder
     password?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type authentificationWhereUniqueInput = Prisma.AtLeast<{
+  export type AuthentificationWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: authentificationWhereInput | authentificationWhereInput[]
-    OR?: authentificationWhereInput[]
-    NOT?: authentificationWhereInput | authentificationWhereInput[]
-    password?: StringFilter<"authentification"> | string
-    createdAt?: DateTimeFilter<"authentification"> | Date | string
-    updatedAt?: DateTimeFilter<"authentification"> | Date | string
+    AND?: AuthentificationWhereInput | AuthentificationWhereInput[]
+    OR?: AuthentificationWhereInput[]
+    NOT?: AuthentificationWhereInput | AuthentificationWhereInput[]
+    password?: StringFilter<"Authentification"> | string
+    createdAt?: DateTimeFilter<"Authentification"> | Date | string
+    updatedAt?: DateTimeFilter<"Authentification"> | Date | string
   }, "id">
 
-  export type authentificationOrderByWithAggregationInput = {
+  export type AuthentificationOrderByWithAggregationInput = {
     id?: SortOrder
     password?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: authentificationCountOrderByAggregateInput
-    _max?: authentificationMaxOrderByAggregateInput
-    _min?: authentificationMinOrderByAggregateInput
+    _count?: AuthentificationCountOrderByAggregateInput
+    _max?: AuthentificationMaxOrderByAggregateInput
+    _min?: AuthentificationMinOrderByAggregateInput
   }
 
-  export type authentificationScalarWhereWithAggregatesInput = {
-    AND?: authentificationScalarWhereWithAggregatesInput | authentificationScalarWhereWithAggregatesInput[]
-    OR?: authentificationScalarWhereWithAggregatesInput[]
-    NOT?: authentificationScalarWhereWithAggregatesInput | authentificationScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"authentification"> | string
-    password?: StringWithAggregatesFilter<"authentification"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"authentification"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"authentification"> | Date | string
+  export type AuthentificationScalarWhereWithAggregatesInput = {
+    AND?: AuthentificationScalarWhereWithAggregatesInput | AuthentificationScalarWhereWithAggregatesInput[]
+    OR?: AuthentificationScalarWhereWithAggregatesInput[]
+    NOT?: AuthentificationScalarWhereWithAggregatesInput | AuthentificationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Authentification"> | string
+    password?: StringWithAggregatesFilter<"Authentification"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Authentification"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Authentification"> | Date | string
   }
 
-  export type seedPhraseWhereInput = {
-    AND?: seedPhraseWhereInput | seedPhraseWhereInput[]
-    OR?: seedPhraseWhereInput[]
-    NOT?: seedPhraseWhereInput | seedPhraseWhereInput[]
-    id?: StringFilter<"seedPhrase"> | string
-    seedHash?: StringFilter<"seedPhrase"> | string
-    createdAt?: DateTimeFilter<"seedPhrase"> | Date | string
+  export type SeedphraseWhereInput = {
+    AND?: SeedphraseWhereInput | SeedphraseWhereInput[]
+    OR?: SeedphraseWhereInput[]
+    NOT?: SeedphraseWhereInput | SeedphraseWhereInput[]
+    id?: StringFilter<"Seedphrase"> | string
+    seedHash?: StringFilter<"Seedphrase"> | string
+    createdAt?: DateTimeFilter<"Seedphrase"> | Date | string
   }
 
-  export type seedPhraseOrderByWithRelationInput = {
+  export type SeedphraseOrderByWithRelationInput = {
     id?: SortOrder
     seedHash?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type seedPhraseWhereUniqueInput = Prisma.AtLeast<{
+  export type SeedphraseWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: seedPhraseWhereInput | seedPhraseWhereInput[]
-    OR?: seedPhraseWhereInput[]
-    NOT?: seedPhraseWhereInput | seedPhraseWhereInput[]
-    seedHash?: StringFilter<"seedPhrase"> | string
-    createdAt?: DateTimeFilter<"seedPhrase"> | Date | string
+    AND?: SeedphraseWhereInput | SeedphraseWhereInput[]
+    OR?: SeedphraseWhereInput[]
+    NOT?: SeedphraseWhereInput | SeedphraseWhereInput[]
+    seedHash?: StringFilter<"Seedphrase"> | string
+    createdAt?: DateTimeFilter<"Seedphrase"> | Date | string
   }, "id">
 
-  export type seedPhraseOrderByWithAggregationInput = {
+  export type SeedphraseOrderByWithAggregationInput = {
     id?: SortOrder
     seedHash?: SortOrder
     createdAt?: SortOrder
-    _count?: seedPhraseCountOrderByAggregateInput
-    _max?: seedPhraseMaxOrderByAggregateInput
-    _min?: seedPhraseMinOrderByAggregateInput
+    _count?: SeedphraseCountOrderByAggregateInput
+    _max?: SeedphraseMaxOrderByAggregateInput
+    _min?: SeedphraseMinOrderByAggregateInput
   }
 
-  export type seedPhraseScalarWhereWithAggregatesInput = {
-    AND?: seedPhraseScalarWhereWithAggregatesInput | seedPhraseScalarWhereWithAggregatesInput[]
-    OR?: seedPhraseScalarWhereWithAggregatesInput[]
-    NOT?: seedPhraseScalarWhereWithAggregatesInput | seedPhraseScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"seedPhrase"> | string
-    seedHash?: StringWithAggregatesFilter<"seedPhrase"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"seedPhrase"> | Date | string
+  export type SeedphraseScalarWhereWithAggregatesInput = {
+    AND?: SeedphraseScalarWhereWithAggregatesInput | SeedphraseScalarWhereWithAggregatesInput[]
+    OR?: SeedphraseScalarWhereWithAggregatesInput[]
+    NOT?: SeedphraseScalarWhereWithAggregatesInput | SeedphraseScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Seedphrase"> | string
+    seedHash?: StringWithAggregatesFilter<"Seedphrase"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Seedphrase"> | Date | string
   }
 
-  export type credentialsWhereInput = {
-    AND?: credentialsWhereInput | credentialsWhereInput[]
-    OR?: credentialsWhereInput[]
-    NOT?: credentialsWhereInput | credentialsWhereInput[]
-    id?: StringFilter<"credentials"> | string
-    url?: StringFilter<"credentials"> | string
-    originUrl?: StringFilter<"credentials"> | string
-    login?: StringFilter<"credentials"> | string
-    password?: StringFilter<"credentials"> | string
-    iv?: StringFilter<"credentials"> | string
-    tag?: StringFilter<"credentials"> | string
-    notes?: StringFilter<"credentials"> | string
-    category?: StringFilter<"credentials"> | string
-    createdAt?: DateTimeFilter<"credentials"> | Date | string
-    updatedAt?: DateTimeFilter<"credentials"> | Date | string
+  export type VaultItemWhereInput = {
+    AND?: VaultItemWhereInput | VaultItemWhereInput[]
+    OR?: VaultItemWhereInput[]
+    NOT?: VaultItemWhereInput | VaultItemWhereInput[]
+    id?: StringFilter<"VaultItem"> | string
+    type?: EnumVaultTypeFilter<"VaultItem"> | $Enums.VaultType
+    data?: JsonFilter<"VaultItem">
+    createdAt?: DateTimeFilter<"VaultItem"> | Date | string
+    updatedAt?: DateTimeFilter<"VaultItem"> | Date | string
   }
 
-  export type credentialsOrderByWithRelationInput = {
+  export type VaultItemOrderByWithRelationInput = {
     id?: SortOrder
-    url?: SortOrder
-    originUrl?: SortOrder
-    login?: SortOrder
-    password?: SortOrder
-    iv?: SortOrder
-    tag?: SortOrder
-    notes?: SortOrder
-    category?: SortOrder
+    type?: SortOrder
+    data?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type credentialsWhereUniqueInput = Prisma.AtLeast<{
+  export type VaultItemWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: credentialsWhereInput | credentialsWhereInput[]
-    OR?: credentialsWhereInput[]
-    NOT?: credentialsWhereInput | credentialsWhereInput[]
-    url?: StringFilter<"credentials"> | string
-    originUrl?: StringFilter<"credentials"> | string
-    login?: StringFilter<"credentials"> | string
-    password?: StringFilter<"credentials"> | string
-    iv?: StringFilter<"credentials"> | string
-    tag?: StringFilter<"credentials"> | string
-    notes?: StringFilter<"credentials"> | string
-    category?: StringFilter<"credentials"> | string
-    createdAt?: DateTimeFilter<"credentials"> | Date | string
-    updatedAt?: DateTimeFilter<"credentials"> | Date | string
+    AND?: VaultItemWhereInput | VaultItemWhereInput[]
+    OR?: VaultItemWhereInput[]
+    NOT?: VaultItemWhereInput | VaultItemWhereInput[]
+    type?: EnumVaultTypeFilter<"VaultItem"> | $Enums.VaultType
+    data?: JsonFilter<"VaultItem">
+    createdAt?: DateTimeFilter<"VaultItem"> | Date | string
+    updatedAt?: DateTimeFilter<"VaultItem"> | Date | string
   }, "id">
 
-  export type credentialsOrderByWithAggregationInput = {
+  export type VaultItemOrderByWithAggregationInput = {
     id?: SortOrder
-    url?: SortOrder
-    originUrl?: SortOrder
-    login?: SortOrder
-    password?: SortOrder
-    iv?: SortOrder
-    tag?: SortOrder
-    notes?: SortOrder
-    category?: SortOrder
+    type?: SortOrder
+    data?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: credentialsCountOrderByAggregateInput
-    _max?: credentialsMaxOrderByAggregateInput
-    _min?: credentialsMinOrderByAggregateInput
+    _count?: VaultItemCountOrderByAggregateInput
+    _max?: VaultItemMaxOrderByAggregateInput
+    _min?: VaultItemMinOrderByAggregateInput
   }
 
-  export type credentialsScalarWhereWithAggregatesInput = {
-    AND?: credentialsScalarWhereWithAggregatesInput | credentialsScalarWhereWithAggregatesInput[]
-    OR?: credentialsScalarWhereWithAggregatesInput[]
-    NOT?: credentialsScalarWhereWithAggregatesInput | credentialsScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"credentials"> | string
-    url?: StringWithAggregatesFilter<"credentials"> | string
-    originUrl?: StringWithAggregatesFilter<"credentials"> | string
-    login?: StringWithAggregatesFilter<"credentials"> | string
-    password?: StringWithAggregatesFilter<"credentials"> | string
-    iv?: StringWithAggregatesFilter<"credentials"> | string
-    tag?: StringWithAggregatesFilter<"credentials"> | string
-    notes?: StringWithAggregatesFilter<"credentials"> | string
-    category?: StringWithAggregatesFilter<"credentials"> | string
-    createdAt?: DateTimeWithAggregatesFilter<"credentials"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"credentials"> | Date | string
+  export type VaultItemScalarWhereWithAggregatesInput = {
+    AND?: VaultItemScalarWhereWithAggregatesInput | VaultItemScalarWhereWithAggregatesInput[]
+    OR?: VaultItemScalarWhereWithAggregatesInput[]
+    NOT?: VaultItemScalarWhereWithAggregatesInput | VaultItemScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"VaultItem"> | string
+    type?: EnumVaultTypeWithAggregatesFilter<"VaultItem"> | $Enums.VaultType
+    data?: JsonWithAggregatesFilter<"VaultItem">
+    createdAt?: DateTimeWithAggregatesFilter<"VaultItem"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"VaultItem"> | Date | string
   }
 
-  export type authentificationCreateInput = {
+  export type AuthentificationCreateInput = {
     id?: string
     password?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type authentificationUncheckedCreateInput = {
+  export type AuthentificationUncheckedCreateInput = {
     id?: string
     password?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type authentificationUpdateInput = {
+  export type AuthentificationUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type authentificationUncheckedUpdateInput = {
+  export type AuthentificationUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type authentificationCreateManyInput = {
+  export type AuthentificationCreateManyInput = {
     id?: string
     password?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type authentificationUpdateManyMutationInput = {
+  export type AuthentificationUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type authentificationUncheckedUpdateManyInput = {
+  export type AuthentificationUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     password?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type seedPhraseCreateInput = {
+  export type SeedphraseCreateInput = {
     id?: string
     seedHash?: string
     createdAt?: Date | string
   }
 
-  export type seedPhraseUncheckedCreateInput = {
+  export type SeedphraseUncheckedCreateInput = {
     id?: string
     seedHash?: string
     createdAt?: Date | string
   }
 
-  export type seedPhraseUpdateInput = {
+  export type SeedphraseUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     seedHash?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type seedPhraseUncheckedUpdateInput = {
+  export type SeedphraseUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     seedHash?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type seedPhraseCreateManyInput = {
+  export type SeedphraseCreateManyInput = {
     id?: string
     seedHash?: string
     createdAt?: Date | string
   }
 
-  export type seedPhraseUpdateManyMutationInput = {
+  export type SeedphraseUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     seedHash?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type seedPhraseUncheckedUpdateManyInput = {
+  export type SeedphraseUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     seedHash?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type credentialsCreateInput = {
+  export type VaultItemCreateInput = {
     id?: string
-    url?: string
-    originUrl?: string
-    login?: string
-    password?: string
-    iv?: string
-    tag?: string
-    notes?: string
-    category?: string
+    type: $Enums.VaultType
+    data: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type credentialsUncheckedCreateInput = {
+  export type VaultItemUncheckedCreateInput = {
     id?: string
-    url?: string
-    originUrl?: string
-    login?: string
-    password?: string
-    iv?: string
-    tag?: string
-    notes?: string
-    category?: string
+    type: $Enums.VaultType
+    data: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type credentialsUpdateInput = {
+  export type VaultItemUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
-    originUrl?: StringFieldUpdateOperationsInput | string
-    login?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    iv?: StringFieldUpdateOperationsInput | string
-    tag?: StringFieldUpdateOperationsInput | string
-    notes?: StringFieldUpdateOperationsInput | string
-    category?: StringFieldUpdateOperationsInput | string
+    type?: EnumVaultTypeFieldUpdateOperationsInput | $Enums.VaultType
+    data?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type credentialsUncheckedUpdateInput = {
+  export type VaultItemUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
-    originUrl?: StringFieldUpdateOperationsInput | string
-    login?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    iv?: StringFieldUpdateOperationsInput | string
-    tag?: StringFieldUpdateOperationsInput | string
-    notes?: StringFieldUpdateOperationsInput | string
-    category?: StringFieldUpdateOperationsInput | string
+    type?: EnumVaultTypeFieldUpdateOperationsInput | $Enums.VaultType
+    data?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type credentialsCreateManyInput = {
+  export type VaultItemCreateManyInput = {
     id?: string
-    url?: string
-    originUrl?: string
-    login?: string
-    password?: string
-    iv?: string
-    tag?: string
-    notes?: string
-    category?: string
+    type: $Enums.VaultType
+    data: JsonNullValueInput | InputJsonValue
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type credentialsUpdateManyMutationInput = {
+  export type VaultItemUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
-    originUrl?: StringFieldUpdateOperationsInput | string
-    login?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    iv?: StringFieldUpdateOperationsInput | string
-    tag?: StringFieldUpdateOperationsInput | string
-    notes?: StringFieldUpdateOperationsInput | string
-    category?: StringFieldUpdateOperationsInput | string
+    type?: EnumVaultTypeFieldUpdateOperationsInput | $Enums.VaultType
+    data?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type credentialsUncheckedUpdateManyInput = {
+  export type VaultItemUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    url?: StringFieldUpdateOperationsInput | string
-    originUrl?: StringFieldUpdateOperationsInput | string
-    login?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    iv?: StringFieldUpdateOperationsInput | string
-    tag?: StringFieldUpdateOperationsInput | string
-    notes?: StringFieldUpdateOperationsInput | string
-    category?: StringFieldUpdateOperationsInput | string
+    type?: EnumVaultTypeFieldUpdateOperationsInput | $Enums.VaultType
+    data?: JsonNullValueInput | InputJsonValue
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -4529,21 +4436,21 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type authentificationCountOrderByAggregateInput = {
+  export type AuthentificationCountOrderByAggregateInput = {
     id?: SortOrder
     password?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type authentificationMaxOrderByAggregateInput = {
+  export type AuthentificationMaxOrderByAggregateInput = {
     id?: SortOrder
     password?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type authentificationMinOrderByAggregateInput = {
+  export type AuthentificationMinOrderByAggregateInput = {
     id?: SortOrder
     password?: SortOrder
     createdAt?: SortOrder
@@ -4581,64 +4488,100 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type seedPhraseCountOrderByAggregateInput = {
+  export type SeedphraseCountOrderByAggregateInput = {
     id?: SortOrder
     seedHash?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type seedPhraseMaxOrderByAggregateInput = {
+  export type SeedphraseMaxOrderByAggregateInput = {
     id?: SortOrder
     seedHash?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type seedPhraseMinOrderByAggregateInput = {
+  export type SeedphraseMinOrderByAggregateInput = {
     id?: SortOrder
     seedHash?: SortOrder
     createdAt?: SortOrder
   }
 
-  export type credentialsCountOrderByAggregateInput = {
+  export type EnumVaultTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.VaultType | EnumVaultTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.VaultType[]
+    notIn?: $Enums.VaultType[]
+    not?: NestedEnumVaultTypeFilter<$PrismaModel> | $Enums.VaultType
+  }
+  export type JsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+  }
+
+  export type VaultItemCountOrderByAggregateInput = {
     id?: SortOrder
-    url?: SortOrder
-    originUrl?: SortOrder
-    login?: SortOrder
-    password?: SortOrder
-    iv?: SortOrder
-    tag?: SortOrder
-    notes?: SortOrder
-    category?: SortOrder
+    type?: SortOrder
+    data?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type credentialsMaxOrderByAggregateInput = {
+  export type VaultItemMaxOrderByAggregateInput = {
     id?: SortOrder
-    url?: SortOrder
-    originUrl?: SortOrder
-    login?: SortOrder
-    password?: SortOrder
-    iv?: SortOrder
-    tag?: SortOrder
-    notes?: SortOrder
-    category?: SortOrder
+    type?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type credentialsMinOrderByAggregateInput = {
+  export type VaultItemMinOrderByAggregateInput = {
     id?: SortOrder
-    url?: SortOrder
-    originUrl?: SortOrder
-    login?: SortOrder
-    password?: SortOrder
-    iv?: SortOrder
-    tag?: SortOrder
-    notes?: SortOrder
-    category?: SortOrder
+    type?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+  }
+
+  export type EnumVaultTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.VaultType | EnumVaultTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.VaultType[]
+    notIn?: $Enums.VaultType[]
+    not?: NestedEnumVaultTypeWithAggregatesFilter<$PrismaModel> | $Enums.VaultType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumVaultTypeFilter<$PrismaModel>
+    _max?: NestedEnumVaultTypeFilter<$PrismaModel>
+  }
+  export type JsonWithAggregatesFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>,
+        Required<JsonWithAggregatesFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<JsonWithAggregatesFilterBase<$PrismaModel>>, 'path'>>
+
+  export type JsonWithAggregatesFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedJsonFilter<$PrismaModel>
+    _max?: NestedJsonFilter<$PrismaModel>
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -4647,6 +4590,10 @@ export namespace Prisma {
 
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
+  }
+
+  export type EnumVaultTypeFieldUpdateOperationsInput = {
+    set?: $Enums.VaultType
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -4714,6 +4661,41 @@ export namespace Prisma {
     _count?: NestedIntFilter<$PrismaModel>
     _min?: NestedDateTimeFilter<$PrismaModel>
     _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedEnumVaultTypeFilter<$PrismaModel = never> = {
+    equals?: $Enums.VaultType | EnumVaultTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.VaultType[]
+    notIn?: $Enums.VaultType[]
+    not?: NestedEnumVaultTypeFilter<$PrismaModel> | $Enums.VaultType
+  }
+
+  export type NestedEnumVaultTypeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: $Enums.VaultType | EnumVaultTypeFieldRefInput<$PrismaModel>
+    in?: $Enums.VaultType[]
+    notIn?: $Enums.VaultType[]
+    not?: NestedEnumVaultTypeWithAggregatesFilter<$PrismaModel> | $Enums.VaultType
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedEnumVaultTypeFilter<$PrismaModel>
+    _max?: NestedEnumVaultTypeFilter<$PrismaModel>
+  }
+  export type NestedJsonFilter<$PrismaModel = never> =
+    | PatchUndefined<
+        Either<Required<NestedJsonFilterBase<$PrismaModel>>, Exclude<keyof Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>,
+        Required<NestedJsonFilterBase<$PrismaModel>>
+      >
+    | OptionalFlat<Omit<Required<NestedJsonFilterBase<$PrismaModel>>, 'path'>>
+
+  export type NestedJsonFilterBase<$PrismaModel = never> = {
+    equals?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
+    path?: string
+    mode?: QueryMode | EnumQueryModeFieldRefInput<$PrismaModel>
+    string_contains?: string | StringFieldRefInput<$PrismaModel>
+    string_starts_with?: string | StringFieldRefInput<$PrismaModel>
+    string_ends_with?: string | StringFieldRefInput<$PrismaModel>
+    array_starts_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    array_ends_with?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | null
+    not?: InputJsonValue | JsonFieldRefInput<$PrismaModel> | JsonNullValueFilter
   }
 
 

@@ -124,22 +124,16 @@ exports.Prisma.AuthentificationScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.SeedPhraseScalarFieldEnum = {
+exports.Prisma.SeedphraseScalarFieldEnum = {
   id: 'id',
   seedHash: 'seedHash',
   createdAt: 'createdAt'
 };
 
-exports.Prisma.CredentialsScalarFieldEnum = {
+exports.Prisma.VaultItemScalarFieldEnum = {
   id: 'id',
-  url: 'url',
-  originUrl: 'originUrl',
-  login: 'login',
-  password: 'password',
-  iv: 'iv',
-  tag: 'tag',
-  notes: 'notes',
-  category: 'category',
+  type: 'type',
+  data: 'data',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -149,11 +143,34 @@ exports.Prisma.SortOrder = {
   desc: 'desc'
 };
 
+exports.Prisma.JsonNullValueInput = {
+  JsonNull: Prisma.JsonNull
+};
+
+exports.Prisma.JsonNullValueFilter = {
+  DbNull: Prisma.DbNull,
+  JsonNull: Prisma.JsonNull,
+  AnyNull: Prisma.AnyNull
+};
+
+exports.Prisma.QueryMode = {
+  default: 'default',
+  insensitive: 'insensitive'
+};
+exports.VaultType = exports.$Enums.VaultType = {
+  PASSWORD: 'PASSWORD',
+  PASSKEY: 'PASSKEY',
+  SECURE_NOTE: 'SECURE_NOTE',
+  CREDIT_CARD: 'CREDIT_CARD',
+  CONTACT_INFO: 'CONTACT_INFO',
+  DOCUMENT: 'DOCUMENT',
+  SHARED_ITEM: 'SHARED_ITEM'
+};
 
 exports.Prisma.ModelName = {
-  authentification: 'authentification',
-  seedPhrase: 'seedPhrase',
-  credentials: 'credentials'
+  Authentification: 'Authentification',
+  Seedphrase: 'Seedphrase',
+  VaultItem: 'VaultItem'
 };
 
 /**

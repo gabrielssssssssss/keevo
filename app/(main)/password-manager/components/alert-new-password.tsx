@@ -25,12 +25,12 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 import { Button } from "@/components/ui/button";
-import { EmojiProvider, Emoji } from "react-apple-emojis"
-import EmojiIcons from "react-apple-emojis/src/data.json"
+import { EmojiProvider, Emoji } from "react-apple-emojis";
+import EmojiIcons from "react-apple-emojis/src/data.json";
 import { generatePassword, parseUrl } from "@/lib/utils";
 import {IconArrowsShuffle} from "@tabler/icons-react"
-import { apiCredentials } from "@/app/utils/api-credentials";
-import { Credentials } from "@/lib/models/credentials-models";
+import { apiVault } from "@/app/utils/api-vault";
+import { PasswordData } from "@/lib/models/vault-models";
 import { encryptPassword } from "@/lib/services/auth-services";
 
 export default function AlertNewPassword({
@@ -53,8 +53,7 @@ export default function AlertNewPassword({
 			return;
 		}
         const passwordEncrypted = await encryptPassword(password);
-        const credential: Credentials = {
-            id: "",
+        const credential: PasswordData = {
             url: parseUrl(url).url,
             originUrl: parseUrl(url).originUrl,
             login: login,
@@ -64,7 +63,7 @@ export default function AlertNewPassword({
             category: category,
             notes: "",
         }
-        await apiCredentials.addCredentials(undefined, {credential});
+        await apiVault.addVault(undefined, {type: "PASSWORD", data: credential});
 		onSuccess();
         onClose();
 	};

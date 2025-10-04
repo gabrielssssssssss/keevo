@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import PasswordCard from "./password-card";
-import { apiCredentials } from "@/app/utils/api-credentials";
+import { apiVault } from "@/app/utils/api-vault";
 
 type Credential = {
   id: string;
@@ -24,13 +24,12 @@ export default function PasswordList() {
   useEffect(() => {
     const callback = async () => {
       try {
-        const getCredentialsResponse = await apiCredentials.getCredentials("*", undefined, undefined)
+        const getCredentialsResponse = await apiVault.getVault("*", undefined, undefined)
         const passwordItems: Credential[] = Array.isArray(getCredentialsResponse.data) 
           ? getCredentialsResponse.data 
           : [];
         setItems(passwordItems);
       } catch (error) {
-        console.error("Erreur lors de la récupération des credentials:", error);
         setItems([]);
       }
     };

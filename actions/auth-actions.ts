@@ -3,12 +3,10 @@
 
 import { prisma } from "@/prisma/db";
 
-//Prisma: findFirst() => Get authentification fields.
 export async function getFirstField() {
     return await prisma.authentification.findFirst(); 
 }
 
-//Prisma: create() => Create new fields.
 export async function addPassword(password: string) {
     return Boolean(await prisma.authentification.create({
         data: {
@@ -17,7 +15,6 @@ export async function addPassword(password: string) {
     }));
 };
 
-//Prisma: update() => Update password fields.
 export async function updatePassword(newPassword: string) {
     const getAuth = await getFirstField();
     return Boolean(await prisma.authentification.update({

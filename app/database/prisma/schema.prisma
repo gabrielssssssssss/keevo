@@ -14,29 +14,33 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model authentification {
+model Authentification {
   id        String   @id @default(uuid())
   password  String   @default("")
   createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model seedPhrase {
+model Seedphrase {
   id        String   @id @default(uuid())
   seedHash  String   @default("")
   createdAt DateTime @default(now())
 }
 
-model credentials {
-  id        String   @id @default(uuid())
-  url       String   @default("")
-  originUrl String   @default("")
-  login     String   @default("")
-  password  String   @default("")
-  iv        String   @default("")
-  tag       String   @default("")
-  notes     String   @default("")
-  category  String   @default("")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @default(now())
+enum VaultType {
+  PASSWORD
+  PASSKEY
+  SECURE_NOTE
+  CREDIT_CARD
+  CONTACT_INFO
+  DOCUMENT
+  SHARED_ITEM
+}
+
+model VaultItem {
+  id        String    @id @default(uuid())
+  type      VaultType
+  data      Json
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
