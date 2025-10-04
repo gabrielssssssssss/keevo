@@ -1,26 +1,11 @@
-"use client"
+/*[app/(auth)/sign-up/hooks/useInput.tsx]*/
+"use client";
 
-import { useEffect } from "react"
-import { stoledVerify } from "@/lib/utils"
-import { triggerToast } from "@/app/components/toast"
-import { ToastType } from "@/components/smoothui/ui/BasicToast"
-import { passwordHandler } from "@/lib/handler/password-handler"
-
-interface Props {
-    setProgress: React.Dispatch<React.SetStateAction<number>>
-    setPasswordState: React.Dispatch<React.SetStateAction<boolean>>
-    setSubmitStatus: React.Dispatch<React.SetStateAction<boolean>>
-    setIsToastVisible: React.Dispatch<React.SetStateAction<boolean>>
-    setToastMessage: React.Dispatch<React.SetStateAction<string>>
-    setToastType: React.Dispatch<React.SetStateAction<ToastType>>
-    submit: boolean
-    password: string
-    repeatPassword: string
-    isToastVisible: boolean
-    toastMessage: string
-    toastType: ToastType
-    onSuccess?: () => void
-}
+import { useEffect } from "react";
+import { apiIntegrations } from "@/app/utils/api-integrations";
+import { triggerToast } from "@/app/components/toast";
+import { passwordHandler } from "@/lib/handler/password-handler";
+import { Props } from "../models/interface";
 
 export default function useInput({
     submit,
@@ -33,31 +18,35 @@ export default function useInput({
     ...props
 }: Props) {
     useEffect(() => {
-        if (!submit) return;
-
+        if (!submit)
+            return;
         if (repeatPassword) {
             if (repeatPassword === password) {
-                passwordHandler(repeatPassword).then(isValid => {
-                    if (isValid) {
+                const callback = async() => {
+                    const passwordHandlerResponse = await passwordHandler(password);
+                    if (passwordHandlerResponse) {
                         triggerToast("success", props, "Your password has been saved");
                         setProgress(50);
                         setPasswordState(false);
                         if (onSuccess) onSuccess();
-                    }
-                })
+                    };
+                };
+                callback();
             } else {
                 triggerToast("error", props, "Passwords do not match");
-            }
+            };
         } else {
-            stoledVerify(password).then(found => {
-                setSubmitStatus(found)
-                if (found) triggerToast("error", props, "Password found in a breach. Choose another.");
+            const callback = async() => {
+                const disclosedResp = await apiIntegrations.disclosed(undefined, { password });
+                setSubmitStatus(disclosedResp.data["success"]);
+                if (disclosedResp.data["success"]) 
+                    triggerToast("error", props, "Password found in a breach. Choose another.");
                 else {
                     setProgress(30);
                     setPasswordState(false);
-                    // if (onSuccess) onSuccess();
-                }
-            })
+                };
+            };
+            callback();
         }
     }, [submit, password, repeatPassword]);
-}
+};

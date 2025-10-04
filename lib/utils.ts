@@ -30,32 +30,40 @@ export function syntaxVerify(password: string) {
     return [lower, upper, digits, special];
 }
 
-export async function stoledVerify(password: string) {
-    try {
-        const response = await fetch("/api/disclosed", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({password})
-        });
-        if (!response.ok) {
-            return false;
-        }
-        const { success } = await response.json();
-        return Boolean(success);
-    } catch {
-        return false;
+export function generatePassword() {
+    const char = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~µ";
+    let password = "";
+    password = "";
+    while (true) {
+        if (password.length >= 16) {
+            if (syntaxVerify(password)) {
+                return password;
+            };
+            password += char[Math.floor(Math.random() * char.length)];
+        };
+        password += char[Math.floor(Math.random() * char.length)];
+    };
+};
+
+export function parseUrl(input: string): { url: string, originUrl: string } {
+    let url = input.trim();
+    if (!/^https?:\/\//i.test(url)) {
+        url = "https://" + url;
     }
+    const u = new URL(url);
+    return {
+        url,
+        originUrl: u.hostname
+    };
 }
 
-export async function jsonToCsv<T extends Record<string, unknown>>(payload: T[]) {
-    let csv = "";
-    const headers = Object.keys(payload[0]);
-    csv += headers.join(",") + "\n";
-    payload.forEach(obj => {
-        const values = headers.map(header => String(obj[header as keyof T] ?? ""));
-        csv += values.join(",") + "\n";
-    });
-    return csv;
-}
+// export async function jsonToCsv<T extends Record<string, unknown>>(payload: T[]) {
+//     let csv = "";
+//     const headers = Object.keys(payload[0]);
+//     csv += headers.join(",") + "\n";
+//     payload.forEach(obj => {
+//         const values = headers.map(header => String(obj[header as keyof T] ?? ""));
+//         csv += values.join(",") + "\n";
+//     });
+//     return csv;
+// }

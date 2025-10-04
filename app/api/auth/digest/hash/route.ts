@@ -8,7 +8,7 @@ export async function POST(req: NextRequest) {
     try {
         const { password, context } = await req.json();
         const response = await hashValue(password, context);
-        return NextResponse.json( { success: true, "hashedPassword": response } );
+        return NextResponse.json( { success: true, "hashedPassword": response }, { status: 200 } );
     } catch (e) {
         return NextResponse.json( { success: false, error: (e as Error).message }, { status: 400 } )
     }

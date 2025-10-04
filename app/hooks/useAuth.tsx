@@ -1,4 +1,5 @@
-'use client';
+/*[app/hooks/useAuth.tsx]*/
+"use client";
 
 import { useEffect } from "react";
 import { isNewComer } from "@/lib/handler/password-handler";
@@ -10,13 +11,11 @@ export default function useAuth() {
         const callback = async() => {
             const response = await isNewComer();
             if (!response) {
-                //Route: app/(auth)/sign-up/page.tsx
                 router.push("/sign-up/create-password");
             } else {
-                //Route: app/(auth)/login/page.tsx
-                router.push("/password-manager");
+                router.push("/sign-up/create-password");
             }
         }
         callback();
-    })
-}
+    });
+};

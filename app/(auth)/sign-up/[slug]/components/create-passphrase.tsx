@@ -1,5 +1,8 @@
+/*[app/(auth)/sign-up/components/create-passphrase.tsx]*/
+"use client";
+
 import React, { useState, useEffect } from "react";
-import { flushKeyframeResolvers, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import useBlurReveal from "../hooks/useBlurReveal";
 import { Button } from "@/components/ui/button";
 import { BackgroundBeams } from "@/components/ui/shadcn-io/background-beams";
@@ -15,28 +18,31 @@ import {
     AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 import { generateSeedPhrase, addNewPassPhrase } from "@/lib/handler/seedphrase-handler";
+import { useRouter } from "next/navigation";
 
 export default function PageCreatePassphrase() {
     const [seedPhrase, setSeedPhrase] = useState<string[]>([]);
     const [revealed, setRevealed] = useState<boolean[]>([]);
     const [submit, setSubmit] = useState(false);
+    const router = useRouter();
 
     const { variants, transition, isLeaving } = useBlurReveal({
         direction: "up",
         reverse: true,
         duration: 0.8,
-        nextRoute: "/sign-up/create-passphrase",
+        nextRoute: "/password-manager",
     });
 
     useEffect(() => {
         generateSeedPhrase().then(w => {
-            if (seedPhrase.length == 0) {
+            if (seedPhrase.length === 0) {
                 setSeedPhrase(w);
                 setRevealed(Array(w.length).fill(false));
             }
         });
         if (submit) {
             addNewPassPhrase(seedPhrase);
+            router.push("/password-manager");
         }
     }, [submit]);
 
@@ -83,7 +89,7 @@ export default function PageCreatePassphrase() {
                             <div className="flex flex-col gap-6 w-full">
                                 {[0, 1].map(row => (
                                     <div key={row} className="grid grid-cols-6 gap-3 w-full">
-                                        {seedPhrase.slice(row * 6, row * 6 + 6).map((seedPhrase, index) => (
+                                        {seedPhrase.slice(row * 6, row * 6 + 6).map((seed, index) => (
                                             <div
                                                 key={index + row * 6}
                                                 onMouseEnter={() => handleHover(index + row * 6, true)}
@@ -92,7 +98,7 @@ export default function PageCreatePassphrase() {
                                                 className="flex flex-col items-center cursor-pointer"
                                             >
                                                 <span className={`text-base font-medium transition duration-200 ease-in-out select-none ${revealed[index + row * 6] ? "blur-none" : "blur-xs"}`}>
-                                                    {seedPhrase}
+                                                    {seed}
                                                 </span>
                                                 <div className="w-6 border-b border-gray-400 mt-1" />
                                                 <span className="text-xs text-gray-400 mt-1">{index + 1 + row * 6}</span>
@@ -132,5 +138,5 @@ export default function PageCreatePassphrase() {
                 </div>
             </div>
         </motion.div>
-    )
-}
+    );
+};

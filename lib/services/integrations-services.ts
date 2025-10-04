@@ -1,3 +1,4 @@
+/*[app/lib/services/integrations-services.ts]*/
 "use server";
 
 import crypto from "crypto";
@@ -10,12 +11,10 @@ export async function leakCheck(password: string) {
 
     const response = await fetch(`https://api.pwnedpasswords.com/range/${prefix}`);
     const text = await response.text();
-
     const lines = text.split("\r\n");
     for (const line of lines) {
-    const [hashSuffix, count] = line.split(":");
-    if (hashSuffix === suffix) { return true; }
+        const [hashSuffix, count] = line.split(":");
+        if (hashSuffix === suffix) { return true; }
     }
-
     return false;
 }

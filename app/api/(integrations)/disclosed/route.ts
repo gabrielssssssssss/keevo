@@ -8,7 +8,6 @@ export async function POST(req: NextRequest) {
     try {
         const { password } = await req.json();
         const response = await leakCheck(password);
-        console.log(response)
         return NextResponse.json( { success: response } );
     } catch (e) {
         return NextResponse.json( { success: false, error: (e as Error).message }, { status: 400 } )

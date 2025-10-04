@@ -1,45 +1,41 @@
+/*[app/(auth)/sign-up/components/create-password.tsx]*/
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Input } from "@/components/ui/input";
-import { Progress } from "@/components/ui/progress"
+import { Progress } from "@/components/ui/progress";
 import { EmojiProvider, Emoji } from 'react-apple-emojis';
 import EmojiIcons from 'react-apple-emojis/src/data.json';
-import { syntaxVerify } from "@/lib/utils";
 import { BackgroundBeams } from "@/components/ui/shadcn-io/background-beams";
-import { ToastType } from "@/components/smoothui/ui/BasicToast"
+import { ToastType } from "@/components/smoothui/ui/BasicToast";
 import DynamicButton from "../hooks/useButton";
 import useInput from "../hooks/useInput";
 import ToastContainer from "@/app/components/toast";
 import { triggerToast } from "@/app/components/toast";
 import useBlurReveal from "../hooks/useBlurReveal";
+import usePassword from "../hooks/usePassword";
 
 export default function CreatePassword() {
-    const [password, setPassword] = useState("");
-    const [confirmPassword, setConfirmPassword] = useState("");
-    const [charRequirement, setCharRequirement] = useState("cross mark");
-    const [caseRequirement, setCaseRequirement] = useState("cross mark");
-    const [numberRequirement, setNumberRequirement] = useState("cross mark");
-    const [specialCharRequirement, setSpecialCharRequirement] = useState("cross mark");
-    const [passwordStrength, setPasswordStrength] = useState(10);
+    const {
+        password,
+        setPassword,
+        confirmPassword,
+        setConfirmPassword,
+        charRequirement,
+        caseRequirement,
+        numberRequirement,
+        specialCharRequirement,
+        passwordStrength,
+        isSubmitDisabled
+    } = usePassword();
 
-    const [isSubmitTriggered, setIsSubmitTriggered] = useState(false);
-    const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
-    const [isConfirmDisabled, setIsConfirmDisabled] = useState(true);
+    const [isSubmitTriggered, setIsSubmitTriggered] = React.useState(false);
+    const [isConfirmDisabled, setIsConfirmDisabled] = React.useState(true);
 
-    const [isToastVisible, setIsToastVisible] = useState(false);
-    const [toastMessage, setToastMessage] = useState("");
-    const [toastType, setToastType] = useState<ToastType>("success");
-
-    useEffect(() => {
-        const [hasLower, hasUpper, hasDigit, hasSpecial] = syntaxVerify(password);
-        setCharRequirement(password.length >= 12 && password.length < 40 ? "check-mark-button" : "cross mark");
-        setCaseRequirement(hasLower && hasUpper ? "check-mark-button" : "cross mark");
-        setNumberRequirement(hasDigit ? "check-mark-button" : "cross mark");
-        setSpecialCharRequirement(hasSpecial ? "check-mark-button" : "cross mark");
-        setIsSubmitDisabled(!(password.length >= 12 && password.length < 40 && hasLower && hasUpper && hasDigit && hasSpecial));
-    }, [password]);
+    const [isToastVisible, setIsToastVisible] = React.useState(false);
+    const [toastMessage, setToastMessage] = React.useState("");
+    const [toastType, setToastType] = React.useState<ToastType>("success");
 
     const { variants, transition, isLeaving, navigateNext } = useBlurReveal({
         direction: "down",
@@ -49,9 +45,9 @@ export default function CreatePassword() {
     });
 
     useInput({
-        setProgress: setPasswordStrength,
+        setProgress: () => {},
         setPasswordState: setIsConfirmDisabled,
-        setSubmitStatus: setIsSubmitDisabled,
+        setSubmitStatus: () => {},
         setIsToastVisible,
         setToastMessage,
         setToastType,
@@ -142,16 +138,16 @@ export default function CreatePassword() {
                                 />
                                 <div>
                                     <EmojiProvider data={EmojiIcons}>
-                                        <div className="text-sm font-mono flex items-center gap-2">
+                                        <div className="text-sm flex items-center gap-2">
                                             <Emoji name={charRequirement} width={15} /> Must have minimum 12 characters
                                         </div>
-                                        <div className="text-sm font-mono flex items-center gap-2">
+                                        <div className="text-sm flex items-center gap-2">
                                             <Emoji name={caseRequirement} width={15} /> Must have minimum 1 lower and 1 upper characters
                                         </div>
-                                        <div className="text-sm font-mono flex items-center gap-2">
+                                        <div className="text-sm flex items-center gap-2">
                                             <Emoji name={numberRequirement} width={15} /> Must have minimum 1 number
                                         </div>
-                                        <div className="text-sm font-mono flex items-center gap-2">
+                                        <div className="text-sm flex items-center gap-2">
                                             <Emoji name={specialCharRequirement} width={15} /> Must have minimum 1 special character
                                         </div>
                                     </EmojiProvider>
@@ -171,5 +167,5 @@ export default function CreatePassword() {
                 </div>
             </div>
         </motion.div>
-    )
-}
+    );
+};

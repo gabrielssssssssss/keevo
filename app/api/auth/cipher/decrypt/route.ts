@@ -2,7 +2,7 @@
 
 import { NextResponse, NextRequest } from "next/server";
 import { decryptPassword } from "@/lib/services/auth-services";
-import { getSession } from "@/lib/handler/session-handler";
+import { getSession } from "@/lib/handler/global-handler";
 
 //Method: POST => Decrypt password in aes-256-gcm.
 export async function POST(req: NextRequest) {
@@ -12,7 +12,7 @@ export async function POST(req: NextRequest) {
         };
         const { encryptPassword, iv, tag } = await req.json()
         const response = await decryptPassword(encryptPassword, iv, tag);
-        return NextResponse.json( {success: true, password: response } );
+        return NextResponse.json( {success: true, password: response }, { status: 200 } );
     } catch (e) {
         return NextResponse.json( {success: false, error: (e as Error).message }, { status: 400 } );
     }

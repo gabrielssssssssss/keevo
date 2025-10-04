@@ -1,8 +1,9 @@
+/*[app/api/credentials/[id]/route.ts]*/
 "use server";
 
 import { NextRequest, NextResponse } from "next/server";
 import { getCredentials, getAllCredentials, deleteCredentials, updateCredentials } from "@/actions/credentials-actions";
-import { credentialEntry } from "@/lib/schema/credentials-schema";
+import { Credentials } from "@/lib/models/credentials-models";
 import { encryptPassword } from "@/lib/services/auth-services";
 
 //Method: GET => Get(s) credentials fields.
@@ -61,7 +62,7 @@ export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: 
             tag = newTag;
         }
 
-        const updatedData: credentialEntry = { url, originUrl, login, notes, category, password, iv, tag };
+        const updatedData: Credentials = { id, url, originUrl, login, notes, category, password, iv, tag };
         const success = await updateCredentials(id, updatedData);
         return NextResponse.json({ success });
     } catch (e) {

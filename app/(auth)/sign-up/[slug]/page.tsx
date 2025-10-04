@@ -1,3 +1,4 @@
+/*[app/(auth)/sign-up/page.tsx]*/
 "use client";
 
 import CreatePassword from "./components/create-password";
@@ -15,8 +16,8 @@ export function Components() {
     };
 };
 
-export default function SignUp() {
+export default function PageSignUp() {
     return (
         <Components/>
-    )
+    );
 };

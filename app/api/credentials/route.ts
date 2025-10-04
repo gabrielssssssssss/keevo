@@ -1,14 +1,16 @@
+/*[app/api/credentials/route.ts]*/
 "use server";
 
 import { NextRequest, NextResponse } from "next/server";
 import { newFields } from "@/lib/services/credentials-services";
-import { credentialEntry } from "@/lib/schema/credentials-schema";
+import { Credentials } from "@/lib/models/credentials-models";
 
 //Method: POST => Add new fields in credentials.
 export async function POST(req: NextRequest) {
     try {
         const { url, originUrl, login, password, notes, category } = await req.json();
-        const newEntry: credentialEntry = {
+        const newEntry: Credentials = {
+            id: "",
             url: url,
             originUrl: originUrl,
             login: login,

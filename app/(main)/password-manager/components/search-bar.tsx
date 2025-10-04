@@ -1,8 +1,9 @@
-import { useId } from 'react';
-import { Input } from '@/components/ui/input';
-import { SearchIcon } from 'lucide-react';
+/*./app/(auth)/password-manager/components/search-bar.tsx */
+import { useId } from "react";
+import { Input } from "@/components/ui/input";
+import { SearchIcon } from "lucide-react";
 
-export default function SearchBar({ placeholder = 'Search in all items...' }: { placeholder?: string }) {
+export default function SearchBar({ placeholder = "Search in all items..." }: { placeholder?: string }) {
   const id = useId();
   return (
     <div className="relative w-full max-w-xs">

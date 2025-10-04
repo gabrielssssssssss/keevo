@@ -1,73 +1,62 @@
+/*[actions/credentials-actions.ts]*/
 "use server";
 
 import { prisma } from "@/prisma/db";
-import { credentialEntry } from "@/lib/schema/credentials-schema";
+import { Credentials } from "@/lib/models/credentials-models";
 
 //Prisma: findMany() => Get all credentials fields.
 export async function getAllCredentials() {
     return await prisma.credentials.findMany();
-}
+};
 
 //Prisma: create() => Create new fields.
-export async function addCredentials(entry: credentialEntry) {
-    try {
-        return Boolean(await prisma.credentials.create({
-            data: {
-                url: entry.url,
-                login: entry.login,
-                originUrl: entry.originUrl,
-                password: entry.password,
-                notes: entry.notes,
-                category: entry.category,
-                iv: entry.iv,
-                tag: entry.tag,
-            }
-        }));
-    } catch (e) {
-        return (e as Error).message;
-    };
-}
+export async function addCredentials(models: Credentials) {
+    return Boolean(await prisma.credentials.create({
+        data: {
+            url: models.url,
+            login: models.login,
+            originUrl: models.originUrl,
+            password: models.password,
+            notes: models.notes,
+            category: models.category,
+            iv: models.iv,
+            tag: models.tag,
+        }
+    }));
+};
 
 //Prisma: findMany() => Get credentials fields by id.
 export async function getCredentials(id: string) {
     return await prisma.credentials.findMany({where: {
         id: id
-    }})
-}
+    }});
+};
 
 //Prisma: delete() => Delete credentials fields by id.
 export async function deleteCredentials(id: string) {
-    try {
-        return Boolean(await prisma.credentials.delete({where: {
-            id: id
-        }}))
-    } catch (e) {
-        return (e as Error).message;
-    };
-}
+    return Boolean(await prisma.credentials.delete({where: {
+        id: id
+    }}));
+};
 
 //Prisma: update() => Update credentials fields by id, interface.
-export async function updateCredentials(id: string, entry: credentialEntry) {
-    try {
-        return Boolean(await prisma.credentials.update({
-            where: {
-                id: id
-            },
-            data: {
-                url: entry.url,
-                originUrl: entry.originUrl,
-                login: entry.login,
-                password: entry.password,
-                iv: entry.iv,
-                tag: entry.tag,
-                notes: entry.notes,
-                category: entry.category
-            }
-        }));
-    } catch (e) {
-        return (e as Error).message;
-    };
-}
+export async function updateCredentials(id: string, models: Credentials) {
+    return Boolean(await prisma.credentials.update({
+        where: {
+            id: id
+        },
+        data: {
+            url: models.url,
+            originUrl: models.originUrl,
+            login: models.login,
+            password: models.password,
+            iv: models.iv,
+            tag: models.tag,
+            notes: models.notes,
+            category: models.category
+        }
+    }));
+};
 
 export async function updateCredentialsPassword(id: string, password: string, iv: string, tag: string) {
     return Boolean(await prisma.credentials.update({
@@ -79,5 +68,5 @@ export async function updateCredentialsPassword(id: string, password: string, iv
             iv: iv,
             tag: tag
         }
-    }))
-} 
+    }));
+};

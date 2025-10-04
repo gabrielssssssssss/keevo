@@ -1,18 +1,10 @@
-// app/hooks/useBlurReveal.ts
+/*[app/(auth)/sign-up/hooks/useBlurReveal.tsx]*/
+"use client";
+
 import { cubicBezier, Variants } from "framer-motion";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-
-type Direction = "up" | "down" | "left" | "right";
-
-interface UseBlurRevealProps {
-    direction?: Direction;
-    duration?: number;
-    blurAmount?: number;
-    distance?: string;
-    reverse?: boolean;
-    nextRoute?: string;
-}
+import { UseBlurRevealProps } from "../models/interface";
 
 export default function useBlurReveal({
     direction = "up",
@@ -24,7 +16,6 @@ export default function useBlurReveal({
 }: UseBlurRevealProps = {}) {
     const router = useRouter();
     const [isLeaving, setIsLeaving] = useState(false);
-
     const transition = { duration, ease: cubicBezier(0.25, 0.1, 0.25, 1) };
 
     let initialTransform = "";
